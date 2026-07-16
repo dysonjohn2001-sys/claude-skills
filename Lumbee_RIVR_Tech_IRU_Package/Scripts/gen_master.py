@@ -1170,8 +1170,8 @@ def build():
         f"Except for the excluded matters below, and to the extent permitted by Applicable Law, "
         f"neither Party shall be liable for indirect, incidental, consequential, special, or "
         f"punitive damages, and each Party's aggregate liability shall be capped at "
-        f"{C.PH('liability cap — to be negotiated (e.g., a stated dollar amount or a multiple of "
-        f"fees)')}. The cap and exclusions do not apply to indemnification for third-party claims, "
+        f"{C.PH('liability cap — to be negotiated (e.g., a stated dollar amount or a multiple of fees)')}."
+        f" The cap and exclusions do not apply to indemnification for third-party claims, "
         f"breaches of confidentiality, a Party's willful misconduct, or amounts required to cure a "
         f"loss of the {FI} or disallowed costs.",
     )
@@ -1502,8 +1502,8 @@ def build():
         doc,
         "29.3",
         "Notices",
-        f"Notices shall be in writing and delivered to the addresses in {C.PH('notice addresses — "
-        f"to be inserted')}, by hand, recognized courier, or certified mail (and, if the Parties "
+        f"Notices shall be in writing and delivered to the addresses in {C.PH('notice addresses — to be inserted')},"
+        f" by hand, recognized courier, or certified mail (and, if the Parties "
         f"agree, by email with confirmation), effective on receipt.",
     )
     S(

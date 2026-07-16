@@ -830,13 +830,13 @@ sig_block("LREMC Technologies, LLC d/b/a RIVRTECH", [
     ("Date", None),
 ])
 sig_block("ROBESON COMMUNITY COLLEGE", [
-    ("By", "[AUTHORIZED REPRESENTATIVE]"),
-    ("Title", "[TITLE]"),
+    ("By", None),
+    ("Title", None),
     ("Signature", None),
     ("Date", None),
 ])
 sig_block("STUDENT-ATHLETE", [
-    ("Name", "[FULL LEGAL NAME]"),
+    ("Name", None),
     ("Signature", None),
     ("Date", None),
 ])

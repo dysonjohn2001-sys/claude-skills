@@ -15,13 +15,13 @@ doc.styles["Normal"].paragraph_format.line_spacing = 1.0
 # Letterhead
 para(doc, "LREMC Technologies, LLC d/b/a RIVRTECH", size=14, bold=True,
      align=WD_ALIGN_PARAGRAPH.CENTER, space_after=1)
-para(doc, "6090 NC Highway 711 North · Pembroke, North Carolina [ZIP CODE]",
+para(doc, "6090 NC Highway 711 North · Pembroke, North Carolina 28372",
      size=9, align=WD_ALIGN_PARAGRAPH.CENTER, space_after=1,
      color=RGBColor(0x55, 0x55, 0x55))
-para(doc, "[EMAIL] · [PHONE]", size=9, align=WD_ALIGN_PARAGRAPH.CENTER,
+para(doc, "john.dyson@lumbeeriver.com · [PHONE]", size=9, align=WD_ALIGN_PARAGRAPH.CENTER,
      space_after=8, color=RGBColor(0x55, 0x55, 0x55))
 
-para(doc, "[DRAFT DATE]", space_after=6)
+para(doc, "July 16, 2026", space_after=6)
 
 # Addressee
 para(doc, "Jake Jones", bold=True, space_after=0)

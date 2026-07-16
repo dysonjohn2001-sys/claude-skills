@@ -47,7 +47,7 @@ para(doc, "Prepared by / on behalf of the corporate sponsor:", size=10,
      align=WD_ALIGN_PARAGRAPH.CENTER, space_after=2)
 para(doc, "LREMC Technologies, LLC d/b/a RIVRTECH", size=11, bold=True,
      align=WD_ALIGN_PARAGRAPH.CENTER, space_after=2)
-para(doc, "6090 NC Highway 711 North, Pembroke, North Carolina [ZIP CODE]",
+para(doc, "6090 NC Highway 711 North, Pembroke, North Carolina 28372",
      size=10, align=WD_ALIGN_PARAGRAPH.CENTER, space_after=2)
 
 page_break(doc)
@@ -61,11 +61,11 @@ make_table(
     ["Field", "Detail"],
     [
         ["Document Title", "Student-Athlete Corporate Sponsorship and Paid Internship Agreement"],
-        ["Version", "[0.1 – DRAFT]"],
-        ["Date", "[DRAFT DATE]"],
+        ["Version", "0.1 — Draft"],
+        ["Date", "July 16, 2026"],
         ["Document Owner", "John Dyson, Chief Operations Officer, LREMC Technologies, LLC d/b/a RIVRTECH"],
         ["Prepared For", "Robeson Community College – Athletic Department & Administration"],
-        ["Approval Status", "[DRAFT – PENDING BUSINESS, HR, ATHLETICS-COMPLIANCE, AND LEGAL REVIEW]"],
+        ["Approval Status", "Draft — Pending business, HR, athletics-compliance, and legal review"],
         ["Classification", "Confidential – Draft for Discussion"],
     ],
     col_widths=[2.0, 4.5],
@@ -131,7 +131,8 @@ para(doc, "STUDENT-ATHLETE CORPORATE SPONSORSHIP AND PAID INTERNSHIP AGREEMENT",
      size=14, bold=True, align=WD_ALIGN_PARAGRAPH.CENTER, space_after=8)
 
 para(doc, "This Student-Athlete Corporate Sponsorship and Paid Internship "
-          "Agreement (this “Agreement”) is entered into as of [EFFECTIVE DATE] "
+          "Agreement (this “Agreement”) is entered into as of the date of the "
+          "last signature below "
           "(the “Effective Date”), by and among LREMC Technologies, LLC d/b/a "
           "RIVRTECH (“RIVRTECH”); Robeson Community College (“RCC” or the "
           "“College”); and [STUDENT-ATHLETE’S FULL LEGAL NAME] (the "
@@ -190,8 +191,8 @@ make_table(
     ["Party", "Address", "Email / Telephone"],
     [
         ["LREMC Technologies, LLC d/b/a RIVRTECH (“RIVRTECH”)",
-         "6090 NC Highway 711 North, Pembroke, North Carolina [ZIP CODE]",
-         "Email: [EMAIL]\nTelephone: [PHONE]"],
+         "6090 NC Highway 711 North, Pembroke, North Carolina 28372",
+         "Email: john.dyson@lumbeeriver.com\nTelephone: [PHONE]"],
         ["Robeson Community College (“RCC”)",
          "5160 Fayetteville Road, Lumberton, North Carolina 28360",
          "Email: [EMAIL]\nTelephone: [PHONE]"],
@@ -203,7 +204,7 @@ make_table(
 )
 para(doc, "1.3  Primary RIVRTECH Work Location. The primary work location for the "
           "internship is LREMC Technologies, LLC d/b/a RIVRTECH, 6090 NC Highway 711 "
-          "North, Pembroke, North Carolina [ZIP CODE], and such other approved work "
+          "North, Pembroke, North Carolina 28372, and such other approved work "
           "or event locations as RIVRTECH may reasonably assign.", space_before=4)
 
 # =====================================================================
@@ -235,14 +236,14 @@ para(doc, "2.3  The Parties intend that the internship enhance — and never "
 # SECTION 3 - AGREEMENT TERM
 # =====================================================================
 section_heading(doc, 3, "Agreement Term")
-para(doc, "3.1  Term. This Agreement begins on [TERM BEGINNING DATE] and, unless "
-          "earlier terminated under Section 20, ends on [TERM ENDING DATE] (the "
+para(doc, "3.1  Term. This Agreement begins on September 1, 2026 and, unless "
+          "earlier terminated under Section 20, ends on May 31, 2027 (the "
           "“Agreement Term”).")
 para(doc, "3.2  Season. The Agreement Term corresponds to activities associated "
           "with the 2026–2027 baseball season, unless the Parties agree "
           "otherwise in writing.")
 para(doc, "3.3  Maximum Duration. In no event will the Agreement Term exceed "
-          "[MAXIMUM DURATION, e.g., twelve (12) months] without a written extension.")
+          "twelve (12) months without a written extension.")
 para(doc, "3.4  Extension. Any extension or renewal of this Agreement must be "
           "approved in writing and signed by all required parties, including any "
           "approvals required under Exhibit F.")
@@ -401,7 +402,7 @@ for item in [
     "the Student-Athlete must provide reasonable advance notice of classes, "
     "practices, games, travel, examinations, and schedule changes;",
     "work will not be performed during required class time;",
-    "the normal work schedule will not exceed [NUMBER] hours per week unless "
+    "the normal work schedule will not exceed ten (10) hours per week unless "
     "approved in advance;",
     "the Internship must not interfere with the Student-Athlete’s academic "
     "progress or athletic eligibility; and",
@@ -752,8 +753,8 @@ make_table(
     ["RIVRTECH", "RCC", "Student-Athlete"],
     [[
         "John Dyson\nChief Operations Officer\nLREMC Technologies, LLC d/b/a "
-        "RIVRTECH\n6090 NC Highway 711 North\nPembroke, North Carolina [ZIP CODE]\n"
-        "Email: [EMAIL]\nTelephone: [PHONE]",
+        "RIVRTECH\n6090 NC Highway 711 North\nPembroke, North Carolina 28372\n"
+        "Email: john.dyson@lumbeeriver.com\nTelephone: [PHONE]",
         "[AUTHORIZED RCC REPRESENTATIVE]\n[TITLE]\nRobeson Community College\n"
         "5160 Fayetteville Road\nLumberton, North Carolina 28360\nEmail: [EMAIL]\n"
         "Telephone: [PHONE]",
@@ -870,12 +871,12 @@ def exhibit_title(letter, name):
 exhibit_title("A", "Internship Position Description")
 make_table(doc, ["Item", "Detail"], [
     ["Position Title", "Sales and Marketing Student Intern"],
-    ["Supervisor", "[RIVRTECH SUPERVISOR NAME / TITLE]"],
-    ["Work Location", "6090 NC Highway 711 North, Pembroke, North Carolina [ZIP CODE], and approved work/event locations"],
+    ["Supervisor", "John Dyson, Chief Operations Officer (or designee)"],
+    ["Work Location", "6090 NC Highway 711 North, Pembroke, North Carolina 28372, and approved work/event locations"],
     ["Hourly Rate", "$20.00 per hour"],
     ["Maximum Compensation", "$2,000.00 gross"],
     ["Maximum Hours", "100 authorized hours"],
-    ["Schedule", "By mutual agreement; not to exceed [NUMBER] hours/week; academics and required athletics prioritized"],
+    ["Schedule", "By mutual agreement; not to exceed ten (10) hours/week; academics and required athletics prioritized"],
 ], col_widths=[2.0, 4.5])
 para(doc, "Duties", size=11, bold=True, space_before=8, space_after=2)
 para(doc, "As described in Section 7 of the Agreement, including community sales "
@@ -915,7 +916,7 @@ make_table(doc, ["Benefit / Item", "Description", "Approved? (RCC)"], [
     ["Announcement language", "[APPROVED TEXT]", "[ ] Yes  [ ] No"],
 ], col_widths=[2.0, 3.0, 1.5])
 make_table(doc, ["Coordination", "Detail"], [
-    ["Approval Contact(s)", "[RCC NAME / TITLE]"],
+    ["Approval Contact(s)", "Jake Jones, Athletic Director & Head Baseball Coach"],
     ["Dates / Deadlines", "[DATES]"],
 ], col_widths=[2.0, 4.5])
 
@@ -964,8 +965,8 @@ add_rich(p, "RCC Approval (NIL) Signature: __________________________   Date: __
 # ---- Exhibit E
 exhibit_title("E", "Program Contacts and Reporting Procedures")
 make_table(doc, ["Role", "Name / Title", "Email / Phone"], [
-    ["RIVRTECH Supervisor", "[NAME / TITLE]", "[EMAIL / PHONE]"],
-    ["RCC Athletics Contact", "[NAME / TITLE]", "[EMAIL / PHONE]"],
+    ["RIVRTECH Supervisor", "John Dyson, Chief Operations Officer (or designee)", "john.dyson@lumbeeriver.com / [PHONE]"],
+    ["RCC Athletics Contact", "Jake Jones, Athletic Director & Head Baseball Coach", "[EMAIL / PHONE]"],
     ["RIVRTECH Human Resources", "[NAME / TITLE]", "[EMAIL / PHONE]"],
     ["Athletics/Compliance Contact", "[NAME / TITLE]", "[EMAIL / PHONE]"],
     ["Emergency Contact", "[NAME / RELATIONSHIP]", "[EMAIL / PHONE]"],

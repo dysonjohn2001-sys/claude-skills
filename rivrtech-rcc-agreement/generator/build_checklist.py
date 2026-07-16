@@ -19,11 +19,11 @@ para(doc, "Student-Athlete Corporate Sponsorship and Paid Internship Agreement",
 
 # Document control
 make_table(doc, ["Field", "Detail"], [
-    ["Version", "[0.1 – DRAFT]"],
-    ["Date", "[DRAFT DATE]"],
+    ["Version", "0.1 — Draft"],
+    ["Date", "July 16, 2026"],
     ["Owner", "John Dyson, Chief Operations Officer, LREMC Technologies, LLC d/b/a RIVRTECH"],
     ["Student-Athlete", "[STUDENT-ATHLETE’S FULL LEGAL NAME]"],
-    ["Approval Status", "[DRAFT – PENDING APPROVALS]"],
+    ["Approval Status", "Draft — Pending approvals"],
 ], col_widths=[1.8, 4.7])
 
 para(doc, "This Agreement is not effective until the applicable approvals below are "

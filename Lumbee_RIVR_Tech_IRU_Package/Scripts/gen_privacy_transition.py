@@ -1018,9 +1018,9 @@ def build_transition_plan():
     C.section(doc, "16.1", "Cost-Based and Capped",
               f"Transition-assistance services (including Step-In support, training, "
               f"continuity interconnection, and knowledge transfer) shall be provided at "
-              f"cost-based pricing, capped so as not to exceed {C.PH('cap basis, e.g., "
-              "RIVR Tech’s fully-loaded cost plus a fixed percentage, not to exceed a "
-              "stated ceiling')}. Emergency Step-In support during a genuine emergency "
+              f"cost-based pricing, capped so as not to exceed "
+              f"{C.PH('cap basis, e.g., fully-loaded cost plus a fixed percentage, not to exceed a stated ceiling')}. "
+              f"Emergency Step-In support during a genuine emergency "
               f"shall be provided without markup.")
     C.section(doc, "16.2", "No Windfall; No Leverage",
               f"Transition pricing shall not be used to impede transition or to extract "

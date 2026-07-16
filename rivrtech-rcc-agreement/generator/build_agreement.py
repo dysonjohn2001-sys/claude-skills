@@ -303,7 +303,7 @@ section_heading(doc, 6, "Compensation and Maximum Hours")
 para(doc, "6.1  Wage Rate. RIVRTECH will pay the Student-Athlete $20.00 per hour "
           "for actual, authorized hours worked.")
 para(doc, "6.2  Maximum Compensation. The Student-Athlete may earn up to "
-          "$[MAXIMUM DOLLAR AMOUNT] in total gross wages during the Agreement Term "
+          "$2,000.00 in total gross wages during the Agreement Term "
           "(the “Maximum Compensation”).")
 para(doc, "6.3  Maximum Authorized Hours. Because the wage rate is fixed at $20.00 "
           "per hour, the maximum number of internship hours is calculated as:")
@@ -311,13 +311,9 @@ quote_block(doc, "Maximum Internship Hours = Maximum Dollar Amount ÷ $20.00")
 p = doc.add_paragraph()
 p.paragraph_format.left_indent = Inches(0.4)
 p.paragraph_format.space_after = Pt(6)
-add_rich(p, "“At a maximum compensation amount of $[MAXIMUM DOLLAR AMOUNT] and "
+add_rich(p, "“At a maximum compensation amount of $2,000.00 and "
             "an hourly wage of $20.00, the Student-Athlete may work up to "
-            "[MAXIMUM DOLLAR AMOUNT ÷ 20] authorized hours during the Agreement "
-            "Term.”", italic=True)
-para(doc, "For reference only (not the operative figure — insert the agreed "
-          "amount above): $2,500 = 125 hours; $5,000 = 250 hours; $7,500 = 375 "
-          "hours; $10,000 = 500 hours.", size=9)
+            "100 authorized hours during the Agreement Term.”", italic=True)
 
 para(doc, "6.4  Payroll. All wages are paid through RIVRTECH’s normal payroll "
           "process on RIVRTECH’s regular payroll schedule, less all legally "
@@ -877,8 +873,8 @@ make_table(doc, ["Item", "Detail"], [
     ["Supervisor", "[RIVRTECH SUPERVISOR NAME / TITLE]"],
     ["Work Location", "6090 NC Highway 711 North, Pembroke, North Carolina [ZIP CODE], and approved work/event locations"],
     ["Hourly Rate", "$20.00 per hour"],
-    ["Maximum Compensation", "$[MAXIMUM DOLLAR AMOUNT] gross"],
-    ["Maximum Hours", "[MAXIMUM DOLLAR AMOUNT ÷ 20] authorized hours"],
+    ["Maximum Compensation", "$2,000.00 gross"],
+    ["Maximum Hours", "100 authorized hours"],
     ["Schedule", "By mutual agreement; not to exceed [NUMBER] hours/week; academics and required athletics prioritized"],
 ], col_widths=[2.0, 4.5])
 para(doc, "Duties", size=11, bold=True, space_before=8, space_after=2)

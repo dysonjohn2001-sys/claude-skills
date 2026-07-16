@@ -21,21 +21,18 @@ REVIEW" banner in the header.
 ## Maximum-hours calculation
 
 The wage rate is fixed at **$20.00/hour**. Maximum hours are derived from the
-sponsorship amount you enter:
+sponsorship amount:
 
 ```
 Maximum Internship Hours = Maximum Dollar Amount ÷ $20.00
 ```
 
-| Maximum Dollar Amount | Maximum Authorized Hours |
-|----------------------:|-------------------------:|
-| $2,500  | 125 |
-| $5,000  | 250 |
-| $7,500  | 375 |
-| $10,000 | 500 |
+**Current terms:** sponsorship / Maximum Compensation = **$2,000.00** →
+**$2,000.00 ÷ $20.00 = 100 authorized hours** during the Agreement Term. These
+figures are filled into Section 6.2, Section 6.3, and Exhibit A.
 
-Insert the agreed amount in Section 6.2, Exhibit A, and the checklist; the hours
-figure is simply that amount divided by 20.
+For reference, if the amount changes: $2,500 → 125 hrs · $5,000 → 250 hrs ·
+$7,500 → 375 hrs · $10,000 → 500 hrs.
 
 ## Regenerating the documents
 

@@ -140,12 +140,17 @@ for name, text in all_corpus.items():
         bad_party.append(f"{name}: missing full Tribe name")
     if not has_op:
         bad_party.append(f"{name}: missing RIVR Tech name")
-# stray alternate abbreviations that would indicate drift
-STRAY = ["LREMC Tech,", "Lumbee Tribe of NC", "the Company", "Operator LLC"]
+# stray alternate abbreviations that would indicate drift.
+# NB: "the Company" is a legitimate defined term for the LLC inside the
+# corporate-authorization documents (05_Authorizations), so it is only flagged
+# elsewhere.
+STRAY = ["LREMC Tech,", "Lumbee Tribe of NC", "Operator LLC"]
 for name, text in all_corpus.items():
     for s in STRAY:
         if s in text:
             bad_party.append(f"{name}: contains stray term '{s}'")
+    if "the Company" in text and "05_Authorizations" not in name:
+        bad_party.append(f"{name}: contains stray term 'the Company'")
 if bad_party:
     for b in bad_party[:40]:
         rec("WARN", f"[Check 1] {b}")

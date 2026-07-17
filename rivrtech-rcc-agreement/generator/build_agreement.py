@@ -9,8 +9,8 @@ from docgen import (new_document, add_header_footer, para, section_heading,
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else "agreement.docx"
 
-RIVR_FULL = "LREMC Technologies, LLC d/b/a RIVRTECH"
-FOOTER = "RIVRTECH – RCC Student-Athlete Sponsorship & Paid Internship Agreement"
+RIVR_FULL = "LREMC Technologies, LLC d/b/a RIVR Tech"
+FOOTER = "RIVR Tech – RCC Student-Athlete Sponsorship & Paid Internship Agreement"
 
 doc = new_document()
 
@@ -28,7 +28,7 @@ para(doc, "— DRAFT FOR DISCUSSION AND LEGAL REVIEW —", size=12, bold=True,
      align=WD_ALIGN_PARAGRAPH.CENTER, color=RGBColor(0xB0, 0x00, 0x00), space_after=40)
 
 para(doc, "By and among:", size=12, align=WD_ALIGN_PARAGRAPH.CENTER, space_after=14)
-para(doc, "LREMC Technologies, LLC d/b/a RIVRTECH", size=13, bold=True,
+para(doc, "LREMC Technologies, LLC d/b/a RIVR Tech", size=13, bold=True,
      align=WD_ALIGN_PARAGRAPH.CENTER, space_after=4)
 para(doc, "Robeson Community College", size=13, bold=True,
      align=WD_ALIGN_PARAGRAPH.CENTER, space_after=4)
@@ -45,7 +45,7 @@ para(doc, "2026–2027 Baseball Season", size=11, italic=True,
 
 para(doc, "Prepared by / on behalf of the corporate sponsor:", size=10,
      align=WD_ALIGN_PARAGRAPH.CENTER, space_after=2)
-para(doc, "LREMC Technologies, LLC d/b/a RIVRTECH", size=11, bold=True,
+para(doc, "LREMC Technologies, LLC d/b/a RIVR Tech", size=11, bold=True,
      align=WD_ALIGN_PARAGRAPH.CENTER, space_after=2)
 para(doc, "6090 NC Highway 711 North, Pembroke, North Carolina 28372",
      size=10, align=WD_ALIGN_PARAGRAPH.CENTER, space_after=2)
@@ -63,7 +63,7 @@ make_table(
         ["Document Title", "Student-Athlete Corporate Sponsorship and Paid Internship Agreement"],
         ["Version", "0.1 — Draft"],
         ["Date", "July 16, 2026"],
-        ["Document Owner", "John Dyson, Chief Operations Officer, LREMC Technologies, LLC d/b/a RIVRTECH"],
+        ["Document Owner", "John Dyson, Chief Operations Officer, LREMC Technologies, LLC d/b/a RIVR Tech"],
         ["Prepared For", "Robeson Community College – Athletic Department & Administration"],
         ["Approval Status", "Draft — Pending business, HR, athletics-compliance, and legal review"],
         ["Classification", "Confidential – Draft for Discussion"],
@@ -80,7 +80,7 @@ p.paragraph_format.space_after = Pt(6)
 add_rich(p, "“This draft is provided for discussion and planning purposes. "
             "It must be reviewed and approved by authorized representatives and legal "
             "counsel for Robeson Community College and LREMC Technologies, LLC d/b/a "
-            "RIVRTECH before execution.”", italic=True, bold=True)
+            "RIVR Tech before execution.”", italic=True, bold=True)
 
 para(doc, "This document has not been reviewed or approved by Robeson Community "
           "College, its Athletic Department, its administration, the NJCAA, or any "
@@ -93,7 +93,7 @@ para(doc, "Contents", size=14, bold=True, space_before=6, space_after=4)
 contents = [
     "Recitals", "1. Parties and Effective Date", "2. Purpose of the Partnership",
     "3. Agreement Term", "4. Sponsorship Recognition", "5. Paid Internship Position",
-    "6. Compensation and Maximum Hours", "7. Internship Duties",
+    "6. Sponsorship, Compensation, and Maximum Hours", "7. Internship Duties",
     "8. Work Schedule and Academic Priority", "9. Work Location and Transportation",
     "10. Dress and Professional Appearance",
     "11. Supervision and Performance Expectations",
@@ -134,9 +134,9 @@ para(doc, "This Student-Athlete Corporate Sponsorship and Paid Internship "
           "Agreement (this “Agreement”) is entered into as of the date of the "
           "last signature below "
           "(the “Effective Date”), by and among LREMC Technologies, LLC d/b/a "
-          "RIVRTECH (“RIVRTECH”); Robeson Community College (“RCC” or the "
+          "RIVR Tech (“RIVR Tech”); Robeson Community College (“RCC” or the "
           "“College”); and [STUDENT-ATHLETE’S FULL LEGAL NAME] (the "
-          "“Student-Athlete”). RIVRTECH, RCC, and the Student-Athlete are "
+          "“Student-Athlete”). RIVR Tech, RCC, and the Student-Athlete are "
           "each a “Party” and together the “Parties.”")
 
 sub_heading(doc, "Recitals")
@@ -144,7 +144,7 @@ recitals = [
     ("A.", "RCC operates an intercollegiate athletics program that includes a "
      "baseball program (the “Robeson Community College Diamond Eagles Baseball "
      "Program,” subject to confirmation by RCC)."),
-    ("B.", "RIVRTECH is a local company that desires to support local "
+    ("B.", "RIVR Tech is a local company that desires to support local "
      "student-athletes and the surrounding community while providing meaningful "
      "professional development and real-world work experience."),
     ("C.", "RCC supports appropriate workforce-development and professional "
@@ -152,17 +152,18 @@ recitals = [
      "interfere with a student-athlete’s education, athletic participation, "
      "eligibility, or other College responsibilities."),
     ("D.", "The Student-Athlete desires to participate in a paid internship with "
-     "RIVRTECH and agrees to perform all assigned duties professionally, "
+     "RIVR Tech and agrees to perform all assigned duties professionally, "
      "reliably, and in accordance with applicable policies and law."),
     ("E.", "The Parties intend for this Agreement, and all activities under it, to "
      "comply with applicable federal and North Carolina law, RCC policies, "
      "applicable NJCAA rules, applicable conference rules, and other applicable "
      "athletics requirements. [Confirm applicable athletics governing bodies and "
      "rules with RCC.]"),
-    ("F.", "The Parties acknowledge that any compensation paid under this Agreement "
-     "is provided solely in exchange for legitimate work and professional services "
-     "actually performed, and not for athletic performance or any athletics-related "
-     "consideration described in Section 6."),
+    ("F.", "The Parties acknowledge that the Sponsorship and any compensation under "
+     "this Agreement are provided in exchange for legitimate work and professional "
+     "services performed (or to be performed) by the Student-Athlete, and not for "
+     "athletic performance or any athletics-related consideration described in "
+     "Section 6."),
 ]
 for tag, text in recitals:
     p = doc.add_paragraph()
@@ -190,7 +191,7 @@ make_table(
     doc,
     ["Party", "Address", "Email / Telephone"],
     [
-        ["LREMC Technologies, LLC d/b/a RIVRTECH (“RIVRTECH”)",
+        ["LREMC Technologies, LLC d/b/a RIVR Tech (“RIVR Tech”)",
          "6090 NC Highway 711 North, Pembroke, North Carolina 28372",
          "Email: john.dyson@lumbeeriver.com\nTelephone: [PHONE]"],
         ["Robeson Community College (“RCC”)",
@@ -202,16 +203,16 @@ make_table(
     ],
     col_widths=[1.9, 2.5, 2.1],
 )
-para(doc, "1.3  Primary RIVRTECH Work Location. The primary work location for the "
-          "internship is LREMC Technologies, LLC d/b/a RIVRTECH, 6090 NC Highway 711 "
+para(doc, "1.3  Primary RIVR Tech Work Location. The primary work location for the "
+          "internship is LREMC Technologies, LLC d/b/a RIVR Tech, 6090 NC Highway 711 "
           "North, Pembroke, North Carolina 28372, and such other approved work "
-          "or event locations as RIVRTECH may reasonably assign.", space_before=4)
+          "or event locations as RIVR Tech may reasonably assign.", space_before=4)
 
 # =====================================================================
 # SECTION 2 - PURPOSE OF THE PARTNERSHIP
 # =====================================================================
 section_heading(doc, 2, "Purpose of the Partnership")
-para(doc, "2.1  This Agreement establishes a community partnership between RIVRTECH "
+para(doc, "2.1  This Agreement establishes a community partnership between RIVR Tech "
           "and RCC, supported by the Student-Athlete’s participation in a paid "
           "internship. The Parties share a commitment to developing career-ready "
           "student-athletes and strengthening the local workforce.")
@@ -253,16 +254,16 @@ para(doc, "3.4  Extension. Any extension or renewal of this Agreement must be "
 # =====================================================================
 section_heading(doc, 4, "Sponsorship Recognition")
 para(doc, "4.1  Recognition Opportunities. Subject to RCC’s prior written "
-          "approval and applicable policies, RCC may provide RIVRTECH with "
+          "approval and applicable policies, RCC may provide RIVR Tech with "
           "reasonable, school-approved recognition as a local corporate sponsor "
           "supporting the Diamond Eagles Baseball Program and the Student-Athlete, "
           "which may include:")
 for item in [
-    "identification of RIVRTECH as a corporate sponsor of the program;",
+    "identification of RIVR Tech as a corporate sponsor of the program;",
     "approved recognition on RCC athletics materials;",
     "approved social media recognition;",
     "recognition at selected baseball events;",
-    "opportunities for RIVRTECH representatives to attend approved athletic or "
+    "opportunities for RIVR Tech representatives to attend approved athletic or "
     "community events; and",
     "other mutually agreed promotional opportunities.",
 ]:
@@ -272,7 +273,7 @@ para(doc, "4.2  Approvals and Institutional Control. The Parties acknowledge and
 for item in [
     "all uses of RCC’s name, logo, colors, trademarks, photographs, uniforms, "
     "facilities, and branding require RCC’s prior written approval;",
-    "RIVRTECH does not automatically receive exclusive sponsorship rights of any "
+    "RIVR Tech does not automatically receive exclusive sponsorship rights of any "
     "kind;",
     "RCC retains full control of its institutional marks and its athletics "
     "operations; and",
@@ -288,57 +289,89 @@ para(doc, "4.3  Compliance. All sponsorship recognition is subject to applicable
 # SECTION 5 - PAID INTERNSHIP POSITION
 # =====================================================================
 section_heading(doc, 5, "Paid Internship Position")
-para(doc, "5.1  Position. RIVRTECH will employ the Student-Athlete in the position "
+para(doc, "5.1  Position. RIVR Tech will employ the Student-Athlete in the position "
           "of “Sales and Marketing Student Intern” (the “Internship”).")
-para(doc, "5.2  Classification. The Student-Athlete is employed by RIVRTECH as a "
+para(doc, "5.2  Classification. The Student-Athlete is employed by RIVR Tech as a "
           "temporary, part-time, non-exempt, paid employee. The Student-Athlete is "
           "not an employee or agent of RCC for any purpose under this Agreement.")
 para(doc, "5.3  No Guarantee of Future Employment. The Internship is temporary and "
           "does not guarantee or imply any offer of continued or future employment "
-          "with RIVRTECH.")
+          "with RIVR Tech.")
 
 # =====================================================================
 # SECTION 6 - COMPENSATION AND MAXIMUM HOURS
 # =====================================================================
-section_heading(doc, 6, "Compensation and Maximum Hours")
-para(doc, "6.1  Wage Rate. RIVRTECH will pay the Student-Athlete $20.00 per hour "
-          "for actual, authorized hours worked.")
-para(doc, "6.2  Maximum Compensation. The Student-Athlete may earn up to "
-          "$2,000.00 in total gross wages during the Agreement Term "
-          "(the “Maximum Compensation”).")
-para(doc, "6.3  Maximum Authorized Hours. Because the wage rate is fixed at $20.00 "
-          "per hour, the maximum number of internship hours is calculated as:")
-quote_block(doc, "Maximum Internship Hours = Maximum Dollar Amount ÷ $20.00")
+section_heading(doc, 6, "Sponsorship, Compensation, and Maximum Hours")
+para(doc, "[LEGAL REVIEW — PAYMENT STRUCTURE: This Section provides for the "
+          "Sponsorship to be PAID IN ADVANCE at the beginning of the term and then "
+          "earned by the Student-Athlete through hours worked. Advance payment and "
+          "any recoupment of an unearned portion are subject to the Fair Labor "
+          "Standards Act, the North Carolina Wage and Hour Act (including limits on "
+          "wage deductions and the requirement to pay at least the minimum wage each "
+          "pay period), applicable tax and withholding timing, and applicable NJCAA "
+          "and conference eligibility rules. This structure — including any "
+          "obligation of the Student-Athlete to repay an unearned portion — must be "
+          "reviewed and approved by RIVR Tech and RCC legal counsel and RCC athletics "
+          "compliance before use.]", size=10, bold=True)
+para(doc, "6.1  Sponsorship Amount. RIVR Tech will provide the Student-Athlete a "
+          "sponsorship of $2,000.00 (the “Sponsorship”) in support of the "
+          "Student-Athlete’s participation in the paid Internship.")
+para(doc, "6.2  Advance Payment. RIVR Tech will pay the Sponsorship to the "
+          "Student-Athlete at or near the beginning of the applicable semester or "
+          "term, through RIVR Tech’s normal payroll process, less all legally "
+          "required deductions and withholdings. [Confirm the timing and the "
+          "payroll and tax treatment of the advance with RIVR Tech payroll and legal "
+          "counsel.]")
+para(doc, "6.3  Wage Rate; Earning the Sponsorship. The Student-Athlete will earn "
+          "the Sponsorship by performing authorized sales and marketing internship "
+          "work for RIVR Tech at a rate of $20.00 per hour. Each authorized hour "
+          "worked is credited against the Sponsorship at $20.00 per hour.")
+para(doc, "6.4  Hours to Earn the Full Sponsorship. Because the rate is fixed at "
+          "$20.00 per hour, the hours required to earn the Sponsorship are:")
+quote_block(doc, "Hours to Earn the Sponsorship = Sponsorship Amount ÷ $20.00")
 p = doc.add_paragraph()
 p.paragraph_format.left_indent = Inches(0.4)
 p.paragraph_format.space_after = Pt(6)
-add_rich(p, "“At a maximum compensation amount of $2,000.00 and "
-            "an hourly wage of $20.00, the Student-Athlete may work up to "
-            "100 authorized hours during the Agreement Term.”", italic=True)
-
-para(doc, "6.4  Payroll. All wages are paid through RIVRTECH’s normal payroll "
-          "process on RIVRTECH’s regular payroll schedule, less all legally "
-          "required deductions and withholdings.", space_before=4)
-para(doc, "6.5  Pay for Hours Actually Worked; No Advance Wages. The Student-Athlete "
-          "is paid only for actual hours worked. Compensation will not be paid in "
-          "advance as wages for hours that have not yet been worked.")
-para(doc, "6.6  Timekeeping and Authorization. The Student-Athlete must accurately "
+add_rich(p, "“At a Sponsorship amount of $2,000.00 and an hourly rate of $20.00, "
+            "the Student-Athlete will work up to 100 authorized hours to fully earn "
+            "the Sponsorship during the Agreement Term.”", italic=True)
+para(doc, "6.5  Timekeeping and Authorization. The Student-Athlete must accurately "
           "record all time worked and submit timesheets for approval by the "
-          "designated RIVRTECH supervisor (see Exhibit C). All work must be "
-          "authorized in advance. Off-the-clock work is prohibited.")
-para(doc, "6.7  Overtime. Unauthorized overtime is prohibited, and overtime hours "
-          "should not be scheduled without advance written approval. If, however, "
-          "the Student-Athlete works more than forty (40) hours in a workweek, "
-          "RIVRTECH will pay all legally required overtime in accordance with "
-          "applicable law.")
-para(doc, "6.8  No Debt for Unworked Hours. Failure to work the maximum number of "
-          "available hours does not create any debt owed by the Student-Athlete to "
-          "RIVRTECH. The Student-Athlete will simply be paid for the actual, "
-          "approved hours worked.")
-para(doc, "6.9  Nature of Compensation. The Parties expressly agree that all "
-          "compensation under this Agreement is paid solely for legitimate work and "
-          "professional services actually performed. It is NOT, in whole or in part, "
-          "compensation for any of the following:")
+          "designated RIVR Tech supervisor (see Exhibit C). All work must be "
+          "authorized in advance, and off-the-clock work is prohibited. RIVR Tech "
+          "will maintain a running record crediting authorized hours worked against "
+          "the Sponsorship.", space_before=4)
+para(doc, "6.6  Completion of Hours. The Student-Athlete agrees to perform the "
+          "sales and marketing work necessary to earn the full Sponsorship "
+          "(approximately 100 authorized hours) during the Agreement Term, "
+          "scheduled around academics and required athletic activities as provided "
+          "in Section 8.")
+para(doc, "6.7  Unearned Portion If Hours Are Not Completed. If the Student-Athlete "
+          "does not work enough authorized hours to fully earn the Sponsorship by "
+          "the end of the Agreement Term, the unearned portion (the Sponsorship "
+          "minus $20.00 multiplied by the number of authorized hours worked) will be "
+          "handled as the Parties select below, subject to legal and "
+          "athletics-compliance review:")
+bullet(doc, "Option A — Repayment: the Student-Athlete repays the unearned portion "
+            "to RIVR Tech, subject to applicable law and any limits on payroll "
+            "deductions; or")
+bullet(doc, "Option B — No Repayment: the unearned portion is not repayable and is "
+            "treated as additional taxable compensation to the Student-Athlete.")
+para(doc, "[SELECT OPTION A OR OPTION B — SUBJECT TO RCC AND RIVR Tech LEGAL COUNSEL "
+          "AND RCC ATHLETICS COMPLIANCE.] Any repayment or deduction must comply "
+          "with the Fair Labor Standards Act and the North Carolina Wage and Hour "
+          "Act, including minimum-wage requirements for each pay period.", size=10,
+     space_before=2)
+para(doc, "6.8  Overtime. Unauthorized overtime is prohibited, and overtime hours "
+          "should not be scheduled without advance written approval. If the "
+          "Student-Athlete works more than forty (40) hours in a workweek, RIVR Tech "
+          "will pay all legally required overtime in accordance with applicable law.")
+para(doc, "6.9  Nature of the Sponsorship and Compensation. The Parties expressly "
+          "agree that the Sponsorship and all compensation under this Agreement are "
+          "provided in exchange for legitimate sales and marketing work and "
+          "professional services performed (or to be performed) by the "
+          "Student-Athlete, and are NOT, in whole or in part, payment for any of the "
+          "following:")
 for item in [
     "athletic performance;", "statistics or awards;", "playing time;",
     "enrollment at RCC;", "remaining on the baseball team;",
@@ -353,10 +386,10 @@ for item in [
 # =====================================================================
 section_heading(doc, 7, "Internship Duties")
 para(doc, "7.1  Duties. The Student-Athlete’s duties may include the following, "
-          "as assigned and supervised by RIVRTECH:")
+          "as assigned and supervised by RIVR Tech:")
 for item in [
     "assisting with community sales and marketing events;",
-    "representing RIVRTECH at approved outreach events;",
+    "representing RIVR Tech at approved outreach events;",
     "supporting residential and business sales initiatives;",
     "assisting with prospective-customer outreach;",
     "entering and organizing authorized sales leads;",
@@ -378,14 +411,14 @@ para(doc, "7.2  Limitations on Authority and Duties. The Student-Athlete is NOT 
           "authorized to, and will not:", space_before=2)
 for item in [
     "sign contracts;",
-    "make binding commitments for RIVRTECH;",
+    "make binding commitments for RIVR Tech;",
     "collect or personally retain customer payments;",
     "access customer information without authorization;",
     "represent that the Student-Athlete can guarantee service availability;",
     "drive a company vehicle without separate written authorization;",
     "perform construction, electrical, fiber-splicing, climbing, or other "
     "hazardous work; or",
-    "perform any work prohibited by law or by RIVRTECH policy.",
+    "perform any work prohibited by law or by RIVR Tech policy.",
 ]:
     bullet(doc, item)
 
@@ -406,7 +439,7 @@ for item in [
     "approved in advance;",
     "the Internship must not interfere with the Student-Athlete’s academic "
     "progress or athletic eligibility; and",
-    "RCC may communicate scheduling concerns to RIVRTECH, subject to applicable "
+    "RCC may communicate scheduling concerns to RIVR Tech, subject to applicable "
     "privacy rules and the Student-Athlete’s written authorization.",
 ]:
     bullet(doc, item)
@@ -416,14 +449,14 @@ for item in [
 # =====================================================================
 section_heading(doc, 9, "Work Location and Transportation")
 quote_block(doc, "The Student-Athlete is responsible for maintaining dependable "
-                 "transportation to and from the primary RIVRTECH work location at "
+                 "transportation to and from the primary RIVR Tech work location at "
                  "6090 NC Highway 711 North, Pembroke, North Carolina, and to other "
                  "approved work or event locations. Transportation to and from the "
                  "Student-Athlete’s regular work location is the "
                  "Student-Athlete’s responsibility and is not considered "
                  "compensable work time, except where otherwise required by law.")
 para(doc, "9.1  Travel Between Work Locations. Travel between assigned work "
-          "locations during the workday will be handled under RIVRTECH’s "
+          "locations during the workday will be handled under RIVR Tech’s "
           "applicable travel-time and mileage-reimbursement policies.")
 
 # =====================================================================
@@ -432,10 +465,10 @@ para(doc, "9.1  Travel Between Work Locations. Travel between assigned work "
 section_heading(doc, 10, "Dress and Professional Appearance")
 quote_block(doc, "During office hours, meetings, sales activities, and other "
                  "assigned working hours, the Student-Athlete must wear "
-                 "business-casual attire unless RIVRTECH approves event-specific "
+                 "business-casual attire unless RIVR Tech approves event-specific "
                  "apparel. Clothing must be clean, professional, appropriate for the "
-                 "assigned duties, and consistent with RIVRTECH workplace policies.")
-para(doc, "10.1  RIVRTECH-branded clothing is permitted, and may be required, for "
+                 "assigned duties, and consistent with RIVR Tech workplace policies.")
+para(doc, "10.1  RIVR Tech-branded clothing is permitted, and may be required, for "
           "approved community and marketing events.")
 
 # =====================================================================
@@ -443,7 +476,7 @@ para(doc, "10.1  RIVRTECH-branded clothing is permitted, and may be required, fo
 # =====================================================================
 section_heading(doc, 11, "Supervision and Performance Expectations")
 para(doc, "11.1  Supervision. The Student-Athlete will report to a designated "
-          "RIVRTECH supervisor (the “Supervisor,” identified in Exhibit E). "
+          "RIVR Tech supervisor (the “Supervisor,” identified in Exhibit E). "
           "A designated RCC athletics contact will serve as the College’s point "
           "of contact for program coordination (also identified in Exhibit E).")
 para(doc, "11.2  Expectations. The Student-Athlete agrees to:")
@@ -454,11 +487,11 @@ for item in [
     "communicate professionally with employees and customers;",
     "treat employees, customers, and community members with respect;",
     "complete assigned work in a timely and accurate manner;",
-    "adhere to RIVRTECH company policies; and",
+    "adhere to RIVR Tech company policies; and",
     "participate in periodic progress reviews.",
 ]:
     bullet(doc, item)
-para(doc, "11.3  Evaluation. At the conclusion of the Internship, RIVRTECH will "
+para(doc, "11.3  Evaluation. At the conclusion of the Internship, RIVR Tech will "
           "provide an end-of-program evaluation or certificate of completion.",
      space_before=2)
 
@@ -478,7 +511,7 @@ for item in [
     "compensation is not contingent upon athletic participation, performance, "
     "playing time, recruiting, enrollment, or team status;",
     "coaches will not control payroll, hours, or employment evaluations;",
-    "employment decisions will be made solely by RIVRTECH;",
+    "employment decisions will be made solely by RIVR Tech;",
     "this arrangement does not require the Student-Athlete to attend or remain "
     "enrolled at RCC if such a requirement would violate applicable athletics "
     "rules; and",
@@ -512,19 +545,19 @@ for item in [
     "written approval;",
     "Student-Athlete representations that the approved materials do not violate any "
     "other agreement;",
-    "RIVRTECH’s right to revoke future use for material breach or for legal or "
+    "RIVR Tech’s right to revoke future use for material breach or for legal or "
     "compliance reasons; and",
     "removal of future promotional use after this Agreement ends, subject to "
     "reasonable archival use.",
 ]:
     bullet(doc, item)
 para(doc, "13.3  No Assumption of Rights. The Parties do not assume that hourly "
-          "wages automatically grant RIVRTECH any unrestricted NIL rights. Any NIL "
+          "wages automatically grant RIVR Tech any unrestricted NIL rights. Any NIL "
           "use must be separately approved as set out in Exhibit D.", space_before=2)
 
 sub_heading(doc, "13.4  Optional Separate NIL Fee — USE ONLY IF APPROVED BY RCC "
                  "AND LEGAL COUNSEL")
-para(doc, "If RIVRTECH will pay a separate NIL fee, the following optional terms "
+para(doc, "If RIVR Tech will pay a separate NIL fee, the following optional terms "
           "apply and are separate from the hourly internship wages in Section 6:")
 for item in [
     "Separate NIL compensation amount: $[NIL FEE AMOUNT];",
@@ -546,7 +579,7 @@ para(doc, "[USE ONLY IF APPROVED BY RCC AND LEGAL COUNSEL.]", size=10, bold=True
 section_heading(doc, 14, "Confidentiality and Customer Information")
 para(doc, "14.1  Confidential Information. During and after the Internship, the "
           "Student-Athlete will protect and keep confidential the following "
-          "information belonging to RIVRTECH or its customers:")
+          "information belonging to RIVR Tech or its customers:")
 for item in [
     "customer information;", "prospective-customer information;",
     "pricing information;", "sales strategies;", "internal business records;",
@@ -555,8 +588,8 @@ for item in [
 ]:
     bullet(doc, item)
 para(doc, "14.2  Return and Deletion. When the Internship ends (or upon "
-          "RIVRTECH’s request), the Student-Athlete will promptly return and, "
-          "as directed, delete all RIVRTECH information and materials in the "
+          "RIVR Tech’s request), the Student-Athlete will promptly return and, "
+          "as directed, delete all RIVR Tech information and materials in the "
           "Student-Athlete’s possession.", space_before=2)
 para(doc, "14.3  General Skills Preserved. Nothing in this Section prevents the "
           "Student-Athlete from using the general skills, knowledge, and experience "
@@ -568,14 +601,14 @@ para(doc, "14.3  General Skills Preserved. Nothing in this Section prevents the 
 # =====================================================================
 section_heading(doc, 15, "Technology, Social Media, and Public Statements")
 para(doc, "15.1  Policy Compliance. The Student-Athlete will comply with "
-          "RIVRTECH’s applicable policies, including its:")
+          "RIVR Tech’s applicable policies, including its:")
 for item in [
     "acceptable-use policies;", "cybersecurity rules;", "social media policies;",
     "customer privacy requirements; and", "brand standards.",
 ]:
     bullet(doc, item)
 para(doc, "15.2  No Unauthorized Statements. The Student-Athlete may not make any "
-          "unauthorized statements on behalf of RIVRTECH or RCC.", space_before=2)
+          "unauthorized statements on behalf of RIVR Tech or RCC.", space_before=2)
 
 # =====================================================================
 # SECTION 16 - WORKPLACE CONDUCT
@@ -591,7 +624,7 @@ for item in [
 ]:
     bullet(doc, item)
 para(doc, "16.2  Reporting. Workplace or program concerns may be reported to the "
-          "contacts listed in Exhibit E, including RIVRTECH Human Resources and the "
+          "contacts listed in Exhibit E, including RIVR Tech Human Resources and the "
           "RCC athletics contact.", space_before=2)
 
 # =====================================================================
@@ -600,12 +633,12 @@ para(doc, "16.2  Reporting. Workplace or program concerns may be reported to the
 section_heading(doc, 17, "Employment Status, Benefits, and Workers’ Compensation")
 para(doc, "17.1  The Parties acknowledge and agree that:")
 for item in [
-    "RIVRTECH is the sole employer for the paid Internship;",
+    "RIVR Tech is the sole employer for the paid Internship;",
     "the Student-Athlete is a temporary, part-time, non-exempt employee of "
-    "RIVRTECH;",
+    "RIVR Tech;",
     "the Student-Athlete will receive only those benefits required by law or "
-    "expressly stated in RIVRTECH policy;",
-    "RIVRTECH will provide workers’ compensation coverage as required by law;",
+    "expressly stated in RIVR Tech policy;",
+    "RIVR Tech will provide workers’ compensation coverage as required by law;",
     "RCC is not responsible for payroll, taxes, workers’ compensation, or "
     "employment supervision for the Internship; and",
     "nothing in this Agreement creates an employment relationship between RCC and "
@@ -639,7 +672,7 @@ para(doc, "[FLAG FOR LEGAL REVIEW — RCC is a North Carolina public community "
 para(doc, "19.1  Each Party’s Responsibilities. Subject to and to the extent "
           "permitted by North Carolina law:")
 for item in [
-    "RIVRTECH is responsible for its own workplace and its employees;",
+    "RIVR Tech is responsible for its own workplace and its employees;",
     "RCC is responsible for its own premises and institutional activities;",
     "each Party is responsible for its own negligent acts or omissions, to the "
     "extent allowed by North Carolina law; and",
@@ -662,7 +695,7 @@ para(doc, "20.1  Termination Events. This Agreement (and/or the Internship) may 
           "terminated:")
 for item in [
     "by mutual written agreement of the Parties;",
-    "by RIVRTECH for misconduct, attendance problems, policy violations, poor "
+    "by RIVR Tech for misconduct, attendance problems, policy violations, poor "
     "performance, safety concerns, or legitimate business reasons;",
     "by RCC for athletics compliance, student welfare, academic, institutional, or "
     "policy concerns;",
@@ -684,7 +717,7 @@ para(doc, "20.2  Payment on Termination. Upon any termination, the Student-Athle
 section_heading(doc, 21, "No Guarantee of Team Position or Playing Time")
 para(doc, "21.1  The Parties clearly agree that:")
 for item in [
-    "RIVRTECH has no control over team selection, playing time, coaching "
+    "RIVR Tech has no control over team selection, playing time, coaching "
     "decisions, discipline, scholarships, or athletics eligibility;",
     "RCC and its coaches retain exclusive authority over all athletics decisions; "
     "and",
@@ -697,7 +730,7 @@ for item in [
 # SECTION 22 - INDEPENDENT PARTIES
 # =====================================================================
 section_heading(doc, 22, "Independent Parties and No Agency")
-para(doc, "22.1  RCC and RIVRTECH remain independent entities. Neither may bind the "
+para(doc, "22.1  RCC and RIVR Tech remain independent entities. Neither may bind the "
           "other, and neither is the agent, partner, or joint venturer of the other, "
           "without express written authority.")
 
@@ -736,8 +769,8 @@ section_heading(doc, 24, "Governing Law and Venue")
 para(doc, "24.1  Governing Law. This Agreement is governed by the laws of the State "
           "of North Carolina, without regard to its conflict-of-laws principles.")
 para(doc, "24.2  Venue. Venue for any dispute will be [VENUE — TO BE CONFIRMED "
-          "BY RCC AND RIVRTECH COUNSEL]. [Legal-review note: do not finalize venue "
-          "until RCC and RIVRTECH counsel approve; venue for a North Carolina public "
+          "BY RCC AND RIVR Tech COUNSEL]. [Legal-review note: do not finalize venue "
+          "until RCC and RIVR Tech counsel approve; venue for a North Carolina public "
           "community college may be subject to specific requirements.]")
 
 # =====================================================================
@@ -750,10 +783,10 @@ para(doc, "25.1  All notices under this Agreement must be in writing and deliver
 
 make_table(
     doc,
-    ["RIVRTECH", "RCC", "Student-Athlete"],
+    ["RIVR Tech", "RCC", "Student-Athlete"],
     [[
         "John Dyson\nChief Operations Officer\nLREMC Technologies, LLC d/b/a "
-        "RIVRTECH\n6090 NC Highway 711 North\nPembroke, North Carolina 28372\n"
+        "RIVR Tech\n6090 NC Highway 711 North\nPembroke, North Carolina 28372\n"
         "Email: john.dyson@lumbeeriver.com\nTelephone: [PHONE]",
         "[AUTHORIZED RCC REPRESENTATIVE]\n[TITLE]\nRobeson Community College\n"
         "5160 Fayetteville Road\nLumberton, North Carolina 28360\nEmail: [EMAIL]\n"
@@ -823,7 +856,7 @@ def sig_block(title, lines):
         else:
             add_rich(p, "______________________________________________")
 
-sig_block("LREMC Technologies, LLC d/b/a RIVRTECH", [
+sig_block("LREMC Technologies, LLC d/b/a RIVR Tech", [
     ("By", "John Dyson"),
     ("Title", "Chief Operations Officer"),
     ("Signature", None),
@@ -874,8 +907,8 @@ make_table(doc, ["Item", "Detail"], [
     ["Supervisor", "John Dyson, Chief Operations Officer (or designee)"],
     ["Work Location", "6090 NC Highway 711 North, Pembroke, North Carolina 28372, and approved work/event locations"],
     ["Hourly Rate", "$20.00 per hour"],
-    ["Maximum Compensation", "$2,000.00 gross"],
-    ["Maximum Hours", "100 authorized hours"],
+    ["Sponsorship (paid in advance)", "$2,000.00 gross"],
+    ["Hours to Earn Sponsorship", "100 authorized hours (Sponsorship ÷ $20.00)"],
     ["Schedule", "By mutual agreement; not to exceed ten (10) hours/week; academics and required athletics prioritized"],
 ], col_widths=[2.0, 4.5])
 para(doc, "Duties", size=11, bold=True, space_before=8, space_after=2)
@@ -936,7 +969,7 @@ p = doc.add_paragraph(); p.paragraph_format.space_after = Pt(10)
 add_rich(p, "Student-Athlete Signature: __________________________   Date: ____________")
 para(doc, "Supervisor Approval", size=11, bold=True, space_after=2)
 p = doc.add_paragraph(); p.paragraph_format.space_after = Pt(6)
-add_rich(p, "RIVRTECH Supervisor Signature: __________________________   Date: ____________")
+add_rich(p, "RIVR Tech Supervisor Signature: __________________________   Date: ____________")
 
 # ---- Exhibit D
 exhibit_title("D", "Limited NIL and Media Authorization")
@@ -965,9 +998,9 @@ add_rich(p, "RCC Approval (NIL) Signature: __________________________   Date: __
 # ---- Exhibit E
 exhibit_title("E", "Program Contacts and Reporting Procedures")
 make_table(doc, ["Role", "Name / Title", "Email / Phone"], [
-    ["RIVRTECH Supervisor", "John Dyson, Chief Operations Officer (or designee)", "john.dyson@lumbeeriver.com / [PHONE]"],
+    ["RIVR Tech Supervisor", "John Dyson, Chief Operations Officer (or designee)", "john.dyson@lumbeeriver.com / [PHONE]"],
     ["RCC Athletics Contact", "Jake Jones, Athletic Director & Head Baseball Coach", "[EMAIL / PHONE]"],
-    ["RIVRTECH Human Resources", "[NAME / TITLE]", "[EMAIL / PHONE]"],
+    ["RIVR Tech Human Resources", "[NAME / TITLE]", "[EMAIL / PHONE]"],
     ["Athletics/Compliance Contact", "[NAME / TITLE]", "[EMAIL / PHONE]"],
     ["Emergency Contact", "[NAME / RELATIONSHIP]", "[EMAIL / PHONE]"],
 ], col_widths=[1.9, 2.3, 2.3])
@@ -975,7 +1008,7 @@ para(doc, "Reporting a Workplace or Program Concern", size=11, bold=True,
      space_before=8, space_after=2)
 for item in [
     "Report workplace concerns, including harassment or safety concerns, to the "
-    "RIVRTECH Supervisor or RIVRTECH Human Resources contact above.",
+    "RIVR Tech Supervisor or RIVR Tech Human Resources contact above.",
     "Report athletics or student-welfare concerns to the RCC Athletics Contact "
     "and/or Athletics/Compliance Contact above.",
     "In an emergency, contact local emergency services (911) first.",
@@ -995,8 +1028,8 @@ approvals = [
     "RCC administration approval",
     "RCC legal review",
     "RCC athletics/NJCAA compliance review",
-    "RIVRTECH HR approval",
-    "RIVRTECH legal review",
+    "RIVR Tech HR approval",
+    "RIVR Tech legal review",
     "Payroll onboarding completed",
     "Form I-9 completed",
     "Federal and state tax forms completed",

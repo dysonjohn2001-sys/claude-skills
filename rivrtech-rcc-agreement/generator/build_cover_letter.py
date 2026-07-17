@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
-"""Build the RIVRTECH / RCC proposal cover letter (one page)."""
+"""Build the RIVR Tech / RCC proposal cover letter (one page)."""
 import sys
 from docx.shared import Pt, Inches, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docgen import (new_document, add_header_footer, para, add_rich, _set_run_font)
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else "cover_letter.docx"
-FOOTER = "RIVRTECH – RCC Partnership Proposal"
+FOOTER = "RIVR Tech – RCC Partnership Proposal"
 
 doc = new_document()
 # Business letters are single-spaced
 doc.styles["Normal"].paragraph_format.line_spacing = 1.0
 
 # Letterhead
-para(doc, "LREMC Technologies, LLC d/b/a RIVRTECH", size=14, bold=True,
+para(doc, "LREMC Technologies, LLC d/b/a RIVR Tech", size=14, bold=True,
      align=WD_ALIGN_PARAGRAPH.CENTER, space_after=1)
 para(doc, "6090 NC Highway 711 North · Pembroke, North Carolina 28372",
      size=9, align=WD_ALIGN_PARAGRAPH.CENTER, space_after=1,
@@ -36,7 +36,7 @@ para(doc, "Re:  Proposed Corporate Sponsorship and Paid Student-Athlete "
 
 para(doc, "Dear Coach Jones:", space_after=5)
 
-para(doc, "On behalf of LREMC Technologies, LLC d/b/a RIVRTECH (“RIVRTECH”), "
+para(doc, "On behalf of LREMC Technologies, LLC d/b/a RIVR Tech (“RIVR Tech”), "
           "I am writing to propose a partnership with Robeson Community College "
           "that invests directly in your student-athletes and in our shared "
           "community. As a local company, we believe strongly in developing "
@@ -44,30 +44,29 @@ para(doc, "On behalf of LREMC Technologies, LLC d/b/a RIVRTECH (“RIVRTECH”),
           "would be proud to support the Diamond Eagles Baseball Program while "
           "doing it.", space_after=5)
 
-para(doc, "Our proposed program combines two things: recognition of RIVRTECH as a "
+para(doc, "Our proposed program combines two things: recognition of RIVR Tech as a "
           "local corporate sponsor of the baseball program, and a paid, "
           "career-building internship for a participating student-athlete. The "
           "intern would join our team as a Sales and Marketing Student Intern and "
           "gain real-world experience in sales, marketing, customer engagement, and "
-          "business operations — the kind of professional development that pays "
-          "dividends long after graduation.", space_after=5)
+          "business operations.", space_after=5)
 
 para(doc, "We have designed the internship to work around your athletes, not the "
           "other way around. Scheduling would be flexible and built around classes, "
           "practices, games, travel, and examinations, with academics and athletics "
-          "always taking priority. The intern would be paid $20.00 per hour for "
-          "actual hours worked, through our normal payroll process — structured "
-          "as legitimate, professional work experience, entirely separate from "
-          "anything related to athletic performance, playing time, or team status.",
-     space_after=5)
+          "always taking priority. Our proposal is to provide a $2,000 sponsorship "
+          "at the beginning of the semester, which the student-athlete then earns "
+          "through paid sales and marketing work for RIVR Tech at $20.00 per hour "
+          "(about 100 hours) — structured as legitimate, professional work "
+          "experience, entirely separate from anything related to athletic "
+          "performance, playing time, or team status.", space_after=5)
 
 para(doc, "We recognize that a program like this must be done the right way. All "
           "terms remain subject to review and approval by Robeson Community "
-          "College, and to applicable employment and athletics-compliance "
+          "College and to applicable employment and athletics-compliance "
           "requirements, including any applicable RCC, NJCAA, and conference rules. "
           "We are committed to full compliance and to following your lead on "
-          "institutional policies, approvals, and the use of any College marks.",
-     space_after=5)
+          "institutional policies and approvals.", space_after=5)
 
 para(doc, "A draft agreement and an approvals checklist accompany this letter. "
           "I would welcome the opportunity to meet with you and the appropriate "
@@ -79,7 +78,7 @@ para(doc, "A draft agreement and an approvals checklist accompany this letter. "
 para(doc, "Sincerely,", space_after=12)
 para(doc, "John Dyson", bold=True, space_after=0)
 para(doc, "Chief Operations Officer", space_after=0)
-para(doc, "LREMC Technologies, LLC d/b/a RIVRTECH", space_after=8)
+para(doc, "LREMC Technologies, LLC d/b/a RIVR Tech", space_after=8)
 
 para(doc, "Enclosures:  (1) Student-Athlete Corporate Sponsorship and Paid "
           "Internship Agreement (Draft for Discussion and Legal Review); "

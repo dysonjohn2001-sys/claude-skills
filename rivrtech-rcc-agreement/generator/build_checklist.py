@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
-"""Build the RIVRTECH / RCC Required Approvals Checklist (standalone)."""
+"""Build the RIVR Tech / RCC Required Approvals Checklist (standalone)."""
 import sys
 from docx.shared import Pt, Inches, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docgen import (new_document, add_header_footer, para, make_table, add_rich)
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else "checklist.docx"
-FOOTER = "RIVRTECH – RCC Required Approvals Checklist"
+FOOTER = "RIVR Tech – RCC Required Approvals Checklist"
 
 doc = new_document()
 
-para(doc, "RIVRTECH – ROBESON COMMUNITY COLLEGE", size=13, bold=True,
+para(doc, "RIVR Tech – ROBESON COMMUNITY COLLEGE", size=13, bold=True,
      align=WD_ALIGN_PARAGRAPH.CENTER, space_after=1)
 para(doc, "Required Approvals Checklist", size=16, bold=True,
      align=WD_ALIGN_PARAGRAPH.CENTER, space_after=2)
@@ -21,7 +21,7 @@ para(doc, "Student-Athlete Corporate Sponsorship and Paid Internship Agreement",
 make_table(doc, ["Field", "Detail"], [
     ["Version", "0.1 — Draft"],
     ["Date", "July 16, 2026"],
-    ["Owner", "John Dyson, Chief Operations Officer, LREMC Technologies, LLC d/b/a RIVRTECH"],
+    ["Owner", "John Dyson, Chief Operations Officer, LREMC Technologies, LLC d/b/a RIVR Tech"],
     ["Student-Athlete", "[STUDENT-ATHLETE’S FULL LEGAL NAME]"],
     ["Approval Status", "Draft — Pending approvals"],
 ], col_widths=[1.8, 4.7])
@@ -42,11 +42,11 @@ make_table(doc, ["✓", "Item", "Responsible Party", "Date"], [
     ["[  ]", "Financial-aid disclosure", "[NAME]", "[  ]"],
 ], col_widths=[0.5, 3.3, 1.8, 0.9])
 
-para(doc, "B.  RIVRTECH Approvals & Onboarding", size=12, bold=True,
+para(doc, "B.  RIVR Tech Approvals & Onboarding", size=12, bold=True,
      space_before=6, space_after=3)
 make_table(doc, ["✓", "Item", "Responsible Party", "Date"], [
-    ["[  ]", "RIVRTECH HR approval", "[NAME]", "[  ]"],
-    ["[  ]", "RIVRTECH legal review", "[NAME]", "[  ]"],
+    ["[  ]", "RIVR Tech HR approval", "[NAME]", "[  ]"],
+    ["[  ]", "RIVR Tech legal review", "[NAME]", "[  ]"],
     ["[  ]", "Payroll onboarding completed", "[NAME]", "[  ]"],
     ["[  ]", "Form I-9 completed", "[NAME]", "[  ]"],
     ["[  ]", "Federal and state tax forms completed", "[NAME]", "[  ]"],
@@ -70,7 +70,7 @@ para(doc, "Sign-Off", size=12, bold=True, space_before=8, space_after=3)
 para(doc, "The undersigned confirm that the applicable approvals above have been "
           "completed and that the Agreement is cleared for execution.", size=10,
      space_after=8)
-for role in ["RIVRTECH (John Dyson, Chief Operations Officer)",
+for role in ["RIVR Tech (John Dyson, Chief Operations Officer)",
              "Robeson Community College [AUTHORIZED REPRESENTATIVE / TITLE]"]:
     p = doc.add_paragraph(); p.paragraph_format.space_after = Pt(10)
     add_rich(p, f"{role}\nSignature: ______________________________   Date: ____________")

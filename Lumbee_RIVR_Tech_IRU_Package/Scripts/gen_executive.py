@@ -183,7 +183,7 @@ def build():
                 f"described in Section 1.2.", bold=True)
 
     # ============================================================ ARTICLE 4
-    C.article(doc, 4, "Roles of the Tribe and RIVR Tech")
+    C.article(doc, 4, "Roles of the Lumbee Tribe and RIVR Tech")
     C.section(doc, "4.1", f"Role of the {C.TRIBE_SHORT}",
               f"The {C.TRIBE_SHORT} acts as grant recipient, asset owner, and compliance principal.")
     for t in [
@@ -210,7 +210,7 @@ def build():
         "collections (Articles 9–10).",
         f"Supports the {C.TRIBE_SHORT}’s grant-compliance, BABA, environmental/historic, "
         f"reporting, and audit obligations by supplying data and certifications.",
-        "Pays the agreed consideration and revenue share to the Tribe.",
+        "Pays the agreed consideration and revenue share to the Lumbee Tribe.",
     ]:
         C.bullet(doc, t)
     C.flag_para(doc, C.FLAG_ATTORNEY,
@@ -445,12 +445,12 @@ def build():
         f"All percentages and dollar figures below are placeholders for the Financial Model.")
     C.add_table(
         doc,
-        ["Option", "Mechanic", "Tribe Bears", "Operator Bears", "Notes"],
+        ["Option", "Mechanic", "Lumbee Tribe Bears", "Operator Bears", "Notes"],
         [
             [C.DEAL['rev_options']['A'],
              f"Fixed annual payment to the {C.TRIBE_SHORT} ({C.PH('fixed annual amount')})",
              "No revenue-volatility upside", "All revenue and cost risk",
-             "Most predictable for the Tribe; no upside participation"],
+             "Most predictable for the Lumbee Tribe; no upside participation"],
             [C.DEAL['rev_options']['B'],
              f"{C.PH('% of gross revenue')} of gross service revenue "
              f"(placeholder {C.DEAL['rev_share_pct_placeholder']})",
@@ -464,7 +464,7 @@ def build():
             [f"{C.DEAL['rev_options']['D']} (recommended)",
              f"Fixed base ({C.PH('base amount')}) plus {C.PH('% share')} revenue share",
              "Partial revenue risk above the base", "Cost risk; guarantees the base",
-             "Floor for the Tribe plus upside; balances predictability and alignment"],
+             "Floor for the Lumbee Tribe plus upside; balances predictability and alignment"],
             [C.DEAL['rev_options']['E'],
              f"Initial payment holiday, then stepped payments ({C.PH('step schedule')})",
              "Deferred cash in early years", "Ramp/adoption risk",
@@ -610,7 +610,7 @@ def build():
              f"{C.PH('preferential / cost-based rate')}"],
             ["Anchor-institution broadband", "Schools, library, clinic, public safety",
              f"{C.PH('anchor rate schedule')}"],
-            ["Reserved capacity (see Article 15)", "Tribe", "No charge / cost-based"],
+            ["Reserved capacity (see Article 15)", "Lumbee Tribe", "No charge / cost-based"],
         ],
         widths=[2.6, 2.4, 2.0],
     )
@@ -647,7 +647,7 @@ def build():
               f"true-up survive.")
     C.flag_para(doc, C.FLAG_ATTORNEY,
                 "Termination triggers, cross-defaults among the definitive documents, and the "
-                "consequences of a grant-driven termination (including whether it is a Tribe-side or "
+                "consequences of a grant-driven termination (including whether it is a Lumbee Tribe-side or "
                 "Operator-side risk) must be tailored by counsel.")
 
     # ============================================================ ARTICLE 18
@@ -672,7 +672,7 @@ def build():
     C.bullet(doc, "Treatment of the subscriber base and in-flight service obligations.")
     C.flag_para(doc, C.FLAG_ATTORNEY,
                 "Step-in triggers, the scope of any limited sovereign-immunity considerations when "
-                "the Tribe operates, subscriber-base ownership on transition, and lender step-in/"
+                "the Lumbee Tribe operates, subscriber-base ownership on transition, and lender step-in/"
                 "cure rights must be reconciled by counsel.")
 
     # ============================================================ ARTICLE 19
@@ -707,12 +707,12 @@ def build():
     for pos in [
         f"Secure the {C.IRU_TERM_RECOMMENDED}-year term plus {C.DEAL['iru_renewal']} to justify "
         f"long-term capital and lower the required return.",
-        "Exclusive commercial operating rights (subject only to the Tribe’s reserved capacity) "
+        "Exclusive commercial operating rights (subject only to the Lumbee Tribe’s reserved capacity) "
         "to protect the subscriber investment.",
         "Adopt Option D with a moderate base and meaningful share, plus an early-year step to "
         "protect ramp-period cash flow.",
         "Cap operator exposure for catastrophic restoration of Tribal Assets to insurance proceeds "
-        "plus a defined amount; the balance funded by reserve or Tribe.",
+        "plus a defined amount; the balance funded by reserve or Lumbee Tribe.",
         "Obtain lender-friendly provisions: collateral assignment of the IRU and revenues (subject "
         "to grant constraints), lender cure and step-in rights, and estoppel/consent.",
         "Cure periods no shorter than the canonical defaults; SLA credits capped and sole-remedy "
@@ -729,7 +729,7 @@ def build():
                 f"grant-compliance constraints.")
 
     # ============================================================ ARTICLE 21
-    C.article(doc, 21, "Recommended Protections for the Tribe")
+    C.article(doc, 21, "Recommended Protections for the Lumbee Tribe")
     C.para(doc, f"The following protections preserve the {C.TRIBE_SHORT}’s ownership, "
                 f"sovereignty, compliance posture, and long-term value. They are offered as "
                 f"safeguards the {C.TRIBE_SHORT} should seek.")
@@ -745,7 +745,7 @@ def build():
         "Hand-back/condition standard and operator-funded lifecycle replacement so the Network is "
         "returned in good order.",
         "Full audit and records access; operator indemnity for compliance failures caused by the "
-        "operator; insurance naming the Tribe as additional insured.",
+        "operator; insurance naming the Lumbee Tribe as additional insured.",
         "Approval rights over assignment, change of control, and any encumbrance of the IRU; "
         "anti-forfeiture protection of Tribal Assets from operator creditors.",
         "A narrowly scoped, expressly limited waiver of sovereign immunity (if any) that does not "
@@ -858,7 +858,7 @@ def build():
             ["Term / termination",
              f"For cause with cure: {C.DEAL['cure_monetary_days']}-day monetary / "
              f"{C.DEAL['cure_nonmonetary_days']}-day non-monetary; grant/compliance termination per "
-             f"{C.CITES['remedies']}; title returns to Tribe."],
+             f"{C.CITES['remedies']}; title returns to Lumbee Tribe."],
             ["Step-in / transition",
              f"Tribal step-in on defined triggers (emergency step-in {C.DEAL['stepin_emergency']}); "
              f"up to {C.DEAL['transition_assistance_months']} months transition assistance."],
@@ -869,7 +869,7 @@ def build():
              f"CGL {C.DEAL['insurance']['cgl_occurrence']}/occurrence "
              f"({C.DEAL['insurance']['cgl_aggregate']} agg.); umbrella "
              f"{C.DEAL['insurance']['umbrella']}; cyber {C.DEAL['insurance']['cyber']}; "
-             f"builders risk {C.DEAL['insurance']['property_builders_risk']}; Tribe as additional "
+             f"builders risk {C.DEAL['insurance']['property_builders_risk']}; Lumbee Tribe as additional "
              f"insured. ({C.CITES['insurance']})"],
             ["Governing law",
              f"NOT SELECTED. [ALT-A: {C.STATE} law/courts] / [ALT-B: Tribal law/forum] / "
@@ -947,7 +947,7 @@ def build():
                 f"eligibility, and approvals must be resolved first.")
     C.signature_block(
         doc,
-        extra_note="Signature authority for the Tribe requires proper Tribal Council authorization; "
+        extra_note="Signature authority for the Lumbee Tribe requires proper Tribal Council authorization; "
                    "signature authority for RIVR Tech requires corporate authorization. Confirm both "
                    "before execution.")
 

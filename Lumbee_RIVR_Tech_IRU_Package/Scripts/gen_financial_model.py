@@ -202,7 +202,7 @@ single("elec_cycle", "Electronics replacement cycle", 7, "years", C.FMT_NUM)
 single("reserve_pct", "Capital-replacement reserve", 0.04, "% of gross revenue", C.FMT_PCT)
 single("disc", "Discount rate (NPV)", 0.09, "% WACC/hurdle", C.FMT_PCT)
 single("rivr_upfront", "RIVR Tech upfront investment", 2000000, "$ (electronics/integration/WC)", C.FMT_USD)
-single("res_cap_val", "Reserved-capacity value to Tribe", 150000, "$/yr in-kind (memo)", C.FMT_USD)
+single("res_cap_val", "Reserved-capacity value to Lumbee Tribe", 150000, "$/yr in-kind (memo)", C.FMT_USD)
 # Revenue-share option inputs
 r += 1
 C.xl_cell(As, r, 2, "REVENUE-SHARE OPTION INPUTS", "section")

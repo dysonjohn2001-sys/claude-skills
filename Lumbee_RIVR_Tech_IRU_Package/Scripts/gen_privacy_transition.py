@@ -92,7 +92,7 @@ def build_privacy_addendum():
         C.FLAG_ATTORNEY,
         "This Addendum allocates rights in customer and network data, defines "
         "security obligations, and recognizes Tribal data sovereignty. It must be "
-        "reviewed by counsel for the Tribe and by communications/privacy counsel "
+        "reviewed by counsel for the Lumbee Tribe and by communications/privacy counsel "
         "(CPNI, FCC breach rules, and state breach-notification law) before execution.",
     )
 
@@ -308,13 +308,13 @@ def build_privacy_addendum():
         doc,
         ["Data Category", "Illustrative Owner (per Art. 3)", "Retention Default", "Authority"],
         [
-            ["Subscriber account & contact", "Joint / Tribe (Tribal Data)",
+            ["Subscriber account & contact", "Joint / Lumbee Tribe (Tribal Data)",
              C.PH("e.g., life of account + 3 yrs"), "Contract; state law"],
             ["Billing & payment records", f"Joint",
              "No less than " + C.PH("e.g., 3–7 yrs"), "47 CFR Pt 42; " + C.CITES['records']],
             ["CPNI / call-detail", f"{OP} steward",
              C.PH("per FCC / 47 CFR Pt 42"), C.CITES['cpni']],
-            ["Grant-substantiation records", "Tribe (Federal Interest)",
+            ["Grant-substantiation records", "Lumbee Tribe (Federal Interest)",
              f"≥ {RET_YRS} yrs from final report", C.CITES['records']],
             ["Network telemetry / logs", f"{OP}",
              C.PH("e.g., 12–24 months"), "Security best practice"],
@@ -425,7 +425,7 @@ def build_privacy_addendum():
               "the Respond and Recover functions of the NIST CSF, test it at least "
               "annually, and coordinate incident handling with the O&M/SLA (Document "
               "02.03) severity and escalation model.")
-    C.section(doc, "11.2", "Notification to the Tribe")
+    C.section(doc, "11.2", "Notification to the Lumbee Tribe")
     C.para(doc, f"{OP} shall notify the {TRIBE} of a Security Incident affecting, or "
                 f"reasonably likely to affect, Customer Data or Tribal Data without "
                 f"undue delay and no later than {C.PH('e.g., 24–72')} hours after "
@@ -531,19 +531,19 @@ def build_privacy_addendum():
               f"court order, or other legal process only to the extent legally required, "
               f"shall review each request for validity and scope, and shall disclose the "
               f"minimum data necessary.")
-    C.section(doc, "15.2", "Notice to the Tribe",
+    C.section(doc, "15.2", "Notice to the Lumbee Tribe",
               f"Where not legally prohibited, {OP} shall notify the {TRIBE} before "
               f"disclosing Tribal Data in response to legal process, so the {TRIBE} may "
               f"seek to limit or quash the request, and shall reasonably cooperate with "
               f"the {TRIBE}’s lawful efforts to protect the data.")
     C.section(doc, "15.3", "Records",
               "RIVR Tech shall keep a record of law-enforcement requests affecting "
-              "Tribal Data and make summary information available to the Tribe on "
+              "Tribal Data and make summary information available to the Lumbee Tribe on "
               "request, subject to legal limits.")
     C.flag_para(doc, C.FLAG_ATTORNEY,
                 "The interaction of Tribal sovereignty, ECPA/Stored Communications Act, "
                 "CALEA, and any protective-order or gag provisions is fact-specific. "
-                "Counsel must confirm the notice-to-Tribe mechanics and any limits on "
+                "Counsel must confirm the notice-to-Lumbee Tribe mechanics and any limits on "
                 "pre-disclosure notice.")
 
     # ============ ARTICLE 16 — TRIBAL DATA SOVEREIGNTY =====================
@@ -656,7 +656,7 @@ def build_privacy_addendum():
                 f"{C.PH('selected governing-law alternative')}.")
     C.flag_para(doc, C.FLAG_ATTORNEY,
                 "Governing law, dispute resolution, and any limited waiver of sovereign "
-                "immunity must not be selected silently. Counsel for the Tribe must "
+                "immunity must not be selected silently. Counsel for the Lumbee Tribe must "
                 "confirm the alternative and its interaction with the Master Agreement.")
     C.section(doc, "20.2", "Sovereign Immunity",
               f"Nothing in this Addendum waives the sovereign immunity of the "
@@ -737,7 +737,7 @@ def build_transition_plan():
                 f"{TRIBE}’s eligibility to hold the Award; confirm before execution.")
     C.flag_para(doc, C.FLAG_ATTORNEY,
                 "Step-in, assignment, lender-protection, sovereign-immunity, and "
-                "governing-law mechanics must be reviewed by counsel for the Tribe and "
+                "governing-law mechanics must be reviewed by counsel for the Lumbee Tribe and "
                 "by finance/lender counsel before execution.")
 
     # ================= ARTICLE 1 — PURPOSE & DEFINITIONS ===================
@@ -863,7 +863,7 @@ def build_transition_plan():
 
     # ================= ARTICLE 6 — TEMPORARY OPERATION =====================
     C.article(doc, 6, "Temporary Operation During Step-In")
-    C.section(doc, "6.1", "Operation by the Tribe or Designee",
+    C.section(doc, "6.1", "Operation by the Lumbee Tribe or Designee",
               f"During a Step-In, the {TRIBE} or its designated operator may operate, "
               f"maintain, and manage the {C.TRIBAL_ASSETS} and provide Essential "
               f"Services, using the access, records, credentials, and cooperation "
@@ -1201,7 +1201,7 @@ def build_transition_plan():
     C.flag_para(doc, C.FLAG_ATTORNEY,
                 "Governing law, dispute resolution, and any limited waiver of sovereign "
                 "immunity must not be selected silently. Reconcile with the Master "
-                "Agreement and confirm with counsel for the Tribe.")
+                "Agreement and confirm with counsel for the Lumbee Tribe.")
     C.section(doc, "22.2", "Sovereign Immunity",
               f"Nothing in this Plan waives the sovereign immunity of the "
               f"{C.TRIBE_FULL}. Any limited waiver must be express, written, specific as "

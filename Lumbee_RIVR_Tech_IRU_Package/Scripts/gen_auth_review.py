@@ -114,7 +114,7 @@ def build_tribal_resolution():
         doc, C.FLAG_GRANT,
         "THRESHOLD ELIGIBILITY MATTER — surfaced before adoption. The "
         f"{C.TRIBE_FULL} holds a distinct federal status under the "
-        f"{C.CITES['lumbee_act']}. Whether the Tribe qualifies as an eligible "
+        f"{C.CITES['lumbee_act']}. Whether the Lumbee Tribe qualifies as an eligible "
         "\"Tribal Government\" (or must apply through a designated/affiliated "
         "eligible entity, or seek NTIA confirmation of eligibility) for the "
         "TBCP Round 3 Award is a gating question that must be confirmed before "
@@ -124,7 +124,7 @@ def build_tribal_resolution():
     C.flag_para(
         doc, C.FLAG_ATTORNEY,
         "Tribal counsel must confirm Council quorum, adoption procedure, and "
-        "the Tribe's constitutional/governing-document authority to take each "
+        "the Lumbee Tribe's constitutional/governing-document authority to take each "
         "action below, and must separately review any waiver of sovereign "
         "immunity (see RESOLVED clause (g), which reserves — and does NOT "
         "grant — any such waiver).",
@@ -520,8 +520,8 @@ def build_attorney_issue_list():
         doc,
         "06.01",
         "Attorney Review Issue List",
-        "Open Legal Issues, Recommended Positions, and Owners for the Lumbee "
-        "Tribe / RIVR Tech Broadband Partnership",
+        "Open Legal Issues, Recommended Positions, and Owners for the "
+        "Lumbee Tribe / RIVR Tech Broadband Partnership",
     )
     C.setup_header_footer(doc, "Attorney Review Issue List")
     C.status_banner(doc)
@@ -546,7 +546,7 @@ def build_attorney_issue_list():
     # Issue | Description/Risk | Citation | Recommended Position | Owner | Priority
     issues = [
         ("1. Lumbee federal recognition / TBCP eligibility (LEAD)",
-         "Whether the Tribe qualifies as an eligible \"Tribal Government\" for a "
+         "Whether the Lumbee Tribe qualifies as an eligible \"Tribal Government\" for a "
          "TBCP Award, given the Lumbee Act's limited-recognition language. If "
          "ineligible or contested, the entire funding premise fails or must be "
          "restructured through an eligible designated entity. " + C.FLAG_GRANT,
@@ -556,8 +556,8 @@ def build_attorney_issue_list():
          "all agreements on eligibility confirmation.",
          "Tribal counsel + Grant counsel + NTIA", "H"),
         ("2. Sovereign immunity",
-         "Extent to which the Tribe waives immunity for enforcement; RIVR Tech "
-         "needs enforceable remedies; Tribe must protect assets and self-governance.",
+         "Extent to which the Lumbee Tribe waives immunity for enforcement; RIVR Tech "
+         "needs enforceable remedies; Lumbee Tribe must protect assets and self-governance.",
          "Common-law tribal sovereign immunity; " + C.FLAG_ATTORNEY,
          "OPEN — do not pre-decide. If any waiver, make it a limited, express, "
          "narrowly-scoped waiver by separate specific Council action, capped and "
@@ -611,7 +611,7 @@ def build_attorney_issue_list():
          "Revenue from operating grant-funded assets may be Program Income subject "
          "to federal use rules (deduction/addition/cost-sharing methods).",
          Cx["prog_income"] + "; " + C.FLAG_GRANT,
-         "Determine method with NTIA; structure revenue-share so Tribe can meet "
+         "Determine method with NTIA; structure revenue-share so Lumbee Tribe can meet "
          "Program Income obligations; document treatment in the financial schedule.",
          "Grant counsel + Finance", "H"),
         ("10. Contractor vs subrecipient status (2 CFR 200.331)",
@@ -627,12 +627,12 @@ def build_attorney_issue_list():
          Cx["procurement"] + "; " + Cx["competition"] + "; " + C.FLAG_GRANT,
          "Document the procurement basis (competition or sole-source justification) "
          "for RIVR Tech selection; require compliant subprocurement.",
-         "Grant counsel + Tribe procurement", "H"),
+         "Grant counsel + Lumbee Tribe procurement", "H"),
         ("12. Impermissible private benefit from grant assets",
          "Risk that a private operator derives disproportionate benefit from "
          "publicly funded assets, jeopardizing the award.",
          Cx["ug_part"] + "; " + C.FLAG_GRANT,
-         "Ensure consideration to the Tribe is fair and documented; benchmark IRU "
+         "Ensure consideration to the Lumbee Tribe is fair and documented; benchmark IRU "
          "and revenue-share terms; retain public-purpose protections and reversion.",
          "Grant counsel + Finance", "H"),
         ("13. Asset encumbrance",
@@ -687,18 +687,18 @@ def build_attorney_issue_list():
          "Who owns the customer relationship, contracts, and data on default or "
          "transition — critical for continuity and value.",
          Cx["cpni"] + "; " + C.FLAG_BUSINESS,
-         "Recommend Tribe holds a reversionary/step-in right to customer "
+         "Recommend Lumbee Tribe holds a reversionary/step-in right to customer "
          "relationships tied to the Tribal Assets; RIVR operates during the term.",
          "Both parties + business", "M"),
         ("21. Rate-setting",
          "Who sets retail rates and affordability commitments (100/20 affordable "
          "offering); limits on price increases.",
          Cx["nofo"] + "; " + C.FLAG_BUSINESS,
-         "Set affordability floor per award; give Tribe consultation/consent on "
+         "Set affordability floor per award; give Lumbee Tribe consultation/consent on "
          "material rate changes; document in financial + O&M schedules.",
          "Business + Grant counsel", "M"),
         ("22. Assignment",
-         "Ability of either party to assign; protecting the Tribe from unwanted "
+         "Ability of either party to assign; protecting the Lumbee Tribe from unwanted "
          "successors to the operator role.",
          C.FLAG_ATTORNEY,
          "Prohibit assignment without Tribal consent (not unreasonably withheld); "
@@ -718,10 +718,10 @@ def build_attorney_issue_list():
          "periods; cross-default within the transaction suite only.",
          "Both parties' counsel", "M"),
         ("25. Step-in rights",
-         "Tribe's ability to step in / appoint a replacement operator to preserve "
+         "Lumbee Tribe's ability to step in / appoint a replacement operator to preserve "
          "service and award compliance.",
          Cx["remedies"] + "; " + C.FLAG_ATTORNEY,
-         "Grant Tribe emergency step-in for essential-service/award-compliance "
+         "Grant Lumbee Tribe emergency step-in for essential-service/award-compliance "
          "threats; define scope, duration, and cost allocation.",
          "Tribal counsel", "H"),
         ("26. Grant clawback exposure",
@@ -797,12 +797,12 @@ def build_open_business_decisions():
         ("BD-01", "IRU term length",
          "20 / 25 / 30 years (+ renewals: two 10-yr terms)",
          "30 years (align with federal-interest period)",
-         "Tribe + RIVR", "Open",
+         "Lumbee Tribe + RIVR", "Open",
          "Master (02.01); IRU (02.02); Financial (02.04)", C.PH("date")),
         ("BD-02", "Revenue-share model",
          "A Fixed / B % Gross Rev / C % Cash Flow / D Hybrid / E Payment holiday+stepped",
          "Option D — Hybrid (fixed base + revenue share)",
-         "Tribe + RIVR + Finance", "In Discussion",
+         "Lumbee Tribe + RIVR + Finance", "In Discussion",
          "Financial (02.04); Master (02.01)", C.PH("date")),
         ("BD-03", "Grant award amount",
          "Depends on NTIA award; model uses placeholder",
@@ -812,20 +812,20 @@ def build_open_business_decisions():
         ("BD-04", "Homes passed / footprint",
          "Depends on final network design",
          C.PH("8,500 placeholder — confirm from design"),
-         "RIVR + Tribe", "Open",
+         "RIVR + Lumbee Tribe", "Open",
          "Financial (02.04); Exhibits (maps)", C.PH("date")),
         ("BD-05", "Retail pricing / affordability",
          "Affordable 100/20 tier + market tiers; price-increase caps",
-         "Affordable tier per award floor; consult Tribe on increases",
+         "Affordable tier per award floor; consult Lumbee Tribe on increases",
          "Business + Grant", "Open",
          "Financial (02.04); O&M/SLA (02.03)", C.PH("date")),
         ("BD-06", "Reserved Tribal strand count",
-         "Number of dark strands reserved to the Tribe on the Tribal Assets",
+         "Number of dark strands reserved to the Lumbee Tribe on the Tribal Assets",
          C.PH("reserved strand count — e.g., 24–48 strands; confirm"),
-         "Tribe + RIVR", "Open",
+         "Lumbee Tribe + RIVR", "Open",
          "IRU (02.02); Exhibits (fiber)", C.PH("date")),
         ("BD-07", "Fixed-payment amount (Option A / D base)",
-         "Annual fixed IRU/operating payment to the Tribe",
+         "Annual fixed IRU/operating payment to the Lumbee Tribe",
          C.PH("fixed annual payment $ — confirm from model"),
          "Finance", "Open",
          "Financial (02.04)", C.PH("date")),
@@ -846,7 +846,7 @@ def build_open_business_decisions():
          "Master (02.01); IRU (02.02)", C.PH("date")),
         ("BD-11", "Wholesale / open-access allowed?",
          "Permit RIVR to sell wholesale/open access on the Tribal Assets? Terms?",
-         C.PH("business decision — recommend allow with Tribe revenue participation"),
+         C.PH("business decision — recommend allow with Lumbee Tribe revenue participation"),
          "Business + Grant", "Open",
          "Master (02.01); Financial (02.04)", C.PH("date")),
         ("BD-12", "Capital-replacement reserve %",
@@ -865,8 +865,8 @@ def build_open_business_decisions():
          "Risk + RIVR", "Tentative",
          "Master (02.01); Exhibit I", C.PH("date")),
         ("BD-15", "Customer ownership on default/transition",
-         "Tribe reversion/step-in to customer relationships vs. RIVR retains",
-         "Recommend Tribe reversionary right tied to Tribal Assets",
+         "Lumbee Tribe reversion/step-in to customer relationships vs. RIVR retains",
+         "Recommend Lumbee Tribe reversionary right tied to Tribal Assets",
          "Business + Counsel", "Open",
          "Master (02.01); Transition (02.07); Privacy (02.06)", C.PH("date")),
     ]
@@ -945,11 +945,11 @@ def build_negotiation_risk_matrix():
          "200.307; document in financial schedule.",
          "Grant counsel + Finance"),
         ("Impermissible private benefit", "Grant", 2, 5,
-         "Fair, benchmarked, documented consideration to Tribe; public-purpose "
+         "Fair, benchmarked, documented consideration to Lumbee Tribe; public-purpose "
          "protections; reversion; arm's-length terms.",
          "Grant counsel + Finance"),
         ("Operator default / step-in event", "Operational / Legal", 2, 5,
-         "Clear default/cure; Tribe emergency step-in; replacement-operator plan; "
+         "Clear default/cure; Lumbee Tribe emergency step-in; replacement-operator plan; "
          "escrow of records/credentials.",
          "Tribal counsel + RIVR"),
         ("Asset encumbrance conflict with federal interest", "Grant / Legal", 3, 4,
@@ -1091,7 +1091,7 @@ def build_grant_compliance_checklist():
     wb = Workbook()
     C.xl_instructions(wb, [
         "## Grant Compliance Checklist",
-        "Tracks the TBCP / 2 CFR Part 200 compliance obligations for the Tribe as "
+        "Tracks the TBCP / 2 CFR Part 200 compliance obligations for the Lumbee Tribe as "
         "Recipient (with RIVR Tech flow-downs). Status column has a dropdown: "
         "Not Started / In Progress / Complete.",
         "• Assign a Responsible owner and record Evidence / Doc Ref for each item.",
@@ -1125,13 +1125,13 @@ def build_grant_compliance_checklist():
          C.PH("supplier certifications / domestic content"), "Waiver if needed"),
         ("Procurement standards compliance",
          Cx["procurement"] + "; " + Cx["competition"] + "; " + Cx["methods"],
-         "Tribe procurement + Grant counsel", "Not Started",
+         "Lumbee Tribe procurement + Grant counsel", "Not Started",
          C.PH("procurement file / sole-source justification"), "Document RIVR selection"),
         ("Domestic preference for procurements",
-         Cx["domestic"], "Tribe procurement", "Not Started",
+         Cx["domestic"], "Lumbee Tribe procurement", "Not Started",
          C.PH("domestic-preference documentation"), ""),
         ("Property records & inventory",
-         Cx["equipment"] + "; " + Cx["intangible"], "Tribe + RIVR", "Not Started",
+         Cx["equipment"] + "; " + Cx["intangible"], "Lumbee Tribe + RIVR", "Not Started",
          C.PH("asset register / inventory"), "Physical inventory cadence"),
         ("Real property use / encumbrance controls",
          Cx["real_property"] + "; " + Cx["trust"], "Grant + Tribal counsel", "Not Started",
@@ -1140,13 +1140,13 @@ def build_grant_compliance_checklist():
          Cx["prog_income"], "Grant counsel + Finance", "Not Started",
          C.PH("program-income method + ledger"), "Confirm method with NTIA"),
         ("Single audit / audit requirements",
-         Cx["single_audit"], "Tribe Finance + auditor", "Not Started",
+         Cx["single_audit"], "Lumbee Tribe Finance + auditor", "Not Started",
          C.PH("single-audit engagement"), "Threshold $1,000,000"),
         ("Record retention & access",
-         Cx["records"], "Tribe + RIVR", "Not Started",
+         Cx["records"], "Lumbee Tribe + RIVR", "Not Started",
          C.PH("records-retention policy"), "3 years from final report"),
         ("Reporting cadence (performance & financial)",
-         Cx["sac"], "Tribe + RIVR", "Not Started",
+         Cx["sac"], "Lumbee Tribe + RIVR", "Not Started",
          C.PH("reporting calendar"), "Per Specific Award Conditions"),
         ("Affordability / 100-20 service commitment",
          Cx["nofo"] + "; " + Cx["usac_lifeline"], "RIVR + Business", "Not Started",
@@ -1155,10 +1155,10 @@ def build_grant_compliance_checklist():
          Cx["real_property"] + "; " + Cx["closeout"], "Grant counsel", "Not Started",
          C.PH("disposition plan"), "Federal interest persists"),
         ("Conflict of interest policy",
-         Cx["conflict"], "Tribe + RIVR", "Not Started",
+         Cx["conflict"], "Lumbee Tribe + RIVR", "Not Started",
          C.PH("COI policy + disclosures"), "Mandatory disclosures 200.113"),
         ("Debarment / suspension screening",
-         Cx["debarment"], "Tribe procurement", "Not Started",
+         Cx["debarment"], "Lumbee Tribe procurement", "Not Started",
          C.PH("SAM.gov exclusion checks"), "Screen all subcontractors"),
         ("§889 covered-telecom equipment ban",
          Cx["telecom_ban"], "RIVR", "Not Started",
@@ -1167,7 +1167,7 @@ def build_grant_compliance_checklist():
          Cx["pass_through"] + "; " + Cx["subrecipient"], "Grant counsel + RIVR", "Not Started",
          C.PH("flow-down clause library"), "Contractor vs subrecipient analysis"),
         ("Closeout & post-closeout obligations",
-         Cx["closeout"], "Tribe + Grant counsel", "Not Started",
+         Cx["closeout"], "Lumbee Tribe + Grant counsel", "Not Started",
          C.PH("closeout package"), "Continuing responsibilities"),
         ("Remedies for noncompliance / termination readiness",
          Cx["remedies"], "Grant counsel", "Not Started",
@@ -1215,9 +1215,9 @@ def build_closing_checklist():
         ("TBCP eligibility confirmation obtained", "Threshold / Grant",
          "Tribal + Grant counsel", "Not Started", C.PH("NTIA letter"), "Gating"),
         ("TBCP award accepted / award documents signed", "Grant",
-         "Tribe", "Not Started", C.PH("signed award"), "If awarded"),
+         "Lumbee Tribe", "Not Started", C.PH("signed award"), "If awarded"),
         ("Lumbee Tribal Council resolution adopted", "Authorization",
-         "Tribe", "Not Started", "05.01", "This package"),
+         "Lumbee Tribe", "Not Started", "05.01", "This package"),
         ("RIVR Tech corporate authorization executed", "Authorization",
          "RIVR", "Not Started", "05.02", "This package"),
         ("Certificates of authority / incumbency (both)", "Authorization",
@@ -1302,7 +1302,7 @@ def build_due_diligence_request_list():
     C.spacer(doc, 1)
     C.flag_para(
         doc, C.FLAG_GRANT,
-        "Priority item: Tribe to provide documentation bearing on federal-"
+        "Priority item: Lumbee Tribe to provide documentation bearing on federal-"
         "recognition / TBCP eligibility (Lead item on the Attorney Review Issue "
         "List).",
     )
@@ -1321,7 +1321,7 @@ def build_due_diligence_request_list():
         )
         C.spacer(doc, 1)
 
-    # ---- TRIBE ------------------------------------------------------------
+    # ---- LUMBEE TRIBE ------------------------------------------------------------
     plain_bold(doc, f"PART A — REQUESTED FROM {C.TRIBE_FULL.upper()}",
                size=13, color=C.NAVY)
     C.spacer(doc, 1)

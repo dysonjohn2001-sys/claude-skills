@@ -70,7 +70,7 @@ Stable published citations (confirm text at https://www.ecfr.gov/current/title-2
 
 ## 5. Tribal-sovereignty and Lumbee-specific considerations
 
-- **Lumbee Act of 1956**, Pub. L. 84-570, 70 Stat. 254 — recognized the Lumbee as Indians but has historically been read to **withhold full federal benefits/services**; the Tribe's status as a **federally recognized "Tribal Government" is the threshold eligibility question for TBCP** and is treated in this package as an **open item for grant counsel and Tribal counsel** (see the Attorney Review Issue List and Grant Compliance Addendum). *Do not assume eligibility is settled.*
+- **Lumbee Act of 1956**, Pub. L. 84-570, 70 Stat. 254 — recognized the Lumbee as Indians but has historically been read to **withhold full federal benefits/services**; the Lumbee Tribe's status as a **federally recognized "Tribal Government" is the threshold eligibility question for TBCP** and is treated in this package as an **open item for grant counsel and Tribal counsel** (see the Attorney Review Issue List and Grant Compliance Addendum). *Do not assume eligibility is settled.*
 - General principles of **tribal sovereign immunity**, **sovereign-immunity waivers** (limited/express), **exhaustion of tribal remedies**, and tribal-court jurisdiction — presented in the agreements as **bracketed alternatives for counsel**, never silently selected.
 
 ## 6. Structural reference agreements (used for STRUCTURE ONLY — not copied)
@@ -79,7 +79,7 @@ Per the drafting instructions, the following were reviewed for structural/organi
 
 | Reference | URL | Use |
 |---|---|---|
-| CPUC Digital 299 Resolution — Vero Fiber IRUs to nine Tribes | https://docs.cpuc.ca.gov/PublishedDocs/Published/G000/M499/K657/499657713.pdf | Structural model for Tribe-facing IRUs and reserved capacity. |
+| CPUC Digital 299 Resolution — Vero Fiber IRUs to nine Tribes | https://docs.cpuc.ca.gov/PublishedDocs/Published/G000/M499/K657/499657713.pdf | Structural model for Lumbee Tribe-facing IRUs and reserved capacity. |
 | TDS Broadband / Town of Davidson Fiber Optic Agreement & Grant of IRU | https://www.townofdavidson.org/DocumentCenter/View/9774/Continuum---IRU-Agreement-Davidson | Structural model for municipal-style IRU grant, demarcation, and O&M. |
 
 ---

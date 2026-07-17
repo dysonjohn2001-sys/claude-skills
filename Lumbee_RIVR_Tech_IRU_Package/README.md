@@ -15,11 +15,11 @@
 
 This package structures a public–private broadband partnership in which:
 
-- **The Tribe** — *Lumbee Tribe of North Carolina* (or a designated Tribal entity) —
+- **The Lumbee Tribe** — *Lumbee Tribe of North Carolina* (or a designated Tribal entity) —
   applies for and holds a **Tribal Broadband Connectivity Program (TBCP) Round 3**
   award from **NTIA**, and **owns** all grant-funded broadband infrastructure
-  (the *Tribal Assets*). Title stays with the Tribe.
-- **RIVR Tech** — *LREMC Technologies, LLC d/b/a RIVR Tech* — is the Tribe's
+  (the *Tribal Assets*). Title stays with the Lumbee Tribe.
+- **RIVR Tech** — *LREMC Technologies, LLC d/b/a RIVR Tech* — is the Lumbee Tribe's
   **development and operating partner**: it designs, engineers, constructs,
   activates, operates, and maintains the network and sells residential, business,
   enterprise, and voice services over it.
@@ -37,7 +37,7 @@ This package structures a public–private broadband partnership in which:
 Service territory: **southeastern North Carolina** (exact area to be finalized).
 
 ### ⚠️ Threshold issue — read first
-The Tribe's **federal-recognition status** (Lumbee Act of 1956) directly affects
+The Lumbee Tribe's **federal-recognition status** (Lumbee Act of 1956) directly affects
 whether it qualifies as a **"Tribal Government"** eligible for TBCP. This package
 **does not assume** eligibility is settled — it is flagged throughout as
 `[GRANT COMPLIANCE REVIEW REQUIRED]` + `[ATTORNEY REVIEW REQUIRED]` and is the
@@ -68,7 +68,7 @@ Diligence list. Confirm eligibility before incurring proposal costs.
 | File | Purpose |
 |---|---|
 | `Exhibit_A_Project_Area_and_Route_Schedule.docx` | Service territory + route schedule (to be populated with GIS/route data). |
-| `Exhibit_B_Asset_Ownership_and_Demarcation_Matrix.xlsx` | Which assets the Tribe owns (federal interest) vs. RIVR Tech, and where they demarcate. |
+| `Exhibit_B_Asset_Ownership_and_Demarcation_Matrix.xlsx` | Which assets the Lumbee Tribe owns (federal interest) vs. RIVR Tech, and where they demarcate. |
 | `Exhibit_C_Fiber_Allocation_and_Reserved_Capacity.xlsx` | Strand allocation incl. **reserved Tribal / anchor-institution** strands; ties-out check. |
 | `Exhibit_D_Construction_Milestones.xlsx` | Buildout schedule with the **no-construction-before-environmental-clearance** gate. |
 | `Exhibit_E_Acceptance_Testing_Standards.docx` | Bi-directional OTDR @1310/1550 nm, splice/connector loss limits, span-loss, punch-list, as-built/GIS delivery. |
@@ -78,7 +78,7 @@ Diligence list. Confirm eligibility before incurring proposal costs.
 | `Exhibit_I_Insurance_Requirements.docx` | Coverage/limits schedule (CGL, auto, umbrella, WC, tech E&O, cyber, builders risk, pollution). |
 | `Exhibit_J_Monthly_Performance_Report.xlsx` | SLA target-vs-actual reporting template with pass/fail checks. |
 | `Exhibit_K_Grant_Asset_Inventory.xlsx` | Property records per **2 CFR 200.313(d)** (the required fields). |
-| `Exhibit_L_Responsibility_RACI_Matrix.xlsx` | RACI across Tribe / RIVR Tech / Grant Counsel / NTIA with validation. |
+| `Exhibit_L_Responsibility_RACI_Matrix.xlsx` | RACI across Lumbee Tribe / RIVR Tech / Grant Counsel / NTIA with validation. |
 | `Exhibit_M_Service_Area_and_Pricing_Schedule.xlsx` | Service tiers & pricing incl. the **100/20 low-cost/affordable** tier. |
 | `Exhibit_N_Form_of_Asset_Addition_Certificate.docx` | Form to add new assets to the inventory & IRU. |
 | `Exhibit_O_Form_of_IRU_Route_Order.docx` | Form to place a specific route under the IRU. |
@@ -138,8 +138,8 @@ Diligence list. Confirm eligibility before incurring proposal costs.
 
 - TBCP **Round 3** (opened June 17, 2026; applications due Sept 17, 2026; ~$540M;
   **no match required**; 100/20 Mbps service floor). Confirm against the live NOFO.
-- The Tribe is (or will be) an **eligible Tribal Government** — **unconfirmed; see threshold issue.**
-- The Tribe **owns** grant-funded assets; RIVR Tech operates under an **IRU**, not title.
+- The Lumbee Tribe is (or will be) an **eligible Tribal Government** — **unconfirmed; see threshold issue.**
+- The Lumbee Tribe **owns** grant-funded assets; RIVR Tech operates under an **IRU**, not title.
 - RIVR Tech is preliminarily treated as a **contractor/vendor** (not a subrecipient)
   under 2 CFR 200.331 — **subject to grant-counsel confirmation.**
 - 2024 Uniform Guidance thresholds apply ($10,000 equipment/disposition; $1,000,000 single audit).

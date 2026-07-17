@@ -31,7 +31,7 @@ def build_iru():
         "DOCUMENT 02.02 — INDEFEASIBLE RIGHT OF USE AGREEMENT",
         "Indefeasible Right of Use Agreement",
         "Grant of a bare contractual right of use in Tribally owned, "
-        "grant-funded broadband infrastructure — title retained by the Tribe",
+        "grant-funded broadband infrastructure — title retained by the Lumbee Tribe",
     )
     C.setup_header_footer(doc, "IRU Agreement (Doc 02.02)")
     C.add_toc(doc)
@@ -56,7 +56,7 @@ def build_iru():
         doc, C.FLAG_ATTORNEY,
         "Confirm the exact contracting Tribal party. If a wholly owned Tribal "
         "entity or Tribally chartered instrumentality is designated as IRU "
-        "Grantor in lieu of the Tribe itself, conform the preamble, signature "
+        "Grantor in lieu of the Lumbee Tribe itself, conform the preamble, signature "
         "block, and Exhibit A ownership recitals accordingly, and confirm that "
         "the designated entity holds record title to the Tribal Assets.",
     )
@@ -67,7 +67,7 @@ def build_iru():
         "historically been read to limit access to certain federal Indian "
         "programs. TBCP eligibility, the identity of the eligible entity, and "
         "the ability to hold the Award and the grant-funded assets in the "
-        f"Tribe's name must be confirmed with {C.AGENCY_SHORT} before execution. "
+        f"Lumbee Tribe's name must be confirmed with {C.AGENCY_SHORT} before execution. "
         "See " + C.CITES["lumbee_act"] + ".",
     )
 
@@ -133,10 +133,10 @@ def build_iru():
                   "capacity in the Tribal Assets in which the right of use is granted, "
                   "as allocated in Exhibit C, exclusive of the Reserved Tribal Capacity."),
         ("Reserved Tribal Capacity", "the fiber strands, wavelengths, and related "
-                  "capacity reserved to the Tribe under Article 8, dedicated to Tribal "
+                  "capacity reserved to the Lumbee Tribe under Article 8, dedicated to Tribal "
                   "government, public safety, and anchor-institution use."),
         ("Tribal Assets", "the grant-funded broadband infrastructure owned by the "
-                  "Tribe and identified in the Exhibits, together with all associated "
+                  "Lumbee Tribe and identified in the Exhibits, together with all associated "
                   "Federal Interest, as further described in Section 4.2."),
         ("Essential Services", "911/E-911, public-safety, Tribal-government, and "
                   "anchor-institution connectivity, and any service designated as "
@@ -164,7 +164,7 @@ def build_iru():
               f"Subject to the terms of this Agreement and the Award, the {C.TRIBE_SHORT}, "
               f"as IRU Grantor, hereby grants to {C.OPERATOR_SHORT}, as IRU Grantee, an "
               f"exclusive (as to third parties, but subject to the Reserved Tribal "
-              f"Capacity and the Tribe's retained rights) indefeasible right to use the "
+              f"Capacity and the Lumbee Tribe's retained rights) indefeasible right to use the "
               f"IRU Capacity in the {C.TRIBAL_ASSETS} for the Permitted Uses during the "
               f"Term. The {C.IRU_TERM_DEFINED} granted hereunder is a right of use only.")
     C.section(doc, "3.2", "Nature of the Right",
@@ -173,9 +173,9 @@ def build_iru():
               "possessory estate in favor of RIVR Tech, and does not convey any right, "
               "title, or ownership interest in the Tribal Assets, the underlying real "
               "property, or any easement or access right, all of which are and remain "
-              "vested in the Tribe.")
+              "vested in the Lumbee Tribe.")
 
-    C.section(doc, "3.3", "TITLE DOES NOT TRANSFER; Tribe Retains Ownership")
+    C.section(doc, "3.3", "TITLE DOES NOT TRANSFER; Lumbee Tribe Retains Ownership")
     C.para(doc, "NOTWITHSTANDING ANYTHING TO THE CONTRARY IN THIS AGREEMENT: legal and "
                 "equitable title to, and fee ownership of, the Tribal Assets is retained "
                 f"at all times by the {C.TRIBE_SHORT} and does NOT transfer to "
@@ -241,13 +241,13 @@ def build_iru():
         "fiber huts, equipment shelters, cabinets, and pedestals;",
         "fiber-distribution and termination panels (patch panels / FDH / OTB);",
         "easement, license, pole-attachment, and access rights appurtenant to the "
-        "foregoing (as record rights of the Tribe, licensed for access under Article 9); and",
+        "foregoing (as record rights of the Lumbee Tribe, licensed for access under Article 9); and",
         "all related passive infrastructure, grounding, and support structures.",
     ]:
         C.bullet(doc, item)
     C.section(doc, "4.3", "Demarcation Points",
               f"Each {C.DEMARCATION} is fixed in Exhibit B and marks the boundary "
-              f"between the {C.TRIBAL_ASSETS} (Tribe-owned) and the {C.OPERATOR_EXISTING} "
+              f"between the {C.TRIBAL_ASSETS} (Lumbee Tribe-owned) and the {C.OPERATOR_EXISTING} "
               f"(RIVR Tech-owned). On the Tribal-Asset side of each {C.DEMARCATION}, the "
               f"assets are Tribal Assets subject to this Agreement and the Federal "
               f"Interest; on the RIVR Tech side, the assets are {C.OPERATOR_ASSETS} "
@@ -289,7 +289,7 @@ def build_iru():
             ["Alt. 3", f"{terms[2]} years",
              C.DEAL["iru_renewal"],
              "Matches fiber useful life; strongest investment certainty for the "
-             "operator; longest capacity commitment by the Tribe.",
+             "operator; longest capacity commitment by the Lumbee Tribe.",
              "RECOMMENDED"],
         ],
         widths=[0.8, 0.9, 1.6, 2.2, 1.0], font_size=9,
@@ -321,9 +321,9 @@ def build_iru():
               f"{C.AGENCY_SHORT} approval required for the grant of this IRU; and (d) "
               "delivery of the insurance certificates required by Article 15.")
     C.section(doc, "6.2", "Delivery",
-              "The Tribe shall make the IRU Capacity available at the Demarcation Points "
+              "The Lumbee Tribe shall make the IRU Capacity available at the Demarcation Points "
               "described in Exhibit B. Delivery of a segment does not transfer title and "
-              "does not relieve the Tribe of its ownership obligations under the Award.")
+              "does not relieve the Lumbee Tribe of its ownership obligations under the Award.")
     C.section(doc, "6.3", "Acceptance Testing")
     C.para(doc, "Acceptance testing shall be performed in accordance with Exhibit E / "
                 "Exhibit G and the following optical acceptance standards, which are the "
@@ -392,7 +392,7 @@ def build_iru():
               "Services carried on the Reserved Tribal Capacity receive Priority 1 "
               "handling under Document 02.03.")
     C.section(doc, "8.3", "Tribal Anchor Institutions",
-              "The Tribe may use the Reserved Tribal Capacity to connect Tribal "
+              "The Lumbee Tribe may use the Reserved Tribal Capacity to connect Tribal "
               "government facilities, public-safety answering points, schools, health "
               "facilities, libraries, and other anchor institutions "
               + C.PH("list of anchor institutions and connection points") + ".")
@@ -413,9 +413,9 @@ def build_iru():
               f"The {C.TRIBE_SHORT} grants {C.OPERATOR_SHORT} a license (not an easement "
               f"in gross) to access the {C.TRIBAL_ASSETS} and the associated rights-of-way "
               f"for operation, maintenance, and restoration, in accordance with the "
-              f"Tribe's access, safety, and cultural-resource protocols and with "
+              f"Lumbee Tribe's access, safety, and cultural-resource protocols and with "
               f"applicable easement and pole-attachment agreements (including "
-              + C.CITES["nc_pole"] + "). The Tribe retains all record easement and "
+              + C.CITES["nc_pole"] + "). The Lumbee Tribe retains all record easement and "
               "access rights.")
 
     # ---------------- ARTICLE 10 — MAINTENANCE ---------------------------
@@ -423,7 +423,7 @@ def build_iru():
     C.section(doc, "10.1", "Splicing Procedures",
               "All splicing on the Tribal Assets shall meet the optical acceptance "
               "standards in Section 6.3 (fusion-splice loss " + C.OPTICAL["splice_loss_max"]
-              + "), be documented in splice records provided to the Tribe, and be "
+              + "), be documented in splice records provided to the Lumbee Tribe, and be "
               "performed so as not to disturb the Reserved Tribal Capacity or Essential "
               "Services.")
     C.section(doc, "10.2", "Maintenance",
@@ -491,7 +491,7 @@ def build_iru():
     C.section(doc, "13.1", "IRU Consideration",
               f"In consideration of the grant of the IRU, RIVR Tech shall pay "
               f"{C.DEAL['iru_prepaid_consideration']}. The prepaid/nominal structure "
-              f"reflects that the substantial consideration to the Tribe is delivered "
+              f"reflects that the substantial consideration to the Lumbee Tribe is delivered "
               f"through the operating, maintenance, and revenue-sharing obligations and "
               f"the Reserved Tribal Capacity.")
     C.section(doc, "13.2", "Annual Maintenance Payments",
@@ -555,7 +555,7 @@ def build_iru():
               f"lien may attach to the {C.FEDERAL_INTEREST}.")
     C.section(doc, "15.2", "Taxes",
               "RIVR Tech is responsible for taxes attributable to its use and operations. "
-              "The Parties acknowledge the Tribe's sovereign status and any applicable "
+              "The Parties acknowledge the Lumbee Tribe's sovereign status and any applicable "
               "exemptions; allocation of ad valorem and possessory-interest taxes, if "
               "any, is " + C.PH("tax allocation — to be confirmed with tax counsel") + ".")
     C.section(doc, "15.3", "Insurance")
@@ -596,23 +596,23 @@ def build_iru():
               f"Essential Services; or (d) suffers an insolvency event.")
     C.section(doc, "16.2", "Remedies",
               "Upon an uncured Event of Default, the non-defaulting Party may pursue all "
-              "remedies at law or in equity, subject to Article 20 and to the Tribe's "
+              "remedies at law or in equity, subject to Article 20 and to the Lumbee Tribe's "
               "step-in and successor-operator rights under Document 02.07. Award-related "
               "remedies for noncompliance are governed by " + C.CITES["remedies"] + ".")
     C.section(doc, "16.3", "Abandonment; Continuity of Essential Services",
               "RIVR Tech shall not abandon the Network or discontinue Essential Services. "
-              "Upon threatened abandonment or chronic failure, the Tribe may exercise "
+              "Upon threatened abandonment or chronic failure, the Lumbee Tribe may exercise "
               "step-in rights (" + C.DEAL["stepin_emergency"] + ") and transition to a "
               "successor operator under Document 02.07.")
     C.section(doc, "16.4", "Expiration and Transition",
               f"Upon expiration or termination, the IRU terminates, all rights of use "
-              f"revert to the {C.TRIBE_SHORT} (title having never left the Tribe), and "
+              f"revert to the {C.TRIBE_SHORT} (title having never left the Lumbee Tribe), and "
               f"RIVR Tech shall cooperate in an orderly transition over up to "
               f"{C.DEAL['transition_assistance_months']} months as provided in Document "
               f"02.07, including delivery of records, keys, credentials, and as-builts, "
               f"and continuity of Essential Services.")
     C.section(doc, "16.5", "Successor Operator",
-              "The Tribe may designate a successor operator to assume operation of the "
+              "The Lumbee Tribe may designate a successor operator to assume operation of the "
               "Network; RIVR Tech shall provide reasonable transition assistance and "
               "shall not impair the successor's ability to operate the Tribal Assets.")
 
@@ -628,7 +628,7 @@ def build_iru():
               f"from its negligence, willful misconduct, or breach, subject to the "
               f"limitations herein. {C.OPERATOR_SHORT} shall indemnify the "
               f"{C.TRIBE_SHORT} against liens, encumbrances, and Federal-Interest "
-              f"impairments arising from RIVR Tech's acts. Indemnity by the Tribe, if "
+              f"impairments arising from RIVR Tech's acts. Indemnity by the Lumbee Tribe, if "
               f"any, is subject to and does not exceed any limited immunity waiver in "
               f"Article 18. " + C.PH("mutual vs. one-way indemnity scope to be confirmed"))
     C.section(doc, "17.3", "Limitation of Liability",
@@ -642,7 +642,7 @@ def build_iru():
     C.section(doc, "18.1", "Sovereign Immunity; Dispute Resolution")
     C.para(doc, f"The {C.TRIBE_SHORT} is a sovereign and possesses sovereign immunity. "
                 f"Any waiver of sovereign immunity is limited, express, and must be "
-                f"specifically approved by the Tribe's governing body. The Parties have "
+                f"specifically approved by the Lumbee Tribe's governing body. The Parties have "
                 f"NOT pre-selected a waiver scope or dispute forum; the following "
                 f"alternatives are presented for negotiation and legal review:")
     C.subsection(doc, "Alt. 1",
@@ -660,7 +660,7 @@ def build_iru():
                  "for defined claims, with immunity otherwise fully retained.")
     C.flag_para(doc, C.FLAG_ATTORNEY,
                 "Sovereign-immunity waiver scope and dispute forum are reserved for the "
-                "Tribe's governing body and counsel. Do NOT adopt any alternative "
+                "Lumbee Tribe's governing body and counsel. Do NOT adopt any alternative "
                 "without express Tribal authorization. Any waiver must exclude the "
                 "Tribal Assets and the Federal Interest from execution/attachment.")
     C.section(doc, "18.2", "Governing Law")
@@ -753,7 +753,7 @@ def build_sla():
               f"{C.NETWORK} to the standards in this O&M/SLA. Responsibility follows the "
               f"{C.DEMARCATION}: RIVR Tech is responsible for both the {C.OPERATOR_EXISTING} "
               f"and, under this O&M/SLA, for operating and maintaining the {C.TRIBAL_ASSETS} "
-              f"on the Tribe's behalf, without acquiring title (see Document 02.02, "
+              f"on the Lumbee Tribe's behalf, without acquiring title (see Document 02.02, "
               f"Article 3.3).")
     C.section(doc, "1.2", "Priority Definitions",
               "Trouble is classified Priority 1 (P1) through Priority 4 (P4) per the "
@@ -781,9 +781,9 @@ def build_sla():
               "alarms shall generate an automatic ticket within "
               + C.PH("auto-ticket interval, e.g., five (5) minutes") + ".")
     C.section(doc, "2.3", "Trouble Reporting",
-              "RIVR Tech shall provide the Tribe a 24/7 trouble-reporting method "
+              "RIVR Tech shall provide the Lumbee Tribe a 24/7 trouble-reporting method "
               "(toll-free number, email/portal, and escalation contacts per Exhibit H). "
-              "The Tribe, anchor institutions, and end users may report trouble; each "
+              "The Lumbee Tribe, anchor institutions, and end users may report trouble; each "
               "report receives a ticket number and initial classification.")
 
     # ---------------- ARTICLE 3 — SEVERITY MATRIX ------------------------
@@ -803,7 +803,7 @@ def build_sla():
              f"{S['P1_response_min']} min",
              f"{S['P1_dispatch_hr']} hr",
              f"{S['P1_restore_hr']} hr",
-             "Immediate notice to Tribe; hourly updates; auto-escalate to management "
+             "Immediate notice to Lumbee Tribe; hourly updates; auto-escalate to management "
              "per Exhibit H."],
             ["P2 — Major",
              "Partial outage or degraded service affecting multiple customers; loss of "
@@ -811,7 +811,7 @@ def build_sla():
              f"{S['P2_response_min']} min",
              f"{S['P2_dispatch_hr']} hr",
              f"{S['P2_restore_hr']} hr",
-             "Notice to Tribe within response window; updates every "
+             "Notice to Lumbee Tribe within response window; updates every "
              + C.PH("P2 update interval, e.g., 4 hr") + "; escalate if restoration at risk."],
             ["P3 — Minor",
              "Single-customer outage or intermittent/degraded performance; non-critical "
@@ -862,14 +862,14 @@ def build_sla():
               + " of service-affecting time, excluded from availability calculations only "
               "if properly noticed.")
     C.section(doc, "5.2", "Advance Notice",
-              "RIVR Tech shall provide the Tribe and affected customers at least "
+              "RIVR Tech shall provide the Lumbee Tribe and affected customers at least "
               + C.PH("planned-maintenance notice, e.g., ten (10) business days")
               + " advance notice of planned service-affecting maintenance, and as much "
               "notice as practicable for urgent maintenance.")
     C.section(doc, "5.3", "Customer Notifications",
               "RIVR Tech shall notify affected end users of outages and restoration "
               "status through " + C.PH("notification channels — SMS/email/IVR/portal")
-              + ", and shall provide the Tribe outage summaries for Essential-Services "
+              + ", and shall provide the Lumbee Tribe outage summaries for Essential-Services "
               "sites in real time.")
 
     # ---------------- ARTICLE 6 — LOCATES / DAMAGE PREVENTION ------------
@@ -929,7 +929,7 @@ def build_sla():
               "RIVR Tech shall maintain a cybersecurity program and incident-response "
               "plan consistent with Document 02.06 (Cybersecurity), including "
               "detection, containment, notification, and remediation, and shall notify "
-              "the Tribe of reportable incidents within "
+              "the Lumbee Tribe of reportable incidents within "
               + C.PH("cyber-incident notice window, e.g., 24 hours") + ".")
     C.section(doc, "9.2", "Disaster Recovery",
               "RIVR Tech shall maintain disaster-recovery and business-continuity plans "
@@ -976,12 +976,12 @@ def build_sla():
               f"RIVR Tech shall operate the {C.NETWORK} in compliance with all "
               f"applicable FCC and {C.AGENCY_SHORT} performance, service, and reporting "
               f"requirements, including the Award's service milestones and speed/latency "
-              f"conditions, and shall support the Tribe's Award reporting obligations "
+              f"conditions, and shall support the Lumbee Tribe's Award reporting obligations "
               f"under {C.CITES['ug_part']}.")
     C.section(doc, "11.2", "Data for Award Reporting",
               "RIVR Tech shall provide the performance, availability, subscriber, and "
-              "buildout data the Tribe needs for TBCP and FCC reporting, including "
-              "location-level service data, in the formats and on the schedule the Tribe "
+              "buildout data the Lumbee Tribe needs for TBCP and FCC reporting, including "
+              "location-level service data, in the formats and on the schedule the Lumbee Tribe "
               "reasonably requires.")
 
     # ---------------- ARTICLE 12 — REPORTING -----------------------------
@@ -997,7 +997,7 @@ def build_sla():
               "Annually, RIVR Tech shall deliver a consolidated report including trend "
               "analysis, chronic-problem review, capital/electronics refresh status, "
               "cybersecurity/DR test results, and a forward maintenance plan, supporting "
-              "the Tribe's Award and performance reporting.")
+              "the Lumbee Tribe's Award and performance reporting.")
     C.flag_para(doc, C.FLAG_TECH,
                 "Attach Exhibit J (Reporting Templates) defining exact monthly/annual "
                 "report fields and delivery format.")
@@ -1005,7 +1005,7 @@ def build_sla():
     # ---------------- ARTICLE 13 — SERVICE CREDITS -----------------------
     C.article(doc, 13, "Service Credits, Corrective Action, and Chronic Failure")
     C.section(doc, "13.1", "Service Credits")
-    C.para(doc, "Failure to meet the committed standards entitles the Tribe to service "
+    C.para(doc, "Failure to meet the committed standards entitles the Lumbee Tribe to service "
                 "credits against amounts otherwise payable to RIVR Tech (or, where no "
                 "such amounts exist, to the credit accrual mechanism in Document 02.04), "
                 "on the following schedule. Credits are a remedy for performance misses "
@@ -1046,7 +1046,7 @@ def build_sla():
               "Chronic failure (e.g., " + C.PH("chronic threshold, e.g., 3 P1 misses in "
               "6 months or repeated availability shortfalls") + ") is a material "
               "performance default that triggers enhanced credits, mandatory corrective "
-              "action, and the Tribe's step-in and successor-operator rights.")
+              "action, and the Lumbee Tribe's step-in and successor-operator rights.")
     C.section(doc, "13.4", "Tribal Step-In Rights",
               f"Upon chronic failure, threatened abandonment, or an uncured "
               f"Essential-Services default, the {C.TRIBE_SHORT} may exercise step-in "
@@ -1064,8 +1064,8 @@ def build_sla():
     C.section(doc, "14.2", "Third-Party Damage Recovery",
               "RIVR Tech shall pursue recovery from third parties responsible for damage "
               "to the Network (e.g., dig-ins, vehicle strikes), documenting costs and "
-              "coordinating with the Tribe. Recoveries relating to Tribal Assets are "
-              "applied first to restoration and to make the Tribe whole; the Federal "
+              "coordinating with the Lumbee Tribe. Recoveries relating to Tribal Assets are "
+              "applied first to restoration and to make the Lumbee Tribe whole; the Federal "
               "Interest attaches to recoveries relating to Tribal Assets.")
     C.section(doc, "14.3", "Responsibility for Uninsured Costs",
               "Allocation of restoration costs not covered by insurance or third-party "

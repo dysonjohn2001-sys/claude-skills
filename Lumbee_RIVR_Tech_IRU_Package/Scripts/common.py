@@ -47,9 +47,9 @@ CONFIDENTIAL = "CONFIDENTIAL – ATTORNEY WORK PRODUCT / SUBJECT TO COMMON-INTER
 
 # Parties -------------------------------------------------------------------
 TRIBE_FULL = "Lumbee Tribe of North Carolina"
-TRIBE_SHORT = "Tribe"
-TRIBE_ENTITY_ALT = "a wholly owned Tribal entity or Tribally chartered instrumentality designated by the Tribe"
-TRIBE_DEFINED = '"Tribe"'          # how it is introduced parenthetically
+TRIBE_SHORT = "Lumbee Tribe"       # defined short-form term for the Tribal party
+TRIBE_ENTITY_ALT = "a wholly owned Tribal entity or Tribally chartered instrumentality designated by the Lumbee Tribe"
+TRIBE_DEFINED = '"Lumbee Tribe"'   # how it is introduced parenthetically
 
 OPERATOR_FULL = "LREMC Technologies, LLC d/b/a RIVR Tech"
 OPERATOR_SHORT = "RIVR Tech"

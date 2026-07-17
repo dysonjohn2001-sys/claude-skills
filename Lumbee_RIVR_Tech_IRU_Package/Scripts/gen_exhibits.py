@@ -101,11 +101,11 @@ def exhibit_A():
                "Fiber count", "Ownership", "Status"]
     rows = [
         [C.PH("R-001"), C.PH("segment endpoints"), C.PH("mi"), C.PH("ct"),
-         C.PH("Tribe / RIVR Tech / Joint"), C.PH("planned/in-progress/complete")],
+         C.PH("Lumbee Tribe / RIVR Tech / Joint"), C.PH("planned/in-progress/complete")],
         [C.PH("R-002"), C.PH("segment endpoints"), C.PH("mi"), C.PH("ct"),
-         C.PH("Tribe / RIVR Tech / Joint"), C.PH("status")],
+         C.PH("Lumbee Tribe / RIVR Tech / Joint"), C.PH("status")],
         [C.PH("R-003"), C.PH("segment endpoints"), C.PH("mi"), C.PH("ct"),
-         C.PH("Tribe / RIVR Tech / Joint"), C.PH("status")],
+         C.PH("Lumbee Tribe / RIVR Tech / Joint"), C.PH("status")],
         [C.PH("MM-001 (middle-mile)"), C.PH("existing backbone segment"), C.PH("mi"),
          C.PH("ct"), C.OPERATOR_SHORT, C.PH("in service")],
     ]
@@ -143,7 +143,7 @@ def exhibit_B():
         "",
         "## How to use",
         "• AMBER cells are inputs — replace each [■ ...] placeholder with confirmed data.",
-        "• Grant-funded Tribal Assets are owned by the Tribe and carry a Federal Interest "
+        "• Grant-funded Tribal Assets are owned by the Lumbee Tribe and carry a Federal Interest "
         "(YES) under 2 CFR 200.313 and the property-trust relationship of 2 CFR 200.316.",
         "• RIVR Tech Existing Network (middle-mile backbone, core electronics) is owned by "
         "RIVR Tech and carries NO federal interest.",
@@ -164,13 +164,13 @@ def exhibit_B():
     C.xl_title(ws, "EXHIBIT B — ASSET OWNERSHIP AND DEMARCATION MATRIX",
                subtitle=f"{C.TRIBE_FULL} and {C.OPERATOR_FULL}", span=8)
     headers = ["Asset Category", "Description", "Funding Source",
-               "Owner (Tribe/RIVR Tech/Joint)", "Federal Interest (Y/N)",
+               "Owner (Lumbee Tribe/RIVR Tech/Joint)", "Federal Interest (Y/N)",
                "Demarcation Point", "Location Ref", "Notes"]
     hrow = 5
     C.xl_header_row(ws, hrow, headers)
     _widths(ws, [22, 34, 22, 18, 14, 30, 16, 34])
 
-    T = "Tribe"; O = C.OPERATOR_SHORT
+    T = "Lumbee Tribe"; O = C.OPERATOR_SHORT
     GF = "TBCP grant-funded (Tribal Assets)"
     EX = f"{O} pre-existing capital ({C.OPERATOR_EXISTING})"
     # (category, description, funding, owner, fed_interest, demarc, notes)
@@ -211,12 +211,12 @@ def exhibit_B():
          C.PH("POP ref"), "Clear demarcation to Tribal access plant"),
         ("Easement / IRU rights (intangible)", "Route easements and license rights",
          C.PH("grant-funded vs. contributed — confirm per parcel"),
-         C.PH("Tribe / RIVR Tech / Joint"), C.PH("Y/N — per 2 CFR 200.315/200.311"),
+         C.PH("Lumbee Tribe / RIVR Tech / Joint"), C.PH("Y/N — per 2 CFR 200.315/200.311"),
          "N/A (intangible)", C.PH("parcel/agreement ref"),
          "Intangible property — see 2 CFR 200.315"),
         ("Poles / pole attachments", "Attachments to third-party utility poles",
          C.PH("attachment make-ready funding source"),
-         C.PH("Tribe / RIVR Tech / pole owner"), C.PH("Y/N"),
+         C.PH("Lumbee Tribe / RIVR Tech / pole owner"), C.PH("Y/N"),
          "Attachment point on pole", C.PH("pole owner / tag"),
          "Subject to N.C. Gen. Stat. § 62-350"),
     ]
@@ -243,9 +243,9 @@ def exhibit_B():
     for note in [
         "The Demarcation Point is the physical (or logical) boundary at which "
         "ownership, operational control, maintenance responsibility, and risk of loss "
-        "pass between the Tribe (Tribal Assets) and RIVR Tech (RIVR Tech Existing "
+        "pass between the Lumbee Tribe (Tribal Assets) and RIVR Tech (RIVR Tech Existing "
         "Network / core).",
-        "On the Tribe's side of each Demarcation Point the plant is a grant-funded "
+        "On the Lumbee Tribe's side of each Demarcation Point the plant is a grant-funded "
         "Tribal Asset subject to the Federal Interest and the property-trust "
         "relationship (2 CFR 200.316) until disposition per 2 CFR 200.313.",
         "On RIVR Tech's side the plant is a pre-existing RIVR Tech capital asset with "
@@ -277,7 +277,7 @@ def exhibit_C():
         "• BLUE cells are formulas — the allocated total is summed automatically.",
         "• The CHECK column verifies that RIVR Tech + Reserved Tribal + Anchor + "
         "Dark/Spare equals the Total strand count for each route.",
-        "• Reserved Tribal strands are held for the Tribe's own governmental, "
+        "• Reserved Tribal strands are held for the Lumbee Tribe's own governmental, "
         "educational, health, and public-safety use and are not marketed by RIVR Tech.",
         "",
         "## Status",
@@ -619,7 +619,7 @@ def exhibit_F():
                 "above as a grant-compliance impact.")
     appr = [
         ["RIVR Tech — Project Manager", "____________________  Date: __________"],
-        ["Tribe — Authorized Representative", "____________________  Date: __________"],
+        ["Lumbee Tribe — Authorized Representative", "____________________  Date: __________"],
         ["Grant Counsel", "____________________  Date: __________"],
     ]
     C.add_table(doc, ["Approver", "Signature / Date"], appr,
@@ -642,7 +642,7 @@ def exhibit_G():
         ["Acceptance Certificate No.", C.PH("AC-###")],
         ["Route / segment", C.PH("route ID and endpoints (Exhibit A)")],
         ["Strand assignment", C.PH("strands accepted (Exhibit C)")],
-        ["Ownership / owner", C.PH("Tribe / RIVR Tech / Joint (Exhibit B)")],
+        ["Ownership / owner", C.PH("Lumbee Tribe / RIVR Tech / Joint (Exhibit B)")],
         ["Date of testing", C.PH("date")],
     ]
     C.add_table(doc, headers, ident, widths=[2.4, 3.9], font_size=10)
@@ -680,12 +680,12 @@ def exhibit_G():
     C.article(doc, 5, "Certification and Acceptance")
     C.para(doc, "RIVR Tech certifies that the segment identified above was constructed "
                 "and tested in accordance with Exhibit E and is complete except for any "
-                "punch-list items noted. The Tribe accepts the segment subject to "
+                "punch-list items noted. The Lumbee Tribe accepts the segment subject to "
                 "clearance of any open punch-list items.")
     appr = [
         ["RIVR Tech — certifying engineer/PM",
          C.PH("name / title") + "  ____________________  Date: ______"],
-        ["Tribe — authorized acceptance",
+        ["Lumbee Tribe — authorized acceptance",
          C.PH("name / title") + "  ____________________  Date: ______"],
     ]
     C.add_table(doc, ["Party", "Signature / Date"], appr,
@@ -728,7 +728,7 @@ def exhibit_H():
          C.PH("email"), "Missed restore window"],
         ["Tier 4", "Operations management", C.PH("name"), C.PH("phone"),
          C.PH("email"), "Restore breach / major outage"],
-        ["Tribe liaison", "Tribal point of contact", C.PH("name"), C.PH("phone"),
+        ["Lumbee Tribe liaison", "Tribal point of contact", C.PH("name"), C.PH("phone"),
          C.PH("email"), "Any P1, or public-safety impact"],
         ["Emergency", "24x7 emergency / on-call", C.PH("name"), C.PH("phone"),
          C.PH("email"), "Immediate for P1 / safety"],
@@ -765,10 +765,10 @@ def exhibit_H():
               f"During declared storms or major events, storm-mode staffing and "
               f"prioritization apply, with public-safety and health-care circuits "
               f"restored first. Storm-mode command contact: {C.PH('name / phone / email')}. "
-              f"Tribe emergency-management coordination: {C.PH('EM contact')}.")
+              f"Lumbee Tribe emergency-management coordination: {C.PH('EM contact')}.")
     C.flag_para(doc, C.FLAG_TECH,
                 "All names, phone numbers, and email addresses to be supplied and kept "
-                "current; distribute updates to the Tribe liaison.")
+                "current; distribute updates to the Lumbee Tribe liaison.")
 
     return C.save(doc, OUT_DIR, "Exhibit_H_Maintenance_Escalation_List.docx")
 
@@ -829,17 +829,17 @@ def exhibit_I():
          "instrumentalities and the United States as its interest may appear) shall be "
          "named as additional insured on the CGL, auto, umbrella, and pollution policies."),
         ("Waiver of subrogation", "Each liability and property policy shall include a "
-         "waiver of subrogation in favor of the Tribe."),
+         "waiver of subrogation in favor of the Lumbee Tribe."),
         ("Primary and non-contributory", "RIVR Tech's coverage shall be primary and "
-         "non-contributory with respect to any insurance maintained by the Tribe."),
+         "non-contributory with respect to any insurance maintained by the Lumbee Tribe."),
         ("Property coverage of Tribal Assets", f"Property / builder's-risk coverage "
          f"shall be written for the full replacement cost of the Tribal Assets to "
          f"protect the Federal Interest consistent with {C.CITES['insurance']}, with "
-         f"the Tribe as loss payee as its interest appears."),
+         f"the Lumbee Tribe as loss payee as its interest appears."),
         ("Certificates of insurance", f"RIVR Tech shall deliver certificates (and "
          f"endorsements on request) evidencing the required coverages before "
-         f"commencing work and upon each renewal. Certificate holder: {C.PH('Tribe notice address')}."),
-        ("Notice of cancellation", "RIVR Tech shall provide the Tribe at least thirty "
+         f"commencing work and upon each renewal. Certificate holder: {C.PH('Lumbee Tribe notice address')}."),
+        ("Notice of cancellation", "RIVR Tech shall provide the Lumbee Tribe at least thirty "
          "(30) days' written notice (ten (10) days for non-payment) of cancellation, "
          "non-renewal, or material reduction in coverage."),
         ("Insurer rating", f"Insurers shall carry an A.M. Best rating of at least "
@@ -1085,7 +1085,7 @@ def exhibit_L():
     C.xl_instructions(wb, [
         "## Exhibit L — Responsibility (RACI) Matrix",
         "Purpose: assign Responsible / Accountable / Consulted / Informed for each "
-        "activity across the Tribe, RIVR Tech, Grant Counsel, and NTIA.",
+        "activity across the Lumbee Tribe, RIVR Tech, Grant Counsel, and NTIA.",
         "",
         "## RACI legend",
         "• R = Responsible (does the work)",
@@ -1105,13 +1105,13 @@ def exhibit_L():
     C.xl_title(ws, "EXHIBIT L — RESPONSIBILITY (RACI) MATRIX",
                subtitle="R = Responsible · A = Accountable · C = Consulted · I = Informed",
                span=5)
-    parties = ["Tribe", "RIVR Tech", "Grant Counsel", "NTIA"]
+    parties = ["Lumbee Tribe", "RIVR Tech", "Grant Counsel", "NTIA"]
     headers = ["Activity"] + parties
     hrow = 5
     C.xl_header_row(ws, hrow, headers)
     _widths(ws, [40, 14, 14, 16, 12])
 
-    # (activity, Tribe, RIVR, Counsel, NTIA) — sensible defaults; user adjusts
+    # (activity, Lumbee Tribe, RIVR, Counsel, NTIA) — sensible defaults; user adjusts
     activities = [
         ("Grant application & award management", "A", "C", "C", "I"),
         ("Network design / engineering", "C", "A", "I", "I"),
@@ -1301,7 +1301,7 @@ def exhibit_N():
 
     C.article(doc, 5, "Approvals")
     appr = [
-        ["Tribe — authorized representative",
+        ["Lumbee Tribe — authorized representative",
          C.PH("name / title") + "  ____________________  Date: ______"],
         ["RIVR Tech — authorized representative",
          C.PH("name / title") + "  ____________________  Date: ______"],
@@ -1370,7 +1370,7 @@ def exhibit_O():
                 "classification in Exhibit B, the strand allocation in Exhibit C, and "
                 "the acceptance in Exhibit G.")
     appr = [
-        ["Tribe — authorized representative",
+        ["Lumbee Tribe — authorized representative",
          C.PH("name / title") + "  ____________________  Date: ______"],
         ["RIVR Tech — authorized representative",
          C.PH("name / title") + "  ____________________  Date: ______"],

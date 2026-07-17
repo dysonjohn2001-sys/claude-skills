@@ -269,7 +269,7 @@ def build():
     S(
         doc,
         "2.2",
-        "Title Retained by the Tribe",
+        "Title Retained by the Lumbee Tribe",
         f"Legal title to the {TA} vests in and remains with the {TR} at all times. Nothing in this "
         f"Agreement, the {IRU}, or any companion document transfers, or is intended to transfer, "
         f"title to the {TA} to {OP}. {OP}'s rights in the {TA} are limited to the operational right "
@@ -609,7 +609,7 @@ def build():
     FL(
         doc,
         C.FLAG_ATTORNEY,
-        "The form of easement/right-of-way instruments, whether they run to the Tribe as owner, and "
+        "The form of easement/right-of-way instruments, whether they run to the Lumbee Tribe as owner, and "
         "any recording, Tribal-land status, and BIA-approval questions must be reviewed by counsel. "
         "Easements encumbering grant-funded real property implicate the encumbrance restrictions of "
         f"{cite('real_property')}.",
@@ -1122,7 +1122,7 @@ def build():
         doc,
         C.FLAG_ATTORNEY,
         "Insurance limits shown are placeholders drawn from the canonical deal parameters and must be "
-        "confirmed by the Tribe's risk advisor and reconciled with Exhibit I, including additional-"
+        "confirmed by the Lumbee Tribe's risk advisor and reconciled with Exhibit I, including additional-"
         "insured, waiver-of-subrogation, and Federal Interest requirements.",
     )
     S(
@@ -1150,7 +1150,7 @@ def build():
     S(
         doc,
         "23.2",
-        "Indemnification by the Tribe",
+        "Indemnification by the Lumbee Tribe",
         f"To the extent permitted by Applicable Law and subject to Article 28 (sovereignty and any "
         f"limited waiver), the {TR} shall be responsible for third-party claims to the extent arising "
         f"out of the {TR}'s breach of this Agreement or willful misconduct. Nothing in this Section "
@@ -1159,7 +1159,7 @@ def build():
     FL(
         doc,
         C.FLAG_ATTORNEY,
-        "The Tribe's indemnity, and any monetary exposure, are constrained by sovereign immunity. The "
+        "The Lumbee Tribe's indemnity, and any monetary exposure, are constrained by sovereign immunity. The "
         "scope of any Tribal indemnity must be reconciled with the sovereign-immunity provisions of "
         "Article 28 and cannot be read as an implied waiver.",
     )
@@ -1445,16 +1445,16 @@ def build():
         f"consider:",
     )
     for lbl, txt in [
-        ("A", "[ALTERNATIVE A — NO WAIVER: the Tribe grants no waiver of sovereign immunity; RIVR Tech's remedies are limited to those that do not require suit against the Tribe (e.g., step-out/transition, non-renewal, set-off, and remedies against Tribal instrumentalities only if separately and expressly authorized).]"),
-        ("B", "[ALTERNATIVE B — LIMITED WAIVER FOR DEFINED CLAIMS AND REMEDIES: the Tribe grants a narrow, express waiver solely for claims arising under this Agreement, limited to specified remedies (e.g., specific performance and contract damages capped at a stated amount or at available insurance/revenue), limited to a designated forum, expressly excluding any waiver of immunity as to third parties, and not extending to Tribal assets other than those specifically identified.]"),
-        ("C", "[ALTERNATIVE C — ARBITRATION-ONLY WAIVER: the Tribe consents to binding arbitration and to enforcement of the arbitral award in a specified court solely to compel arbitration and confirm/enforce the award, with no other waiver, capped and bounded as in Alternative B.]"),
+        ("A", "[ALTERNATIVE A — NO WAIVER: the Lumbee Tribe grants no waiver of sovereign immunity; RIVR Tech's remedies are limited to those that do not require suit against the Lumbee Tribe (e.g., step-out/transition, non-renewal, set-off, and remedies against Tribal instrumentalities only if separately and expressly authorized).]"),
+        ("B", "[ALTERNATIVE B — LIMITED WAIVER FOR DEFINED CLAIMS AND REMEDIES: the Lumbee Tribe grants a narrow, express waiver solely for claims arising under this Agreement, limited to specified remedies (e.g., specific performance and contract damages capped at a stated amount or at available insurance/revenue), limited to a designated forum, expressly excluding any waiver of immunity as to third parties, and not extending to Tribal assets other than those specifically identified.]"),
+        ("C", "[ALTERNATIVE C — ARBITRATION-ONLY WAIVER: the Lumbee Tribe consents to binding arbitration and to enforcement of the arbitral award in a specified court solely to compel arbitration and confirm/enforce the award, with no other waiver, capped and bounded as in Alternative B.]"),
     ]:
         SUB(doc, lbl, txt)
     FL(
         doc,
         C.FLAG_ATTORNEY,
         "Sovereign immunity and any limited waiver are among the most consequential decisions in this "
-        "transaction. This draft does NOT choose. Any waiver must be authorized by the Tribe's "
+        "transaction. This draft does NOT choose. Any waiver must be authorized by the Lumbee Tribe's "
         "governing body by resolution, drafted narrowly (defined claims, capped remedies, designated "
         "forum, identified assets only), and reconciled with the governing-law and dispute-resolution "
         "choices in Sections 28.1–28.2. Do not infer a waiver from any other provision of this "
@@ -1530,7 +1530,7 @@ def build():
     )
     C.signature_block(
         doc,
-        extra_note="Signatory authority for the Tribe (including any required Tribal Council "
+        extra_note="Signatory authority for the Lumbee Tribe (including any required Tribal Council "
         "resolution) and for RIVR Tech must be confirmed before execution; if a designated Tribal "
         "instrumentality is the contracting party, conform the signature block accordingly.",
     )

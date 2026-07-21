@@ -7,3 +7,6 @@ source_BOD_Q2_2026.pptx
 # build intermediates
 build/
 __pycache__/
+
+# packaged deliverables (regenerate as needed)
+*.zip

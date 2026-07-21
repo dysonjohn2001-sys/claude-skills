@@ -464,16 +464,15 @@ cell(rv, rr, 2, "Static IP services")
 for j in range(5):
     cell(rv, rr, 3+j, f"={avg_sub_ref('biz',j)}*{AC('sip_att')}*{AC('sip_px')}*12", fmt=FMT_USD, align=RGT)
 cell(rv, rr, 8, f"=SUM(C{rr}:G{rr})", fmt=FMT_USD, align=RGT); RV_ROWS["sip"]=rr; rr+=1
-# Equipment fees = (avg res + avg biz) * $6 *12
-cell(rv, rr, 2, "Equipment fees (ONT/router)")
+# Residential other (equipment/misc recurring) = avg res * $2.90/mo *12  [actual-anchored]
+cell(rv, rr, 2, "Residential other (equipment/misc)")
 for j in range(5):
-    cell(rv, rr, 3+j, f"=({avg_sub_ref('res',j)}+{avg_sub_ref('biz',j)})*6*12", fmt=FMT_USD, align=RGT)
+    cell(rv, rr, 3+j, f"={avg_sub_ref('res',j)}*2.9*12", fmt=FMT_USD, align=RGT)
 cell(rv, rr, 8, f"=SUM(C{rr}:G{rr})", fmt=FMT_USD, align=RGT); RV_ROWS["equip"]=rr; rr+=1
-# placeholder input rows
+# placeholder / assumption input rows (grant construction reimbursement is NONOPERATING — see Income Statement)
 PH_REV = {
- "Wholesale / dark fiber / IRU / transport":[180000,240000,320000,410000,500000],
- "Grant operating/admin revenue (if allowable)":[50000,60000,70000,70000,60000],
- "Other telecom services":[40000,55000,70000,85000,100000],
+ "Dark fiber / IRU / transport (wholesale)":[12000,20000,32000,48000,65000],
+ "Other telecom services":[15000,20000,26000,32000,38000],
 }
 for lab,vals in PH_REV.items():
     cell(rv, rr, 2, lab)
@@ -482,7 +481,7 @@ for lab,vals in PH_REV.items():
     cell(rv, rr, 8, f"=SUM(C{rr}:G{rr})", fmt=FMT_USD, align=RGT)
     RV_ROWS[lab]=rr; rr+=1
 # Recurring subtotal
-rec_rows=[RV_ROWS[k] for k in ["Residential internet","Business internet","Enterprise / DIA","Voice services","wifi","sip","equip","Wholesale / dark fiber / IRU / transport","Grant operating/admin revenue (if allowable)","Other telecom services"]]
+rec_rows=[RV_ROWS[k] for k in ["Residential internet","Business internet","Enterprise / DIA","Voice services","wifi","sip","equip","Dark fiber / IRU / transport (wholesale)","Other telecom services"]]
 recr = rr
 cell(rv, recr, 2, "RECURRING REVENUE", font=OUT_FONT, fill=TOT_FILL)
 for j in range(5):
@@ -643,35 +642,24 @@ def opex_line(label, klass, behavior, exprfn, mult=True):
         cell(ox, oxr, 5+j, f"={e}", fmt=FMT_USD, align=RGT)
     OX_ROWS[label]=oxr; oxr+=1
 
-opex_line("Internet transit / bandwidth","Direct","Variable", lambda j:f"{avg_internet(j)}*2.5*12*{infl(j)}")
-opex_line("Fiber leases & transport","Direct","Fixed", lambda j:f"(180000+12000*{j})*{infl(j)}")
-opex_line("Pole attachment expense","Direct","Variable", lambda j:f"{total_pass_ref(j)}*0.55*{infl(j)}")
-opex_line("Fiber maintenance","Direct","Fixed", lambda j:f"(95000+15000*{j})*{infl(j)}")
-opex_line("Network monitoring / NOC","Direct","Fixed", lambda j:f"(140000+10000*{j})*{infl(j)}")
-opex_line("Voice platform","Direct","Variable", lambda j:f"{avg_voice(j)}*8*12*{infl(j)}")
-opex_line("Emergency restoration","Direct","Fixed", lambda j:f"75000*{infl(j)}")
-opex_line("Marketing & advertising","S&M","Semi-var", lambda j:f"{SUBT('tot_gross',j)}*{AC('mktg_add')}+120000*{infl(j)}")
-opex_line("Sales commissions","S&M","Variable", lambda j:f"{REVREC(j)}*0.015")
-opex_line("Vehicle fleet (fuel/repairs/ins/lease)","NetOps","Semi-var", lambda j:f"9500*MAX(8,ROUND({AC('headcount',j)}*0.55,0))*{infl(j)}")
-opex_line("Tools, test & safety equipment","NetOps","Fixed", lambda j:f"(45000+4000*{j})*{infl(j)}")
-opex_line("Warehouse & inventory","NetOps","Fixed", lambda j:f"(60000+5000*{j})*{infl(j)}")
-opex_line("Contractor labor","NetOps","Semi-var", lambda j:f"(650000+60000*{j})*{infl(j)}")
-# labor line — NO mult
-cell(ox, oxr, 2, "Salaries, OT, benefits (fully loaded)")
-cell(ox, oxr, 3, "G&A", font=NOTE_FONT, align=CTR); cell(ox, oxr, 4, "Fixed", font=NOTE_FONT, align=CTR)
-for j in range(5):
-    cell(ox, oxr, 5+j, f"={LABORC(j)}", fmt=FMT_USD, align=RGT)
-OX_ROWS["Salaries, OT, benefits (fully loaded)"]=oxr; LAB_OX_ROW=oxr; oxr+=1
-opex_line("Software / OSS / BSS / CRM / GIS / billing","G&A","Fixed", lambda j:f"(260000+20000*{j})*{infl(j)}")
-opex_line("Billing & payment processing fees","G&A","Variable", lambda j:f"{REVREC(j)}*0.02")
-opex_line("Customer support","G&A","Semi-var", lambda j:f"(110000+25000*{j})*{infl(j)}")
-opex_line("Property & casualty insurance","G&A","Fixed", lambda j:f"(185000+10000*{j})*{infl(j)}")
-opex_line("Professional / legal / consulting / regulatory","G&A","Fixed", lambda j:f"(210000+12000*{j})*{infl(j)}")
-opex_line("Training & travel","G&A","Semi-var", lambda j:f"(65000+6000*{j})*{infl(j)}")
-opex_line("Office & administrative","G&A","Fixed", lambda j:f"(140000+12000*{j})*{infl(j)}")
-opex_line("Utilities","G&A","Fixed", lambda j:f"(70000+6000*{j})*{infl(j)}")
-opex_line("Bad debt","G&A","Variable", lambda j:f"{REVT(j)}*0.008")
-opex_line("Taxes & regulatory fees (USF etc.)","G&A","Variable", lambda j:f"{REVREC(j)}*0.015")
+# Categories anchored to RIVR Tech Q2-2026 actual income statement (annualized YTD),
+# grown on subscriber / headcount / inflation / revenue drivers. Payroll is embedded
+# in these categories (Eng&Ops, Sales&CS, G&A, Accounting, HR, IT) — the Fully-Loaded
+# Labor tab is a separate workforce-planning view and is NOT added here (no double-count).
+def sub_ratio(j): return f"(({avg_internet(j)}+{avg_voice(j)})/5188)"
+def hc_ratio(j):  return f"({AC('headcount',j)}/18)"
+def infl0(j):     return f"(1+{AC('opex_infl')})^{j}"
+def infl1(j):     return f"(1+{AC('opex_infl')})^{j+1}"
+opex_line("Cost of goods sold (transit / network direct)","Direct","Variable", lambda j:f"642492*{sub_ratio(j)}*{infl0(j)}")
+opex_line("LREMC intercompany allocation","G&A","Fixed", lambda j:f"380552*{infl1(j)}")
+opex_line("Engineering & operations","NetOps","Semi-var", lambda j:f"864540*(0.5+0.5*{sub_ratio(j)})*{infl1(j)}")
+opex_line("Marketing & advertising","S&M","Semi-var", lambda j:f"318412*(0.4+0.6*{sub_ratio(j)})*{infl1(j)}")
+opex_line("Sales & customer support","S&M","Semi-var", lambda j:f"233336*(0.3+0.7*{sub_ratio(j)})*{infl1(j)}")
+opex_line("General & administrative","G&A","Semi-var", lambda j:f"1496052*(0.55+0.45*{hc_ratio(j)})*{infl1(j)}")
+opex_line("Accounting","G&A","Fixed", lambda j:f"124314*{infl1(j)}")
+opex_line("Human resources","G&A","Fixed", lambda j:f"158562*(0.4+0.6*{hc_ratio(j)})*{infl1(j)}")
+opex_line("Information technology","G&A","Fixed", lambda j:f"39042*(0.5+0.5*{sub_ratio(j)})*{infl1(j)}")
+opex_line("Taxes & regulatory fees","G&A","Variable", lambda j:f"{REVREC(j)}*0.0034")
 # subtotal before contingency
 sub_before=oxr
 cell(ox, sub_before, 2, "Subtotal (pre-contingency)", font=SUB_FONT, fill=BAND_FILL)
@@ -684,7 +672,7 @@ cont=oxr
 cell(ox, cont, 2, "Contingency"); cell(ox, cont, 3, "G&A", font=NOTE_FONT, align=CTR); cell(ox, cont, 4, "Semi-var", font=NOTE_FONT, align=CTR)
 for j in range(5):
     cc=col_letter(5+j)
-    cell(ox, cont, 5+j, f"={cc}{sub_before}*0.015", fmt=FMT_USD, align=RGT)
+    cell(ox, cont, 5+j, f"={cc}{sub_before}*0.02", fmt=FMT_USD, align=RGT)
 OX_ROWS["Contingency"]=cont; oxr+=1
 # TOTAL OPEX
 tot=oxr
@@ -892,9 +880,9 @@ for j in range(5):
     cc=col_letter(3+j)
     cell(is_, R_MARG, 3+j, f"={cc}{R_EBITDA}/{cc}{R_REV}", font=OUT_FONT, fmt=FMT_PCT, align=RGT, fill=OUT_FILL)
 ir+=1
-# depreciation placeholder
-cell(is_, ir, 2, "Depreciation — existing plant (placeholder)")
-for j in range(5): cell(is_, ir, 3+j, 2400000, font=INPUT_FONT, fill=PH_FILL, fmt=FMT_USD, align=RGT)
+# depreciation — existing plant anchored to Q2-2026 actual (~$363K/yr annualized)
+cell(is_, ir, 2, "Depreciation — existing plant (Q2-2026 actual)")
+for j in range(5): cell(is_, ir, 3+j, 362804, font=INPUT_FONT, fill=INPUT_FILL, fmt=FMT_USD, align=RGT)
 cell(is_, ir, 8, f"=SUM(C{ir}:G{ir})", fmt=FMT_USD, align=RGT)
 DEP_EX_ROW=ir; ir+=1
 cell(is_, ir, 2, "Depreciation — new capex (12-yr composite, ½-yr)", font=NOTE_FONT)
@@ -920,8 +908,28 @@ for j in range(5):
     cc=col_letter(3+j)
     cell(is_, ir, 3+j, f"={cc}{R_EBITDA}-{cc}{DA_ROW}", font=OUT_FONT, fmt=FMT_USD, align=RGT, fill=TOT_FILL)
 cell(is_, ir, 8, f"=SUM(C{ir}:G{ir})", font=OUT_FONT, fmt=FMT_USD, align=RGT, fill=TOT_FILL)
-EBIT_ROW=ir; ir+=2
-cell(is_, ir, 2, "Note: LLC pass-through; no entity income tax modeled (placeholder).", font=NOTE_FONT)
+EBIT_ROW=ir; ir+=1
+# --- nonoperating (anchored to Q2-2026 actuals) ---
+INT_VALS=[465000,455000,445000,435000,425000]
+GRANT_VALS=[1000000,850000,650000,450000,300000]
+OTHNOP_VALS=[60000,55000,50000,45000,40000]
+cell(is_, ir, 2, "Less: Interest expense (existing debt)")
+for j in range(5): cell(is_, ir, 3+j, -INT_VALS[j], font=INPUT_FONT, fill=INPUT_FILL, fmt=FMT_USD, align=RGT)
+cell(is_, ir, 8, f"=SUM(C{ir}:G{ir})", fmt=FMT_USD, align=RGT); INT_ROW=ir; ir+=1
+cell(is_, ir, 2, "Plus: Grant income (nonoperating)")
+for j in range(5): cell(is_, ir, 3+j, GRANT_VALS[j], font=INPUT_FONT, fill=INPUT_FILL, fmt=FMT_USD, align=RGT)
+cell(is_, ir, 8, f"=SUM(C{ir}:G{ir})", fmt=FMT_USD, align=RGT); GRANT_ROW=ir; ir+=1
+cell(is_, ir, 2, "Plus: Other nonoperating income (net)")
+for j in range(5): cell(is_, ir, 3+j, OTHNOP_VALS[j], font=INPUT_FONT, fill=INPUT_FILL, fmt=FMT_USD, align=RGT)
+cell(is_, ir, 8, f"=SUM(C{ir}:G{ir})", fmt=FMT_USD, align=RGT); OTH_ROW=ir; ir+=1
+cell(is_, ir, 2, "Net income (loss)", font=OUT_FONT, fill=TOT_FILL)
+for j in range(5):
+    cc=col_letter(3+j)
+    cell(is_, ir, 3+j, f"={cc}{EBIT_ROW}+{cc}{INT_ROW}+{cc}{GRANT_ROW}+{cc}{OTH_ROW}", font=OUT_FONT, fmt=FMT_USD, align=RGT, fill=TOT_FILL)
+cell(is_, ir, 8, f"=SUM(C{ir}:G{ir})", font=OUT_FONT, fmt=FMT_USD, align=RGT, fill=TOT_FILL)
+NETINC_ROW=ir; ir+=2
+cell(is_, ir, 2, "Nonoperating items anchored to Q2-2026 actuals; grant income is lumpy & temporary. LLC pass-through; no entity income tax modeled.", font=NOTE_FONT); ir+=1
+cell(is_, ir, 2, "Note: GAAP net income is pressured by rising depreciation on the expanding $50M plant during the build — EBITDA is the operating-health metric.", font=NOTE_FONT)
 is_.column_dimensions["B"].width=44
 for cx in range(3,9): is_.column_dimensions[col_letter(cx)].width=13
 is_.freeze_panes="C5"
@@ -944,17 +952,33 @@ cell(cf, cfr, 2, "Less: Capital expenditures")
 for j in range(5): cell(cf, cfr, 3+j, f"=-{CAPUSED(j)}", fmt=FMT_USD, align=RGT)
 cell(cf, cfr, 8, f"=SUM(C{cfr}:G{cfr})", fmt=FMT_USD, align=RGT)
 CF_CAPEX=cfr; cfr+=1
+cell(cf, cfr, 2, "Less: Cash interest (existing debt)")
+INT_VALS_CF=[465000,455000,445000,435000,425000]
+for j in range(5): cell(cf, cfr, 3+j, -INT_VALS_CF[j], font=INPUT_FONT, fill=INPUT_FILL, fmt=FMT_USD, align=RGT)
+cell(cf, cfr, 8, f"=SUM(C{cfr}:G{cfr})", fmt=FMT_USD, align=RGT)
+CF_INT=cfr; cfr+=1
 cell(cf, cfr, 2, "Free cash flow before financing", font=OUT_FONT, fill=TOT_FILL)
 for j in range(5):
     cc=col_letter(3+j)
-    cell(cf, cfr, 3+j, f"={cc}{CF_EBITDA}+{cc}{CF_CAPEX}", font=OUT_FONT, fmt=FMT_USD, align=RGT, fill=TOT_FILL)
+    cell(cf, cfr, 3+j, f"={cc}{CF_EBITDA}+{cc}{CF_CAPEX}+{cc}{CF_INT}", font=OUT_FONT, fmt=FMT_USD, align=RGT, fill=TOT_FILL)
 cell(cf, cfr, 8, f"=SUM(C{cfr}:G{cfr})", font=OUT_FONT, fmt=FMT_USD, align=RGT, fill=TOT_FILL)
 CF_FCF=cfr; cfr+=1
+cell(cf, cfr, 2, "Plus: Grant capital reimbursement")
+GRANT_CAP_CF=[1500000,2000000,2500000,2000000,1500000]
+for j in range(5): cell(cf, cfr, 3+j, GRANT_CAP_CF[j], font=INPUT_FONT, fill=INPUT_FILL, fmt=FMT_USD, align=RGT)
+cell(cf, cfr, 8, f"=SUM(C{cfr}:G{cfr})", fmt=FMT_USD, align=RGT)
+CF_GCAP=cfr; cfr+=1
+cell(cf, cfr, 2, "Net cash need (after grant reimbursement)", font=OUT_FONT, fill=TOT_FILL)
+for j in range(5):
+    cc=col_letter(3+j)
+    cell(cf, cfr, 3+j, f"={cc}{CF_FCF}+{cc}{CF_GCAP}", font=OUT_FONT, fmt=FMT_USD, align=RGT, fill=TOT_FILL)
+cell(cf, cfr, 8, f"=SUM(C{cfr}:G{cfr})", font=OUT_FONT, fmt=FMT_USD, align=RGT, fill=TOT_FILL)
+CF_NET=cfr; cfr+=1
 cell(cf, cfr, 2, "Cumulative cash requirement", font=OUT_FONT)
 for j in range(5):
     cc=col_letter(3+j)
-    if j==0: cell(cf, cfr, 3+j, f"={cc}{CF_FCF}", font=OUT_FONT, fmt=FMT_USD, align=RGT, fill=OUT_FILL)
-    else: cell(cf, cfr, 3+j, f"={col_letter(3+j-1)}{cfr}+{cc}{CF_FCF}", font=OUT_FONT, fmt=FMT_USD, align=RGT, fill=OUT_FILL)
+    if j==0: cell(cf, cfr, 3+j, f"={cc}{CF_NET}", font=OUT_FONT, fmt=FMT_USD, align=RGT, fill=OUT_FILL)
+    else: cell(cf, cfr, 3+j, f"={col_letter(3+j-1)}{cfr}+{cc}{CF_NET}", font=OUT_FONT, fmt=FMT_USD, align=RGT, fill=OUT_FILL)
 CF_CUM=cfr; cfr+=2
 # capital funding
 cell(cf, cfr, 2, "Capital funding available", font=SUB_FONT)
@@ -1015,7 +1039,7 @@ kpi("Take rate","%", lambda j:f"{SUBT('tot_end',j)}/{total_pass_ref(j)}", FMT_PC
 kpi("Revenue per passing","$", lambda j:f"{REVT(j)}/{total_pass_ref(j)}", FMT_USD0)
 kpi("Capital cost per passing","$", lambda j:f"{CAPUSED(j)}/{new_pass_yr(j)}", FMT_USD0)
 kpi("Capital cost per net new customer","$", lambda j:f"{CAPUSED(j)}/{SUBT('tot_net',j)}", FMT_USD0)
-kpi("Customer acquisition cost (CAC)","$", lambda j:f"('Operating Expenses'!{col_letter(5+j)}{OX_ROWS['Marketing & advertising']}+'Operating Expenses'!{col_letter(5+j)}{OX_ROWS['Sales commissions']})/{SUBT('tot_gross',j)}", FMT_USD0)
+kpi("Customer acquisition cost (CAC)","$", lambda j:f"('Operating Expenses'!{col_letter(5+j)}{OX_ROWS['Marketing & advertising']}+'Operating Expenses'!{col_letter(5+j)}{OX_ROWS['Sales & customer support']})/{SUBT('tot_gross',j)}", FMT_USD0)
 kpi("Average installation cost","$", lambda j:[625,610,595,585,575][j], FMT_USD0, ph=True)
 kpi("Average trouble-ticket cost","$", lambda j:[78,76,74,72,70][j], FMT_USD0, ph=True)
 kpi("Revenue per employee","$", lambda j:f"{REVT(j)}/{AC('headcount',j)}", FMT_USD0)

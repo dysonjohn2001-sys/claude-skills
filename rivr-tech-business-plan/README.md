@@ -24,11 +24,19 @@ every formula and comparing against the model (0 error cells; all key rows match
 `[TARGET]` recommended · `[PLACEHOLDER]` pending management input. In the Excel model,
 **blue** = input, **orange** = placeholder, **green** = key output, white = formula.
 
-### Base-case headlines
-- Revenue $6.7M → $14.2M; EBITDA margin ~14% → ~28% (EBITDA-positive every year).
+### Baseline & base-case headlines
+- **Baseline (actual Q2-2026, annualized):** ~$4.1M revenue, ~EBITDA break-even
+  (slight operating loss), net-income-positive on ~$1.1M/yr grant income, ~$0.46M/yr interest.
+- **Base case:** Revenue ~$5.1M → ~$10.9M; EBITDA turns positive in 2027 and scales to
+  ~24% margin by 2031; GAAP net income is grant-supported early, then pressured by
+  depreciation on the growing plant (EBITDA is the operating-health metric).
 - Internet subscribers ~4,800 → ~11,400; headcount 18 → 39.
-- Capital: $10M/yr, $50M/5yr; ~$48.9M deployed, balance held as reserve.
+- Capital: $10M/yr, $50M/5yr; ~$48.9M deployed, balance held as reserve. ~$11.6M of
+  construction grants awarded (CAB 2.0, NC Stop GAP, BTAP) partly reimburse the build.
 - Equipment refresh: $400K/yr, $2M/5yr (inside the $10M; adjustable to outside).
+
+> **This plan incorporates RIVR Tech's actual Q2-2026 financials** (BOD deck) as the
+> baseline. See `SOURCE_DATA_INVENTORY.md` §F for the actuals and the conflict-resolution log.
 
 ## Scenario selector (Excel)
 Open the **Scenario Selector** tab and choose Base / Conservative / Aggressive from the

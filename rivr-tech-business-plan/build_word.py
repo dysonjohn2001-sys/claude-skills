@@ -155,11 +155,13 @@ para("RIVR Tech (LREMC Technologies, LLC) is a fiber-optic broadband provider se
      "five-year business plan (FY2027–FY2031) integrates strategy, network expansion, staffing, "
      "operations, revenue, operating expense, capital investment, and financial performance into a "
      "single, board-ready plan.")
-callout("Data integrity: RIVR Tech source financial and operating files were not available when this "
-        "plan was prepared. All figures derive from the inputs supplied by management (treated as "
-        "actual but unaudited) plus clearly-labeled assumptions and placeholders. Actual data, "
-        "management assumptions, calculated projections, and recommended targets are distinguished "
-        "throughout. See the Source-Data Inventory & Assumption Log and the Excel model's Assumptions tab.")
+callout("Data integrity: This plan incorporates RIVR Tech's actual Q2-2026 financial results "
+        "(quarter ended 6/30/2026, from the Board of Directors deck) as the baseline — operating "
+        "revenue, the full expense structure, depreciation, interest, grant income, and grant awards. "
+        "Forward projections build on that actual baseline plus clearly-labeled assumptions. Actual "
+        "data, management assumptions, calculated projections, and recommended targets are "
+        "distinguished throughout. Subscriber counts, ARPU, and labor rates remain partly estimated; "
+        "see the Source-Data Inventory & Assumption Log for the conflict log and remaining placeholders.")
 h3("The plan at a glance (Base Case)")
 add_table(
  ["Metric","2027","2028","2029","2030","2031"],
@@ -206,10 +208,42 @@ add_table(["Item","Detail"],
   ["Starting voice subscribers","502 (June 2026 month-end) — supplied, unaudited"],
   ["Starting workforce","15 filled + 3 open = 18 authorized positions"]],
  colwidths=[2.0,4.8], band=True)
-para("RIVR Tech operates as the broadband subsidiary of an established regional utility organization, "
-     "giving it operational maturity, community trust, and existing plant. Its strategic objective is "
-     "to grow into a financially sustainable regional broadband provider while maintaining strong "
-     "service reliability, customer experience, and disciplined capital deployment.")
+para("RIVR Tech operates as the broadband subsidiary of Lumbee River EMC, giving it operational "
+     "maturity, community trust, and existing plant. Its strategic objective is to grow into a "
+     "financially sustainable regional broadband provider while maintaining strong service "
+     "reliability, customer experience, and disciplined capital deployment.")
+h2("Current financial position (Q2-2026 actual)")
+bl = model.BASELINE_2026
+para("Actual results for the quarter ended June 30, 2026 (annualized on a year-to-date basis) "
+     "establish the plan's baseline:")
+add_table(["Financial baseline (annualized YTD)","Amount"],
+ [["Total operating revenue", money(bl["total_op_revenue"])],
+  ["Total operating expense (excl. D&A)", money(bl["total_op_expense_ex_da"])],
+  ["EBITDA (operating income + D&A)", money(bl["ebitda"])],
+  ["Depreciation & amortization", money(bl["da"])],
+  ["Operating income (loss)", money(bl["operating_income"])],
+  ["Interest expense (existing debt)", money(-bl["interest_expense"])],
+  ["Grant income (nonoperating)", money(bl["grant_income"])],
+  ["Net income (grant-supported)", money(bl["net_income"])]],
+ colwidths=[3.6,2.0])
+para("RIVR Tech currently operates at roughly EBITDA break-even (a slight operating loss) on about "
+     "$4.1M of annualized revenue, and is net-income-positive because of substantial grant funding. "
+     "The five-year plan's central task is to scale subscribers and revenue to durable EBITDA "
+     "profitability while managing existing debt service (~$0.46M/yr interest).", size=10, space=6)
+h2("Grant awards")
+para(f"RIVR Tech has been awarded approximately {money_m(bl['grant_total_awarded'])} in construction "
+     "grants that fund network expansion into unserved and underserved areas:")
+add_table(["Grant program","Award"],
+ [["CAB 2.0 — Hoke County", "$3,295,657"],
+  ["CAB 2.0 — Scotland County", "$1,932,610"],
+  ["CAB 2.0 — Robeson County", "$3,116,391"],
+  ["NC Stop GAP (Hoke/Scotland/Robeson)", "$2,812,776 ($1.6M reimbursed)"],
+  ["BTAP (engineering grant)", "$419,000"],
+  ["Total identified awards", money(bl["grant_total_awarded"])]],
+ colwidths=[3.6,2.0], total_row=True)
+para("Grant construction reimbursement offsets a meaningful share of the capital program and is "
+     "modeled as a nonoperating funding source; more than $2M of underground new-build has been "
+     "identified as eligible for reimbursement.", size=9.5, italic=True, color=GREY)
 
 # ============================= 3 STRATEGIC OBJECTIVES =============================
 h1("3. Strategic Objectives")
@@ -369,10 +403,13 @@ add_table(["Metric","2027","2028","2029","2030","2031"],
   ["Operating cost per subscriber ($/yr)"]+row5(kb["opex_per_sub"], lambda x:money(x)),
   ["Operating expense per revenue dollar"]+row5(kb["opex_per_rev"], lambda x:f"{x:.3f}")],
  colwidths=[2.8,0.9,0.9,0.9,0.9,0.9])
-para("Operating cost per subscriber falls from roughly $1,047 to ~$940 as fixed costs are spread over a "
-     "larger base — the core scale story of the plan. The full 25+ line operating-expense model, with "
-     "each line classified Fixed / Variable / Semi-variable and Direct / S&M / NetOps / G&A, is on the "
-     "Excel 'Operating Expenses' tab.", size=9.5, italic=True, color=GREY)
+para(f"Operating cost per subscriber falls from about {money(kb['opex_per_sub'][0])} to "
+     f"~{money(kb['opex_per_sub'][-1])} as fixed costs are spread over a larger base — the core scale "
+     "story of the plan. The operating-expense model is built up from the Q2-2026 actual income-"
+     "statement categories (COGS, LREMC intercompany, engineering & operations, marketing, sales & "
+     "customer support, G&A, accounting, HR, IT, taxes), each grown on subscriber, headcount, "
+     "inflation, and revenue drivers, and classified Fixed / Variable / Semi-variable and Direct / "
+     "S&M / NetOps / G&A on the Excel 'Operating Expenses' tab.", size=9.5, italic=True, color=GREY)
 h2("Service and reliability targets")
 add_table(["Operational KPI","2027","2031 target"],
  [["Network availability","99.85%","≥99.85%"],
@@ -392,7 +429,7 @@ add_table(["Sales & marketing metric","2027","2028","2029","2030","2031"],
  [["Gross additions (internet)"]+row5(B["subs_total"]["gross"], num),
   ["Customer acquisition cost (CAC)"]+row5(kb["cac"], lambda x:money(x)),
   ["Marketing & advertising"]+row5(oxb["cat"]["Marketing & advertising"], money),
-  ["Sales commissions"]+row5(oxb["cat"]["Sales commissions"], money)],
+  ["Sales & customer support"]+row5(oxb["cat"]["Sales & customer support"], money)],
  colwidths=[2.6,0.95,0.95,0.95,0.95,0.95])
 h2("Commercial priorities")
 bullet(" Fund door-to-door and digital campaigns timed to newly-passed neighborhoods; add residential sales capacity as passings grow.", bold_lead="Residential: ")
@@ -403,20 +440,25 @@ doc.add_page_break()
 
 # ============================= 10 FIVE-YEAR FINANCIAL SUMMARY =============================
 h1("10. Five-Year Financial Summary")
-para("The base-case financials below flow from the Excel model. RIVR Tech is EBITDA-positive in every "
-     "year; free cash flow before financing is negative during the build, funded within the $50M "
-     "capital program.")
+para("The base-case financials below flow from the Excel model, built up from the Q2-2026 actual "
+     "baseline. EBITDA turns positive in 2027 and scales; GAAP net income is pressured in later years "
+     "by rising depreciation on the expanding $50M plant (a non-cash charge) — EBITDA is the "
+     "operating-health metric during the build.")
 add_table(["$ (Base Case)","2027","2028","2029","2030","2031"],
  [["Revenue"]+row5(fb["revenue"], money_m),
   ["Operating expense"]+row5(fb["opex"], money_m),
   ["EBITDA"]+row5(fb["ebitda"], money_m),
   ["EBITDA margin"]+row5(fb["ebitda_margin"], pct),
-  ["Depreciation (placeholder)"]+row5(fb["depreciation"], money_m),
-  ["Operating income"]+row5(fb["op_income"], money_m),
+  ["Depreciation & amortization"]+row5(fb["depreciation"], money_m),
+  ["Operating income (loss)"]+row5(fb["op_income"], money_m),
+  ["Interest expense"]+row5([-x for x in fb["interest"]], money_m),
+  ["Grant income (nonoperating)"]+row5(fb["grant_income"], money_m),
+  ["Net income (loss)"]+row5(fb["net_income"], money_m),
   ["Capital expenditures"]+row5(fb["capex"], money_m),
   ["Free cash flow (pre-financing)"]+row5(fb["fcf"], money_m),
+  ["Grant capital reimbursement"]+row5(fb["grant_capital"], money_m),
   ["Cumulative cash requirement"]+row5(fb["cum_cash"], money_m)],
- colwidths=[2.6,0.95,0.95,0.95,0.95,0.95])
+ colwidths=[2.6,0.95,0.95,0.95,0.95,0.95], fontsize=9)
 h2("Capital funding reconciliation")
 add_table(["$","2027","2028","2029","2030","2031"],
  [["Capital funding available"]+row5(fb["cap_avail"], money_m),
@@ -432,8 +474,13 @@ add_table(["KPI","2027","2028","2029","2030","2031"],
   ["Blended ARPU (recurring, $/mo)"]+row5(kb["arpu_blended"], lambda x:money(x,2))],
  colwidths=[2.6,0.95,0.95,0.95,0.95,0.95], fontsize=9)
 h2("Break-even analysis")
-bullet(" Achieved in 2027 (Year 1) — the company operates above cash operating cost from the outset.", bold_lead="EBITDA break-even: ")
-bullet(" Reached beyond the five-year horizon; sustained fiber-build capital exceeds EBITDA during the plan, which is expected for an expanding fiber operator and is fully funded by the capital program.", bold_lead="Free-cash-flow break-even: ")
+bullet(" The current position is roughly EBITDA break-even (a slight operating loss). The Base Case "
+       "crosses to positive EBITDA in 2027 and scales the margin to the mid-20s% by 2031.", bold_lead="EBITDA break-even: ")
+bullet(" GAAP net income is positive early (grant-supported) but is pressured in later years by "
+       "rising, non-cash depreciation on the growing $50M plant. This is expected during a heavy "
+       "fiber build; the business is funded by the capital program and grant reimbursement.", bold_lead="Net income: ")
+bullet(" Reached beyond the five-year horizon; sustained fiber-build capital and interest exceed "
+       "EBITDA during the plan. Grant reimbursement (~$1.5–2.5M/yr) offsets a meaningful share of capex.", bold_lead="Free-cash-flow break-even: ")
 doc.add_page_break()
 print("sections 8-10 done")
 
@@ -557,9 +604,11 @@ doc.add_page_break()
 # ============================= 15 MANAGEMENT RECOMMENDATIONS =============================
 h1("15. Management Recommendations")
 h2("Recommended base-case strategy")
-para("Adopt the Base Case: disciplined $10M/yr deployment, moderate subscriber and revenue growth, "
-     "trigger-based staffing, and EBITDA margin expansion from ~14% to ~28%. It balances growth with "
-     "capital discipline and stays well within the $50M funding envelope.")
+para(f"Adopt the Base Case: disciplined $10M/yr deployment, moderate subscriber and revenue growth, "
+     f"trigger-based staffing, and EBITDA margin expansion from about {pct(fb['ebitda_margin'][0])} to "
+     f"~{pct(fb['ebitda_margin'][-1])} — turning the current slight operating loss into a scaling, "
+     "EBITDA-positive business. It balances growth with capital discipline and stays within the $50M "
+     "funding envelope, supported by substantial grant awards.")
 h2("Recommended five-year capital allocation")
 para("Weight capital toward revenue-generating plant — fiber-to-the-home (~24%), distribution (~13%), "
      "backbone (~8%), and business/enterprise (~7%) — while fully funding grant matching (~10%), the "
@@ -577,8 +626,9 @@ h2("Minimum performance required to justify the investment")
 bullet(f" Reach at least ~{num(int(B['subs_total']['end'][-1]*0.85))} internet subscribers by 2031 "
        "(≈85% of base-case target).", bold_lead="Subscribers: ")
 bullet(f" Achieve at least ~{money_m(fb['revenue'][-1]*0.85)} of 2031 revenue and hold 2031 EBITDA "
-       "margin at or above 22%.", bold_lead="Revenue & margin: ")
-bullet(" Keep capital cost per net new subscriber below ~$9,000 in the base case.", bold_lead="Capital efficiency: ")
+       "margin at or above 20%.", bold_lead="Revenue & margin: ")
+bullet(" Keep total capital cost per net new subscriber near or below ~$8,000 on average over the "
+       "plan (this metric includes all capital, not just plant).", bold_lead="Capital efficiency: ")
 h2("Most important Year-1 decisions")
 bullet(" Approve capital-allocation governance and the ROI gate for projects.")
 bullet(" Fill the three open positions and ratify the hiring-trigger framework.")

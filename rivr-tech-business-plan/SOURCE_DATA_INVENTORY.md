@@ -6,21 +6,18 @@
 
 ---
 
-## A. Working-directory source scan
+## A. Source scan & inventory
 
-A full scan of the working directory (`/home/user/claude-skills`) was performed for
-any RIVR Tech / LREMC company files (financials, subscriber reports, GL exports,
-capital schedules, staffing rosters, rate cards, grant award letters).
+| # | Source | Status | Contents used |
+|---|--------|--------|---------------|
+| 1 | Engagement request | Supplied | Subscriber counts (Jun-2026), ARPU starting assumptions, capital & refresh program, staffing roster |
+| 2 | **RIVR_Tech_Charts_2nd_Q_2026_BOD.pptx** (Board of Directors deck, quarter ended 6/30/2026) | **Provided by client** | **Actual Q2-2026 income statement** (operating revenue by product, full expense structure, D&A, interest, grant income, net income) and **grant awards** (CAB 2.0, NC Stop GAP, BTAP) |
 
-**Result: NO company-specific source files were found.** The working directory
-contains only the `claude-skills` open-source library. Therefore **no internal
-RIVR Tech data was available to verify**, and this plan is built entirely from:
-
-1. The figures supplied in the engagement request (treated as the only **ACTUAL** inputs), and
-2. Clearly-labeled **MANAGEMENT ASSUMPTIONS** and **CALCULATED PROJECTIONS**.
-
-No conflicting source values were encountered (there were no competing sources).
-Every non-supplied number in this plan is a placeholder and is flagged as such.
+The initial working-directory scan found no RIVR Tech files. The client subsequently
+provided the **Q2-2026 Board deck (source #2)**, which supplies **actual financial
+results**. Those actuals are now the plan's baseline; forward projections build on them
+plus clearly-labeled assumptions. Subscriber counts, ARPU by product, homes passed, and
+labor rates remain partly estimated (see §E and the conflict log §F).
 
 ---
 
@@ -124,8 +121,46 @@ Depreciation is a labeled placeholder (composite lives pending fixed-asset detai
 
 ---
 
-## F. Assumption-conflict log
+## F. Actual Q2-2026 financials [ACTUAL — source #2] and assumption-conflict log
 
-**No conflicts identified.** No competing source values existed. Should management
-supply actuals that differ from the placeholders above, log the conflict here with
-the chosen value and rationale before overriding the model.
+### F.1 Actual Q2-2026 income statement (annualized on a YTD/H1 basis, ×2)
+| Item | Annualized | Tag |
+|------|-----------:|-----|
+| Total operating revenue | $4,130,718 | [ACTUAL] |
+| Total operating expense (excl. D&A) | $4,271,408 | [ACTUAL] |
+| EBITDA (op. income + D&A) | −$140,688 | [CALC from ACTUAL] |
+| Depreciation & amortization | $362,804 | [ACTUAL] |
+| Operating income (loss) | −$503,492 | [ACTUAL] |
+| Interest expense (existing debt) | $464,220 | [ACTUAL] |
+| Grant income (nonoperating) | $1,063,160 | [ACTUAL] |
+| Net income (grant-supported) | ~$512,854 | [ACTUAL] |
+
+Revenue detail (annualized): residential broadband $3.44M, residential voice $96K,
+residential Wi-Fi $2.9K, residential other $168K, business broadband $455K, business
+voice $29K, dark fiber $10K.
+
+### F.2 Grant awards [ACTUAL — source #2]
+CAB 2.0: Hoke $3,295,657 + Scotland $1,932,610 + Robeson $3,116,391 = **$8,344,658**;
+NC Stop GAP: **$2,812,776** ($1.6M reimbursed); BTAP: **$419,000**. Total identified
+awards ≈ **$11,576,434**. $2M+ underground new-build identified as eligible reimbursement.
+
+### F.3 Conflict-resolution log
+Per instruction, conflicts between the earlier engagement assumptions and the actual
+Q2-2026 data are logged here with the chosen value and rationale (not silently overridden):
+
+| # | Item | Prior assumption | Actual (source #2) | Resolution |
+|---|------|------------------|--------------------|------------|
+| 1 | 2027 starting revenue | ~$6.66M (built from subs × ARPU) | ~$4.13M run-rate | **Use actual.** Recalibrated ARPU/revenue so the plan starts from the actual run-rate. |
+| 2 | Residential ARPU | $74 (total-residential proxy) | $66 broadband/mo | **Use actual $66** for broadband; residential voice/other modeled as separate lines. |
+| 3 | Business ARPU | $149 | ~$110 broadband/mo | **Use actual ~$110.** |
+| 4 | Voice ARPU | $32 | ~$21/mo | **Use actual ~$21.** |
+| 5 | Managed Wi-Fi | 35% attach × $10 | ~$2.9K/yr total (negligible) | **Use actual;** Wi-Fi attach cut to ~1%. |
+| 6 | Current EBITDA | +$0.90M (Year-1 base) | −$0.14M (slightly negative) | **Use actual baseline;** plan now shows the path from ~break-even to positive. |
+| 7 | Depreciation | $2.4M/yr placeholder | $0.363M/yr actual | **Use actual** as the existing-plant base + new-capex composite. |
+| 8 | Capital structure | Unlevered (no interest) | ~$0.464M/yr interest | **Add interest expense** to net income and cash flow. |
+| 9 | Grant revenue | ~$50–70K/yr admin placeholder | ~$1.06M/yr grant income + $11.6M awarded | **Reclassify to nonoperating** grant income (declining) + grant capital reimbursement. |
+| 10 | Dark fiber/wholesale | $180K→$500K placeholder | ~$10K/yr actual | **Use actual** as the starting point, growing modestly. |
+
+### F.4 Items still to be provided (unchanged from §E)
+Actual subscriber split by product, homes/businesses passed by year, fully-loaded labor
+rates, and the fixed-asset/debt schedules remain the top placeholders to replace.

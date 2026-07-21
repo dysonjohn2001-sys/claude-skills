@@ -23,8 +23,8 @@ MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
 ACTUAL = dict(
     internet_subs_jun2026=4686,
     voice_subs_jun2026=502,
-    res_arpu_start=74.0,
-    biz_arpu_start=149.0,
+    res_arpu_start=74.0,   # supplied assumption (≈ total-residential per sub); actual broadband ≈ $66
+    biz_arpu_start=149.0,  # supplied assumption; actual business broadband ≈ $110
     capital_per_year=10_000_000,
     capital_five_year=50_000_000,
     refresh_per_year=400_000,
@@ -32,6 +32,32 @@ ACTUAL = dict(
     filled_positions=15,
     open_positions=3,
     authorized_positions=18,
+)
+
+# ---------------------------------------------------------------------------
+# ACTUAL Q2-2026 FINANCIALS  [ACTUAL — from RIVR Tech BOD deck, quarter ended 6/30/26]
+# Annualized on a YTD (H1-2026) basis (×2), the more stable run-rate.
+# ---------------------------------------------------------------------------
+BASELINE_2026 = dict(
+    # operating revenue (annualized YTD×2)
+    rev_res_broadband=3_439_744, rev_res_voice=96_156, rev_res_wifi=2_856,
+    rev_res_other=167_676, rev_biz_broadband=454_524, rev_biz_voice=29_156,
+    rev_biz_other=-3_320, rev_dark_fiber=10_440,
+    total_op_revenue=4_130_718,
+    # operating expense (annualized YTD×2), by the deck's categories
+    opex_cogs=642_492, opex_intercompany=380_552, opex_eng_ops=864_540,
+    opex_marketing=318_412, opex_sales_cs=233_336, opex_ga=1_496_052,
+    opex_accounting=124_314, opex_hr=158_562, opex_it=39_042, opex_taxes=14_106,
+    total_op_expense_ex_da=4_271_408,
+    da=362_804,
+    operating_income=-503_492,           # revenue − opex(incl D&A)
+    ebitda=-140_688,                      # operating income + D&A
+    # nonoperating (annualized YTD×2)
+    grant_income=1_063_160, interest_expense=464_220,
+    net_nonoperating=1_016_346, net_income=512_854,
+    # grant awards (lifetime, not annual)
+    grant_cab20=8_344_658, grant_stopgap=2_812_776, grant_btap=419_000,
+    grant_total_awarded=11_576_434, stopgap_reimbursed=1_600_000,
 )
 
 # ---------------------------------------------------------------------------
@@ -96,10 +122,11 @@ def base_scenario() -> Scenario:
         ent_gross=[6, 8, 9, 9, 8],
         voice_gross=[120, 130, 130, 120, 110],
         res_churn=0.110, biz_churn=0.080, ent_churn=0.050, voice_churn=0.140,
-        res_arpu=74.0, res_arpu_g=0.020,
-        biz_arpu=149.0, biz_arpu_g=0.025,
-        ent_arpu=850.0, ent_arpu_g=0.020,
-        voice_arpu=32.0, voice_arpu_g=0.010,
+        # ARPU recalibrated to Q2-2026 actuals (broadband): res $66, biz $110, voice $21
+        res_arpu=66.0, res_arpu_g=0.020,
+        biz_arpu=110.0, biz_arpu_g=0.025,
+        ent_arpu=290.0, ent_arpu_g=0.020,
+        voice_arpu=21.0, voice_arpu_g=0.010,
         res_pass_open=11000, biz_pass_open=1250,
         res_new_pass=[4500, 4200, 3900, 3600, 3300],
         biz_new_pass=[300, 300, 275, 250, 225],
@@ -107,8 +134,9 @@ def base_scenario() -> Scenario:
         cost_per_passing=1200.0,
         marketing_per_gross_add=145.0,
         opex_inflation=0.030,
-        wifi_attach=0.35, wifi_price=10.0,
-        staticip_attach=0.30, staticip_price=15.0,
+        # attach services recalibrated to actuals (managed Wi-Fi is negligible today)
+        wifi_attach=0.012, wifi_price=5.0,
+        staticip_attach=0.10, staticip_price=10.0,
         res_install_fee=60.0, biz_install_fee=250.0, ent_install_fee=1500.0,
         opex_mult=1.00,
         headcount=[21, 26, 31, 35, 39],
@@ -279,18 +307,20 @@ def compute(scenario_key="base"):
         voice_rev = avg_voice * voice_arpu[i] * 12
         wifi_rev = avg_res * s.wifi_attach * s.wifi_price * 12
         staticip_rev = avg_biz * s.staticip_attach * s.staticip_price * 12
-        # equipment fee: $6/mo per residential + business sub (ONT/router lease) [ASSUMPTION]
-        equip_rev = (avg_res + avg_biz) * 6.0 * 12
+        # residential "other" (equipment/misc recurring) — calibrated to Q2-2026 actual
+        # (~$168K/yr on the current base ≈ $2.90/res-sub/mo)
+        equip_rev = avg_res * 2.90 * 12
         # nonrecurring install/construction
         install_rev = (res[i]["gross"] * s.res_install_fee
                        + biz[i]["gross"] * s.biz_install_fee
                        + ent[i]["gross"] * s.ent_install_fee)
-        # wholesale/dark fiber/IRU/transport [PLACEHOLDER, grows]
-        wholesale_rev = [180_000, 240_000, 320_000, 410_000, 500_000][i]
-        # grant admin revenue if allowable [PLACEHOLDER]
-        grant_rev = [50_000, 60_000, 70_000, 70_000, 60_000][i]
-        # other telecom services [PLACEHOLDER]
-        other_rev = [40_000, 55_000, 70_000, 85_000, 100_000][i]
+        # dark fiber / IRU / transport — recalibrated to actual ($10.4K in 2026), grows as monetized
+        wholesale_rev = [12_000, 20_000, 32_000, 48_000, 65_000][i]
+        # grant OPERATING/admin revenue if allowable [PLACEHOLDER] — grant construction
+        # reimbursement is modeled as NONOPERATING income (see grant_income), not here
+        grant_rev = 0
+        # other telecom services [ASSUMPTION]
+        other_rev = [15_000, 20_000, 26_000, 32_000, 38_000][i]
 
         recurring = (res_rev + biz_rev + ent_rev + voice_rev + wifi_rev
                      + staticip_rev + equip_rev + wholesale_rev + grant_rev + other_rev)
@@ -340,11 +370,25 @@ def compute(scenario_key="base"):
     fin["depreciation"] = dep["total"]
     fin["op_income"] = [fin["ebitda"][i] - dep["total"][i] for i in range(5)]
     fin["capex"] = cap["deployed"]
-    fin["fcf"] = [fin["ebitda"][i] - cap["deployed"][i] for i in range(5)]
+    # --- nonoperating items (anchored to Q2-2026 actuals) ---
+    # Interest expense on existing debt (~$464K/yr actual); held ~flat as debt amortizes. [ASSUMPTION]
+    fin["interest"] = [465_000, 455_000, 445_000, 435_000, 425_000]
+    # Grant income (nonoperating) — construction-reimbursement grants are lumpy & temporary;
+    # ~$1.06M actual run-rate declining as CAB 2.0 / NC Stop GAP builds complete. [ASSUMPTION]
+    fin["grant_income"] = [1_000_000, 850_000, 650_000, 450_000, 300_000]
+    # Other nonoperating (BTAP/CAB/other, net of small grant expense). [ASSUMPTION]
+    fin["other_nonop"] = [60_000, 55_000, 50_000, 45_000, 40_000]
+    fin["net_income"] = [fin["op_income"][i] - fin["interest"][i]
+                         + fin["grant_income"][i] + fin["other_nonop"][i] for i in range(5)]
+    # FCF before financing = EBITDA − capex − cash interest (+ grant reimbursements fund capex)
+    fin["fcf"] = [fin["ebitda"][i] - cap["deployed"][i] - fin["interest"][i] for i in range(5)]
+    # Grant reimbursements offset a portion of capex as a funding source
+    fin["grant_capital"] = [1_500_000, 2_000_000, 2_500_000, 2_000_000, 1_500_000]  # [ASSUMPTION] CAB/StopGAP/BEAD reimbursement
+    fin["net_cash_need"] = [fin["fcf"][i] + fin["grant_capital"][i] for i in range(5)]
     fin["cum_cash"] = []
     c = 0.0
     for i in range(5):
-        c += fin["fcf"][i]
+        c += fin["net_cash_need"][i]
         fin["cum_cash"].append(c)
     fin["cap_avail"] = [ACTUAL["capital_per_year"]] * 5
     fin["cap_used"] = cap["deployed"]
@@ -401,100 +445,66 @@ def compute_labor(s: Scenario):
 
 
 def compute_opex(s: Scenario, R, labor):
+    """Operating expense anchored to the RIVR Tech Q2-2026 actual income-statement
+    categories (annualized YTD), grown forward on subscriber, headcount, inflation,
+    and revenue drivers. Payroll is embedded in the actual categories (Eng & Ops,
+    Sales & CS, G&A, Accounting, HR, IT); the Fully-Loaded Labor schedule is a
+    separate workforce-planning view and is NOT added again here (no double-count)."""
     rev = R["revenue"]
     subs = R["subs_total"]
-    passings = R["passings"]
-    voice = R["subs"]["voice"]
+    vo = R["subs"]["voice"]
     n = 5
-    infl = [(1 + s.opex_inflation) ** i for i in range(n)]
+    hc = labor["headcount"]
+    base = BASELINE_2026
+    base_subs = ACTUAL["internet_subs_jun2026"] + ACTUAL["voice_subs_jun2026"]  # ~5188
 
-    def avg_sub(i):
-        return (subs["beg"][i] + subs["end"][i]) / 2
+    def avg_all(i):   # avg internet + voice subs
+        return (subs["beg"][i] + subs["end"][i]) / 2 + (vo[i]["beg"] + vo[i]["end"]) / 2
+    def sub_ratio(i): return avg_all(i) / base_subs
+    def hc_ratio(i):  return hc[i] / ACTUAL["authorized_positions"]  # /18
+    def infl(i):      return (1 + s.opex_inflation) ** (i + 1)      # 2027 = 1 yr past 2026 base
+    m = s.opex_mult
 
     cat = {}
-    # --- Direct cost of service ---
-    cat["Internet transit / bandwidth"] = [avg_sub(i) * 2.5 * 12 * infl[i] for i in range(n)]      # $/sub/mo
-    cat["Fiber leases & transport"] = [ (180_000 + 12_000*i) * infl[i] for i in range(n)]
-    cat["Pole attachment expense"] = [ (passings["res"][i]+passings["biz"][i]) * 0.55 * infl[i] for i in range(n)]  # $/passing/yr aerial portion
-    cat["Fiber maintenance"] = [ (95_000 + 15_000*i) * infl[i] for i in range(n)]
-    cat["Network monitoring / NOC"] = [ (140_000 + 10_000*i) * infl[i] for i in range(n)]
-    cat["Voice platform"] = [ ((voice[i]["beg"]+voice[i]["end"])/2) * 8.0 * 12 * infl[i] for i in range(n)]
-    cat["Emergency restoration"] = [ 75_000 * infl[i] for i in range(n)]
-    direct_keys = list(cat.keys())
+    cat["Cost of goods sold (transit / network direct)"] = [base["opex_cogs"] * sub_ratio(i) * ((1+s.opex_inflation)**i) * m for i in range(n)]
+    cat["LREMC intercompany allocation"] = [base["opex_intercompany"] * infl(i) * m for i in range(n)]
+    cat["Engineering & operations"] = [base["opex_eng_ops"] * (0.50 + 0.50*sub_ratio(i)) * infl(i) * m for i in range(n)]
+    cat["Marketing & advertising"] = [base["opex_marketing"] * (0.40 + 0.60*sub_ratio(i)) * infl(i) * m for i in range(n)]
+    cat["Sales & customer support"] = [base["opex_sales_cs"] * (0.30 + 0.70*sub_ratio(i)) * infl(i) * m for i in range(n)]
+    cat["General & administrative"] = [base["opex_ga"] * (0.55 + 0.45*hc_ratio(i)) * infl(i) * m for i in range(n)]
+    cat["Accounting"] = [base["opex_accounting"] * infl(i) * m for i in range(n)]
+    cat["Human resources"] = [base["opex_hr"] * (0.40 + 0.60*hc_ratio(i)) * infl(i) * m for i in range(n)]
+    cat["Information technology"] = [base["opex_it"] * (0.50 + 0.50*sub_ratio(i)) * infl(i) * m for i in range(n)]
+    cat["Taxes & regulatory fees"] = [rev["recurring"][i] * 0.0034 * m for i in range(n)]
 
-    # --- Sales & marketing ---
-    cat["Marketing & advertising"] = [ (R["subs_total"]["gross"][i]) * s.marketing_per_gross_add + 120_000*infl[i] for i in range(n)]
-    cat["Sales commissions"] = [ rev["recurring"][i] * 0.015 for i in range(n)]
-    sm_keys = ["Marketing & advertising", "Sales commissions"]
+    direct_keys = ["Cost of goods sold (transit / network direct)"]
+    netops_keys = ["Engineering & operations"]
+    sm_keys = ["Marketing & advertising", "Sales & customer support"]
+    ga_keys = ["LREMC intercompany allocation", "General & administrative", "Accounting",
+               "Human resources", "Information technology", "Taxes & regulatory fees"]
 
-    # --- Network operations (non-labor) ---
-    cat["Vehicle fleet (fuel/repairs/insurance/lease)"] = [ (9500 * _fleet(labor["headcount"][i])) * infl[i] for i in range(n)]
-    cat["Tools, test & safety equipment"] = [ (45_000 + 4_000*i) * infl[i] for i in range(n)]
-    cat["Warehouse & inventory"] = [ (60_000 + 5_000*i) * infl[i] for i in range(n)]
-    cat["Contractor labor"] = [ (650_000 + 60_000*i) * infl[i] for i in range(n)]
-    netops_keys = ["Vehicle fleet (fuel/repairs/insurance/lease)", "Tools, test & safety equipment",
-                   "Warehouse & inventory", "Contractor labor"]
-
-    # --- G&A ---
-    cat["Salaries, OT, benefits (fully loaded labor)"] = list(labor["labor_cost"])
-    cat["Software / OSS / BSS / CRM / GIS / billing"] = [ (260_000 + 20_000*i) * infl[i] for i in range(n)]
-    cat["Billing & payment processing fees"] = [ rev["recurring"][i] * 0.020 for i in range(n)]
-    cat["Customer support"] = [ (110_000 + 25_000*i) * infl[i] for i in range(n)]
-    cat["Property & casualty insurance"] = [ (185_000 + 10_000*i) * infl[i] for i in range(n)]
-    cat["Professional / legal / consulting / regulatory"] = [ (210_000 + 12_000*i) * infl[i] for i in range(n)]
-    cat["Training & travel"] = [ (65_000 + 6_000*i) * infl[i] for i in range(n)]
-    cat["Office & administrative"] = [ (140_000 + 12_000*i) * infl[i] for i in range(n)]
-    cat["Utilities"] = [ (70_000 + 6_000*i) * infl[i] for i in range(n)]
-    cat["Bad debt"] = [ rev["total"][i] * 0.008 for i in range(n)]
-    cat["Taxes & regulatory fees (USF etc.)"] = [ rev["recurring"][i] * 0.015 for i in range(n)]
-    ga_keys = ["Salaries, OT, benefits (fully loaded labor)",
-               "Software / OSS / BSS / CRM / GIS / billing",
-               "Billing & payment processing fees", "Customer support",
-               "Property & casualty insurance",
-               "Professional / legal / consulting / regulatory",
-               "Training & travel", "Office & administrative", "Utilities",
-               "Bad debt", "Taxes & regulatory fees (USF etc.)"]
-
-    # apply scenario opex efficiency multiplier to all categories EXCEPT the
-    # fully-loaded labor line (labor is already scenario-driven via headcount).
-    labor_line = "Salaries, OT, benefits (fully loaded labor)"
-    for k in cat:
-        if k == labor_line:
-            continue
-        cat[k] = [v * s.opex_mult for v in cat[k]]
-
-    # contingency = 1.5% of subtotal
+    # planning contingency (semi-variable) — 2.0% of subtotal
     subtotal = [sum(cat[k][i] for k in cat) for i in range(n)]
-    cat["Contingency"] = [subtotal[i] * 0.015 for i in range(n)]
-    ga_keys.append("Contingency")
+    cat["Contingency"] = [subtotal[i] * 0.02 for i in range(n)]
+    ga_keys = ga_keys + ["Contingency"]
 
     total = [sum(cat[k][i] for k in cat) for i in range(n)]
-
-    # classification buckets
     groups = dict(
         direct=[sum(cat[k][i] for k in direct_keys) for i in range(n)],
         sm=[sum(cat[k][i] for k in sm_keys) for i in range(n)],
         netops=[sum(cat[k][i] for k in netops_keys) for i in range(n)],
         ga=[sum(cat[k][i] for k in ga_keys) for i in range(n)],
     )
-
-    # fixed / variable / semi-variable classification
-    fixed_keys = ["Fiber leases & transport", "Fiber maintenance", "Network monitoring / NOC",
-                  "Emergency restoration", "Tools, test & safety equipment", "Warehouse & inventory",
-                  "Software / OSS / BSS / CRM / GIS / billing", "Property & casualty insurance",
-                  "Professional / legal / consulting / regulatory", "Office & administrative",
-                  "Utilities", "Salaries, OT, benefits (fully loaded labor)"]
-    variable_keys = ["Internet transit / bandwidth", "Voice platform", "Sales commissions",
-                     "Billing & payment processing fees", "Bad debt",
-                     "Taxes & regulatory fees (USF etc.)", "Pole attachment expense"]
-    semivar_keys = ["Marketing & advertising", "Vehicle fleet (fuel/repairs/insurance/lease)",
-                    "Contractor labor", "Customer support", "Training & travel", "Contingency"]
+    fixed_keys = ["LREMC intercompany allocation", "General & administrative", "Accounting",
+                  "Human resources", "Information technology"]
+    variable_keys = ["Cost of goods sold (transit / network direct)", "Taxes & regulatory fees"]
+    semivar_keys = ["Engineering & operations", "Marketing & advertising",
+                    "Sales & customer support", "Contingency"]
     behavior = dict(
         fixed=[sum(cat[k][i] for k in fixed_keys) for i in range(n)],
         variable=[sum(cat[k][i] for k in variable_keys) for i in range(n)],
         semivar=[sum(cat[k][i] for k in semivar_keys) for i in range(n)],
     )
-
     return dict(cat=cat, total=total, groups=groups, behavior=behavior,
                 direct_keys=direct_keys, sm_keys=sm_keys, netops_keys=netops_keys,
                 ga_keys=ga_keys, fixed_keys=fixed_keys, variable_keys=variable_keys,
@@ -571,16 +581,15 @@ def compute_capital(s: Scenario, refresh_outside=False):
 
 
 def compute_depreciation(cap):
-    """PLACEHOLDER composite depreciation. Existing plant flat + new capex 12yr composite,
-    half-year convention in year of spend."""
-    existing = 2_400_000     # [PLACEHOLDER] existing net plant depreciation
+    """Composite depreciation. Existing-plant D&A anchored to the Q2-2026 actual
+    (~$363K/yr annualized) plus new-capex composite (12-yr life, ½-yr convention)."""
+    existing = BASELINE_2026["da"]     # [ACTUAL-anchored] ≈ $362,804/yr
     life = 12.0
     rate = 1 / life
     dep_new = []
     cum_prior = 0
     for i in range(5):
         this_year = cap["deployed"][i]
-        # half-year on current-year spend + full-year on prior cumulative
         d = (cum_prior * rate) + (this_year * rate * 0.5)
         dep_new.append(round(d))
         cum_prior += this_year
@@ -609,7 +618,7 @@ def compute_kpi(s: Scenario, R):
     capex_per_pass = [cap["deployed"][i] / new_pass[i] for i in range(n)]
     net_add = [subs["end"][i] - subs["beg"][i] for i in range(n)]
     capex_per_net = [cap["deployed"][i] / net_add[i] if net_add[i] else 0 for i in range(n)]
-    cac = [ (opex["cat"]["Marketing & advertising"][i] + opex["cat"]["Sales commissions"][i]) / subs["gross"][i] for i in range(n)]
+    cac = [ (opex["cat"]["Marketing & advertising"][i] + opex["cat"]["Sales & customer support"][i]) / subs["gross"][i] for i in range(n)]
     rev_per_emp = [rev["total"][i] / labor["headcount"][i] for i in range(n)]
     subs_per_emp = [subs["end"][i] / labor["headcount"][i] for i in range(n)]
     techs = [max(7, round(labor["headcount"][i] * 0.42)) for i in range(n)]

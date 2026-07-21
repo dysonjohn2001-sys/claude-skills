@@ -112,17 +112,18 @@ footer(s,n)
 s=slide(); n=pg(); header(s,"Current Operating Position","STARTING POINT — JUNE 2026")
 for i,(lab,val,c) in enumerate([
     ("Internet subscribers","4,686",NAVY),("Voice subscribers","502",NAVY),
-    ("Residential ARPU","$74",TEAL),("Business ARPU","$149",TEAL)]):
+    ("Res broadband ARPU","$66",TEAL),("Biz broadband ARPU","$110",TEAL)]):
     tile(s,Inches(0.6+i*3.05),Inches(1.5),Inches(2.85),Inches(1.35),lab,val,c)
+bl=model.BASELINE_2026
 for i,(lab,val,c) in enumerate([
-    ("Filled positions","15",NAVY),("Open positions","3",ACCENT),
-    ("Authorized positions","18",NAVY),("Counties served","4 +",TEAL)]):
+    ("Op. revenue (annualized)","$4.1M",TEAL),("EBITDA (annualized)","-$0.14M",ACCENT),
+    ("Grant awards","$11.6M",GREEN),("Authorized staff","18",NAVY)]):
     tile(s,Inches(0.6+i*3.05),Inches(3.1),Inches(2.85),Inches(1.35),lab,val,c)
-txt(s,Inches(0.6),Inches(4.85),Inches(12),Inches(1.8),
-    "Supplied figures are treated as management-provided and unaudited. RIVR Tech source files were "
-    "not available; all projections rest on these inputs plus clearly-labeled assumptions and "
-    "placeholders. Product-line subscriber splits, ARPU detail, passings, and labor rates are the "
-    "top placeholders to replace with actuals.",size=13,color=GREY,italic=True)
+txt(s,Inches(0.6),Inches(4.85),Inches(12),Inches(1.9),
+    "Based on actual Q2-2026 results (BOD deck): ~$4.1M annualized operating revenue, roughly EBITDA "
+    "break-even (slight operating loss), net-income-positive on ~$1.1M/yr grant income, and ~$0.46M/yr "
+    "interest on existing debt. $11.6M of construction grants awarded (CAB 2.0, NC Stop GAP, BTAP). "
+    "Subscriber splits, ARPU detail, and labor rates remain partly estimated.",size=12.5,color=GREY,italic=True)
 footer(s,n)
 
 # ================= SLIDE 4 FIVE-YEAR GOALS =================
@@ -190,7 +191,7 @@ add_chart(s,XL_CHART_TYPE.COLUMN_CLUSTERED,Inches(0.6),Inches(1.5),Inches(6.0),I
    ["2026"]+YEARS,[("Headcount",[18]+B["labor"]["headcount"])],colors=[NAVY],numfmt='#,##0')
 txt(s,Inches(0.6),Inches(5.95),Inches(6.0),Inches(0.4),"Total headcount (EOY)",size=11,color=GREY,bold=True,align=PP_ALIGN.CENTER)
 bullets(s,Inches(7.0),Inches(1.6),Inches(5.8),Inches(4.6),[
- ("Fill 3 vacancies first — ","1 sales rep + 2 fiber technicians in Year 1."),
+ ("Today: 15 filled · 3 open · 18 authorized — ","fill the 3 vacancies (1 sales rep + 2 fiber technicians) in Year 1."),
  ("Hire on triggers, not dates — ","subscribers, installs/month, tickets/tech, fiber miles, projects, span of control."),
  ("2027 — ","Network Engineer, NOC Technician, Fiber Splicers."),
  ("2028–29 — ","sales, support, install/repair, enterprise sales, inspector, GIS."),
@@ -202,7 +203,8 @@ footer(s,n)
 # ================= SLIDE 9 FINANCIAL OUTLOOK =================
 s=slide(); n=pg(); header(s,"Financial Outlook","BASE CASE — $ MILLIONS")
 rows=[("Revenue",fb["revenue"]),("Operating expense",fb["opex"]),("EBITDA",fb["ebitda"]),
-      ("Capital expenditures",fb["capex"]),("Free cash flow (pre-fin.)",fb["fcf"])]
+      ("Net income (loss)",fb["net_income"]),("Capital expenditures",fb["capex"]),
+      ("Free cash flow (pre-fin.)",fb["fcf"])]
 # table
 from pptx.util import Cm
 tbl=s.shapes.add_table(len(rows)+1,6,Inches(0.6),Inches(1.5),Inches(8.0),Inches(3.6)).table
@@ -224,13 +226,14 @@ for r in range(len(rows)+1):
         if r==0: cell.fill.solid(); cell.fill.fore_color.rgb=NAVY
         elif r%2==0: cell.fill.solid(); cell.fill.fore_color.rgb=LT
         else: cell.fill.solid(); cell.fill.fore_color.rgb=WHITE
-tile(s,Inches(9.0),Inches(1.6),Inches(3.7),Inches(1.05),"EBITDA-positive","Every year",GREEN)
-tile(s,Inches(9.0),Inches(2.75),Inches(3.7),Inches(1.05),"Peak cash need",money_m(min(fb["cum_cash"])),ACCENT)
-tile(s,Inches(9.0),Inches(3.9),Inches(3.7),Inches(1.05),"Funding envelope","$50M (ample)",TEAL)
-txt(s,Inches(0.6),Inches(5.4),Inches(12),Inches(1.4),
-    "Break-even: EBITDA-positive from Year 1. Free cash flow is negative during the fiber build and is "
-    "funded within the $50M capital program; FCF break-even follows beyond the plan horizon — the "
-    "expected profile for an expanding fiber operator.",size=13,color=GREY,italic=True)
+tile(s,Inches(9.0),Inches(1.6),Inches(3.7),Inches(1.05),"EBITDA","Turns positive 2027",GREEN)
+tile(s,Inches(9.0),Inches(2.75),Inches(3.7),Inches(1.05),"2031 EBITDA margin",pct(fb["ebitda_margin"][-1]),TEAL)
+tile(s,Inches(9.0),Inches(3.9),Inches(3.7),Inches(1.05),"Grant awards","$11.6M",GREEN)
+txt(s,Inches(0.6),Inches(5.45),Inches(12),Inches(1.5),
+    "From ~EBITDA break-even today to positive, scaling EBITDA. GAAP net income is grant-supported "
+    "early and pressured later by non-cash depreciation on the growing $50M plant — EBITDA is the "
+    "operating-health metric. Build capital + ~$0.46M/yr interest are funded by the capital program "
+    "and grant reimbursement (~$1.5–2.5M/yr).",size=12.5,color=GREY,italic=True)
 footer(s,n)
 
 # ================= SLIDE 10 SCENARIO COMPARISON =================
@@ -334,7 +337,8 @@ bullets(s,Inches(0.7),Inches(1.6),Inches(12),Inches(4.8),[
 ],size=17,gap=16)
 rect(s,Inches(0.7),Inches(6.35),Inches(11.9),Inches(0.7),LT)
 txt(s,Inches(0.9),Inches(6.45),Inches(11.5),Inches(0.5),
-    "Minimum to justify the investment: ≈9,700+ subscribers and ≥$12M revenue by 2031, 2031 EBITDA margin ≥22%.",
+    f"Minimum to justify the investment: ≈{num(int(B['subs_total']['end'][-1]*0.85))} subscribers and "
+    f"≥{money_m(fb['revenue'][-1]*0.85)} revenue by 2031, with 2031 EBITDA margin ≥20%.",
     size=13,color=NAVY,bold=True,anchor=MSO_ANCHOR.MIDDLE)
 footer(s,n)
 

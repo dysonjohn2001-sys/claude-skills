@@ -107,8 +107,10 @@ is_eb=[g(sol,"Income Statement",f"{c}{K['ebitda_row']}") for c in CG]
 cf_eb=[g(sol,"Cash Flow",f"{c}{5}") for c in CG]  # CF_EBITDA row=5
 cf_fcf=[g(sol,"Cash Flow",f"{c}{K['cf_fcf_row']}") for c in CG]
 capex=[g(sol,"Capital Plan",f"{c}{cap_used_row}") for c in EI]
-rec10 = all(abs(is_eb[i]-cf_eb[i])<1 for i in range(5)) and all(abs(cf_fcf[i]-(cf_eb[i]-capex[i]))<2 for i in range(5))
-check(rec10,"10. Income Statement & Cash Flow reconcile","EBITDA & FCF tie")
+interest=[465000,455000,445000,435000,425000]  # cash interest line
+# FCF (pre-financing) = EBITDA - capex - cash interest
+rec10 = all(abs(is_eb[i]-cf_eb[i])<1 for i in range(5)) and all(abs(cf_fcf[i]-(cf_eb[i]-capex[i]-interest[i]))<3 for i in range(5))
+check(rec10,"10. Income Statement & Cash Flow reconcile","EBITDA ties; FCF = EBITDA − capex − interest")
 # 11 charts vs data — pptx charts built from model arrays; verify a chart series equals model
 prs=Presentation(P+"RIVR_Tech_Five_Year_Executive_Presentation_2027-2031.pptx")
 chart_ok=True

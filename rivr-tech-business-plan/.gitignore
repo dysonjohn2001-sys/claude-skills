@@ -1,0 +1,9 @@
+# Raw client-provided source financials (private) — kept local, not published.
+# The derived actuals live in the deliverables and in model.py (BASELINE_2026).
+# Remove this line and `git add` the file if you want it committed for provenance.
+source_BOD_Q2_2026.pptx
+*.BOD.pptx
+
+# build intermediates
+build/
+__pycache__/

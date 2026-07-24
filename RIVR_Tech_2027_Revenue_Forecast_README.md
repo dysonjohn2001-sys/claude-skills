@@ -3,7 +3,7 @@
 **Entity:** LREMC Technologies, LLC d/b/a RIVR Tech
 **Business:** Rural broadband & fiber-optic infrastructure — Robeson, Hoke, Scotland, Cumberland & surrounding NC counties
 **Forecast period:** January 1 – December 31, 2027
-**Workbook:** `RIVR_Tech_2027_Revenue_Forecast.xlsx` (9 tabs, fully formula-driven)
+**Workbook:** `RIVR_Tech_2027_Revenue_Forecast.xlsx` (10 tabs, fully formula-driven)
 
 > ⚠️ **Every number in this model is built on PLACEHOLDER assumptions.** Nothing here is a
 > real RIVR Tech figure. Replace the highlighted inputs before using the output for any
@@ -47,7 +47,39 @@ Because the workbook is set to **recalculate on open**, saved changes take effec
 | 6 | **Consolidated Revenue** | All segments combined, with quarterly (Q1–Q4) and full-year subtotals, MoM growth, revenue/day, MRR, ARR, and segment mix. |
 | 7 | **Scenario Analysis** | Three fully independent projections (Conservative / Base / Aggressive) with an annual comparison. |
 | 8 | **Annual Summary** | One-page management summary + commentary boxes. |
-| 9 | **Data Dictionary** | Plain-English definition of every term and metric. |
+| 9 | **Margin Calculator** | Cost-Volume-Profit tool: enter costs, solve the revenue needed for any target profit. |
+| 10 | **Data Dictionary** | Plain-English definition of every term and metric. |
+
+### Using the Margin Calculator (tab 9)
+
+The revenue model doesn't know your costs, so this tab lets you enter them and answers
+*"what revenue do we need for an X% profit?"* It uses standard Cost-Volume-Profit math on
+**pre-tax operating profit (EBIT)**:
+
+```
+Operating profit = Revenue × (1 − variable cost %) − fixed costs
+Required revenue for a target margin m = Fixed costs ÷ (1 − variable cost % − m)
+Required revenue for a target profit $P = (Fixed costs + P) ÷ (1 − variable cost %)
+Breakeven revenue                      = Fixed costs ÷ (1 − variable cost %)
+```
+
+**Inputs (yellow, PLACEHOLDER — replace with RIVR Tech actuals):**
+- `B5` — variable operating cost as a % of revenue (bandwidth, transport, commissions, processing)
+- `B7:B11` — fixed annual costs (network O&M, salaries/G&A, sales & marketing, D&A, other)
+- `B29` — your target profit **margin** (e.g. 10%) → `B30` returns the required revenue
+- `B36` — a target profit in **dollars** → `B37` returns the required revenue
+- `B17` — optional: override the forecast revenue to test any level
+
+**Worked example (with the placeholder costs: 25% variable, $9.0M fixed):**
+- Contribution margin = 75%; **breakeven = $12.0M**.
+- **For a 10% profit margin you need $13.85M of revenue** ( $9.0M ÷ (1 − 0.25 − 0.10) ).
+- The Base forecast is **$14.87M**, which delivers a **14.5% operating margin ($2.15M profit)** —
+  already above the 10% target by ~$1.0M of revenue.
+- Section D tabulates 0%→30% target margins; Section E shows the operating margin at each
+  scenario's revenue (Conservative ≈10.4%, Base ≈14.5%, Aggressive higher).
+
+> The placeholder cost figures make the demo sensible but are **not RIVR Tech numbers** — swap in
+> real costs (and confirm the variable/fixed split with the CFO) before relying on the output.
 
 ---
 

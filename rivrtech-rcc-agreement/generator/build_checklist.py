@@ -22,7 +22,7 @@ make_table(doc, ["Field", "Detail"], [
     ["Version", "1.0 — Final"],
     ["Date", "August 24, 2026"],
     ["Owner", "John Dyson, Chief Operations Officer, LREMC Technologies, LLC d/b/a RIVR Tech"],
-    ["Student-Athlete", "[STUDENT-ATHLETE’S FULL LEGAL NAME]"],
+    ["Student-Athlete", "Lezlie Jackson"],
     ["Approval Status", "RCC approved; execution approvals pending"],
 ], col_widths=[1.8, 4.7])
 

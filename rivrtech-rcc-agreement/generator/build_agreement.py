@@ -35,7 +35,7 @@ para(doc, "LREMC Technologies, LLC d/b/a RIVR Tech", size=13, bold=True,
 para(doc, "Robeson Community College", size=13, bold=True,
      align=WD_ALIGN_PARAGRAPH.CENTER, space_after=4)
 para(doc, "and", size=11, align=WD_ALIGN_PARAGRAPH.CENTER, space_after=4)
-para(doc, "[STUDENT-ATHLETE’S FULL LEGAL NAME]", size=13, bold=True,
+para(doc, "Lezlie Jackson", size=13, bold=True,
      align=WD_ALIGN_PARAGRAPH.CENTER, space_after=40)
 
 para(doc, "Robeson Community College Diamond Eagles Baseball Program",
@@ -138,7 +138,7 @@ para(doc, "This Student-Athlete Corporate Sponsorship and Paid Internship "
           "last signature below "
           "(the “Effective Date”), by and among LREMC Technologies, LLC d/b/a "
           "RIVR Tech (“RIVR Tech”); Robeson Community College (“RCC” or the "
-          "“College”); and [STUDENT-ATHLETE’S FULL LEGAL NAME] (the "
+          "“College”); and Lezlie Jackson (the "
           "“Student-Athlete”). RIVR Tech, RCC, and the Student-Athlete are "
           "each a “Party” and together the “Parties.”")
 
@@ -199,7 +199,7 @@ make_table(
         ["Robeson Community College (“RCC”)",
          "5160 Fayetteville Road, Lumberton, North Carolina 28360",
          "Email: [EMAIL]\nTelephone: [PHONE]"],
-        ["[STUDENT-ATHLETE’S FULL LEGAL NAME]",
+        ["Lezlie Jackson",
          "[STUDENT-ATHLETE ADDRESS]",
          "Email: [EMAIL]\nTelephone: [PHONE]"],
     ],
@@ -781,7 +781,7 @@ make_table(
         "[AUTHORIZED RCC REPRESENTATIVE]\n[TITLE]\nRobeson Community College\n"
         "5160 Fayetteville Road\nLumberton, North Carolina 28360\nEmail: [EMAIL]\n"
         "Telephone: [PHONE]",
-        "[NAME]\n[ADDRESS]\nEmail: [EMAIL]\nTelephone: [PHONE]",
+        "Lezlie Jackson\n[ADDRESS]\nEmail: [EMAIL]\nTelephone: [PHONE]",
     ]],
     col_widths=[2.2, 2.2, 2.1],
 )

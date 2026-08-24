@@ -194,7 +194,7 @@ class NumberedCanvas:
     pass
 
 
-def build(docx_path, pdf_path, footer_title):
+def build(docx_path, pdf_path, footer_title, header_banner=DRAFT_BANNER):
     doc = Document(docx_path)
     page_w, page_h = letter
     margin = inch
@@ -232,13 +232,14 @@ def build(docx_path, pdf_path, footer_title):
 
         def _draw_hf(self, total):
             self.saveState()
-            # header banner
-            self.setFont("Helvetica-Bold", 9)
-            self.setFillColor(colors.HexColor("#B00000"))
-            self.drawCentredString(page_w / 2, page_h - margin + 20, DRAFT_BANNER)
-            self.setStrokeColor(colors.HexColor("#999999"))
-            self.setLineWidth(0.5)
-            self.line(margin, page_h - margin + 14, page_w - margin, page_h - margin + 14)
+            # header banner (skip entirely when empty)
+            if header_banner:
+                self.setFont("Helvetica-Bold", 9)
+                self.setFillColor(colors.HexColor("#B00000"))
+                self.drawCentredString(page_w / 2, page_h - margin + 20, header_banner)
+                self.setStrokeColor(colors.HexColor("#999999"))
+                self.setLineWidth(0.5)
+                self.line(margin, page_h - margin + 14, page_w - margin, page_h - margin + 14)
             # footer
             self.setFont("Helvetica", 8)
             self.setFillColor(colors.HexColor("#555555"))
@@ -260,4 +261,8 @@ def build(docx_path, pdf_path, footer_title):
 
 
 if __name__ == "__main__":
-    build(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else "")
+    # 4th arg = header banner text; pass "none" to suppress the top banner
+    hb = sys.argv[4] if len(sys.argv) > 4 else DRAFT_BANNER
+    if hb.lower() == "none":
+        hb = ""
+    build(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else "", hb)

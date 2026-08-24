@@ -68,7 +68,7 @@ para(doc, "We recognize that a program like this must be done the right way. All
           "We are committed to full compliance and to following your lead on "
           "institutional policies and approvals.", space_after=5)
 
-para(doc, "A draft agreement and an approvals checklist accompany this letter. "
+para(doc, "The agreement and an approvals checklist accompany this letter. "
           "I would welcome the opportunity to meet with you and the appropriate "
           "members of your administration, human resources, and compliance teams to "
           "finalize the structure in a way that works for the College. Thank you "
@@ -81,10 +81,10 @@ para(doc, "Chief Operations Officer", space_after=0)
 para(doc, "LREMC Technologies, LLC d/b/a RIVR Tech", space_after=8)
 
 para(doc, "Enclosures:  (1) Student-Athlete Corporate Sponsorship and Paid "
-          "Internship Agreement (Draft for Discussion and Legal Review); "
-          "(2) Required Approvals Checklist.", size=9,
+          "Internship Agreement (Official Version — Approved by Robeson Community "
+          "College); (2) Required Approvals Checklist.", size=9,
      color=RGBColor(0x55, 0x55, 0x55))
 
-add_header_footer(doc, FOOTER)
+add_header_footer(doc, FOOTER, header_banner="")
 doc.save(OUT)
 print("Saved", OUT)

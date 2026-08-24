@@ -1,8 +1,10 @@
 # RIVR Tech – RCC Student-Athlete Sponsorship & Paid Internship Package
 
-**Status:** DRAFT FOR DISCUSSION AND LEGAL REVIEW — not for execution until reviewed
-and approved by authorized representatives and legal counsel for **Robeson Community
-College** and **LREMC Technologies, LLC d/b/a RIVR Tech**.
+**Status:** OFFICIAL EXECUTION VERSION — **approved by Robeson Community College**
+(Version 1.0 — Final, August 24, 2026). The DRAFT banners and pre-execution
+review flags have been removed. The agreement becomes binding upon full execution
+by all required parties; remaining yellow fields are completed at signing for a
+specific student-athlete.
 
 > The document filenames keep the `RIVRTECH_` prefix as stable identifiers; the
 > brand shown inside every document is **RIVR Tech**.
@@ -33,13 +35,12 @@ $2,000.00 ÷ $20.00 = 100 authorized hours
 
 If the amount changes: $2,500 → 125 hrs · $5,000 → 250 hrs · $7,500 → 375 hrs.
 
-> **⚠ This advance-then-work-off model is flagged for legal + compliance review.**
-> Paying a student-athlete up front and recouping it through work implicates the
-> FLSA and the NC Wage and Hour Act (deduction limits; minimum wage each pay
-> period), payroll/tax timing, and **NJCAA/conference eligibility**. Section 6.7
-> leaves an explicit **Option A (repay unearned portion) / Option B (no repayment)**
-> choice for counsel and athletics compliance to decide. "Sponsorship" (not
-> "scholarship") is used deliberately to reduce athletic-aid characterization risk.
+**§6.7 unearned portion:** set to **Option A — the student repays** the unearned
+portion (Sponsorship − $20 × hours worked), with repayment/deductions to comply
+with the FLSA and NC Wage and Hour Act. §6.0 keeps an operative acknowledgment
+that the advance/recoupment remains subject to FLSA, NC wage law, tax rules, and
+NJCAA/conference eligibility. "Sponsorship" (not "scholarship") is used
+deliberately to reduce athletic-aid characterization risk.
 
 ## Values filled in
 
@@ -65,14 +66,14 @@ If the amount changes: $2,500 → 125 hrs · $5,000 → 250 hrs · $7,500 → 37
   contracting authority — typically an officer, not the AD).
 - **Phone numbers** for RIVR Tech and RCC; RCC contact **email**.
 - **RIVR Tech HR / Athletics-Compliance / Emergency** contacts (Exhibit E).
-- **Section 6.7** — choose Option A or Option B for any unearned portion.
 - **Exhibit B** sponsorship-benefit specifics (signage, social handles, event
-  list, approved announcement text) — negotiated with RCC.
+  list, approved announcement text) — completed with RCC at execution.
 - **NIL fields** (Exhibit D / §13.4) — only if RCC + counsel approve the opt-in.
-- Legal-review notes in **§6 (payment structure)**, **§19 (indemnity)**, and
-  **§24 (venue)** stay flagged.
 - Signature blocks for **RCC** and the **Student-Athlete** are intentionally left
   blank for hand-signing.
+
+Resolved in this official version: §6.7 (Option A), §24 venue (Robeson County,
+NC), and the §6 / §19 pre-execution review flags (now operative clauses).
 
 ## Regenerating the documents
 

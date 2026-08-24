@@ -167,18 +167,19 @@ def _add_field(paragraph, field_code, size=9):
     run._r.append(fld_end)
 
 
-def add_header_footer(doc, footer_title):
+def add_header_footer(doc, footer_title, header_banner=DRAFT_BANNER,
+                      banner_color=RGBColor(0xB0, 0x00, 0x00)):
     for section in doc.sections:
-        # Header: centered DRAFT banner
+        # Header: centered banner (empty banner => no header text/border)
         header = section.header
         header.is_linked_to_previous = False
         hp = header.paragraphs[0]
         hp.text = ""
-        hp.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        hr = hp.add_run(DRAFT_BANNER)
-        _set_run_font(hr, size=9, bold=True, color=RGBColor(0xB0, 0x00, 0x00))
-        # bottom border on header
-        _bottom_border(hp)
+        if header_banner:
+            hp.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            hr = hp.add_run(header_banner)
+            _set_run_font(hr, size=9, bold=True, color=banner_color)
+            _bottom_border(hp)
 
         # Footer: title (left) + Page X of Y (right) using a tab
         footer = section.footer

@@ -23,9 +23,11 @@ p = para(doc, "STUDENT-ATHLETE CORPORATE SPONSORSHIP", size=22, bold=True,
 para(doc, "AND PAID INTERNSHIP AGREEMENT", size=22, bold=True,
      align=WD_ALIGN_PARAGRAPH.CENTER, space_after=18)
 
-# thin rule via paragraph border
-para(doc, "— DRAFT FOR DISCUSSION AND LEGAL REVIEW —", size=12, bold=True,
-     align=WD_ALIGN_PARAGRAPH.CENTER, color=RGBColor(0xB0, 0x00, 0x00), space_after=40)
+# official execution designation
+para(doc, "OFFICIAL EXECUTION VERSION", size=12, bold=True,
+     align=WD_ALIGN_PARAGRAPH.CENTER, color=RGBColor(0x1F, 0x38, 0x64), space_after=2)
+para(doc, "Approved by Robeson Community College", size=11, italic=True,
+     align=WD_ALIGN_PARAGRAPH.CENTER, color=RGBColor(0x1F, 0x38, 0x64), space_after=40)
 
 para(doc, "By and among:", size=12, align=WD_ALIGN_PARAGRAPH.CENTER, space_after=14)
 para(doc, "LREMC Technologies, LLC d/b/a RIVR Tech", size=13, bold=True,
@@ -61,32 +63,33 @@ make_table(
     ["Field", "Detail"],
     [
         ["Document Title", "Student-Athlete Corporate Sponsorship and Paid Internship Agreement"],
-        ["Version", "0.1 — Draft"],
-        ["Date", "July 16, 2026"],
+        ["Version", "1.0 — Final"],
+        ["Date", "August 24, 2026"],
         ["Document Owner", "John Dyson, Chief Operations Officer, LREMC Technologies, LLC d/b/a RIVR Tech"],
         ["Prepared For", "Robeson Community College – Athletic Department & Administration"],
-        ["Approval Status", "Draft — Pending business, HR, athletics-compliance, and legal review"],
-        ["Classification", "Confidential – Draft for Discussion"],
+        ["Approval Status", "Approved by Robeson Community College — official version for execution"],
+        ["Classification", "Confidential"],
     ],
     col_widths=[2.0, 4.5],
 )
 
 para(doc, "", space_after=6)
-para(doc, "Legal Review Note", size=14, bold=True, space_before=8, space_after=4)
+para(doc, "Approval and Execution Note", size=14, bold=True, space_before=8,
+     space_after=4)
 p = doc.add_paragraph()
 p.paragraph_format.left_indent = Inches(0.2)
 p.paragraph_format.right_indent = Inches(0.2)
 p.paragraph_format.space_after = Pt(6)
-add_rich(p, "“This draft is provided for discussion and planning purposes. "
-            "It must be reviewed and approved by authorized representatives and legal "
-            "counsel for Robeson Community College and LREMC Technologies, LLC d/b/a "
-            "RIVR Tech before execution.”", italic=True, bold=True)
+add_rich(p, "“This is the official version of the Agreement, approved by Robeson "
+            "Community College. It becomes binding upon full execution by all "
+            "required parties.”", italic=True, bold=True)
 
-para(doc, "This document has not been reviewed or approved by Robeson Community "
-          "College, its Athletic Department, its administration, the NJCAA, or any "
-          "conference. It does not create any binding obligation until fully executed "
-          "by all required parties and approved through the processes identified in "
-          "Exhibit F.", size=10, space_after=10)
+para(doc, "Robeson Community College’s approval reflects institutional and "
+          "athletics-compliance review of this Agreement. Each Party remains "
+          "responsible for completing the execution-stage items identified in "
+          "Exhibit F (including party details and signatures) and for its own "
+          "payroll, tax, and insurance administration as described in this "
+          "Agreement.", size=10, space_after=10)
 
 # Contents overview (no page numbers to avoid mismatch)
 para(doc, "Contents", size=14, bold=True, space_before=6, space_after=4)
@@ -157,8 +160,7 @@ recitals = [
     ("E.", "The Parties intend for this Agreement, and all activities under it, to "
      "comply with applicable federal and North Carolina law, RCC policies, "
      "applicable NJCAA rules, applicable conference rules, and other applicable "
-     "athletics requirements. [Confirm applicable athletics governing bodies and "
-     "rules with RCC.]"),
+     "athletics requirements."),
     ("F.", "The Parties acknowledge that the Sponsorship and any compensation under "
      "this Agreement are provided in exchange for legitimate work and professional "
      "services performed (or to be performed) by the Student-Athlete, and not for "
@@ -282,8 +284,7 @@ for item in [
 ]:
     bullet(doc, item)
 para(doc, "4.3  Compliance. All sponsorship recognition is subject to applicable "
-          "RCC policies and applicable NJCAA and conference rules. [Confirm "
-          "permissible recognition with RCC athletics compliance.]", space_before=2)
+          "RCC policies and applicable NJCAA and conference rules.", space_before=2)
 
 # =====================================================================
 # SECTION 5 - PAID INTERNSHIP POSITION
@@ -302,26 +303,22 @@ para(doc, "5.3  No Guarantee of Future Employment. The Internship is temporary a
 # SECTION 6 - COMPENSATION AND MAXIMUM HOURS
 # =====================================================================
 section_heading(doc, 6, "Sponsorship, Compensation, and Maximum Hours")
-para(doc, "[LEGAL REVIEW — PAYMENT STRUCTURE: This Section provides for the "
-          "Sponsorship to be PAID IN ADVANCE at the beginning of the term and then "
-          "earned by the Student-Athlete through hours worked. Advance payment and "
-          "any recoupment of an unearned portion are subject to the Fair Labor "
-          "Standards Act, the North Carolina Wage and Hour Act (including limits on "
-          "wage deductions and the requirement to pay at least the minimum wage each "
-          "pay period), applicable tax and withholding timing, and applicable NJCAA "
-          "and conference eligibility rules. This structure — including any "
-          "obligation of the Student-Athlete to repay an unearned portion — must be "
-          "reviewed and approved by RIVR Tech and RCC legal counsel and RCC athletics "
-          "compliance before use.]", size=10, bold=True)
+para(doc, "6.0  Payment-Structure Acknowledgment. The Parties acknowledge that the "
+          "Sponsorship is paid in advance at the beginning of the term and earned by "
+          "the Student-Athlete through hours worked, and that the advance and any "
+          "recoupment of an unearned portion are administered in a manner intended "
+          "to comply with, and remain subject to, the Fair Labor Standards Act, the "
+          "North Carolina Wage and Hour Act (including limits on wage deductions and "
+          "the requirement to pay at least the minimum wage each pay period), "
+          "applicable tax and withholding requirements, and applicable NJCAA and "
+          "conference eligibility rules.", size=10, bold=True)
 para(doc, "6.1  Sponsorship Amount. RIVR Tech will provide the Student-Athlete a "
           "sponsorship of $2,000.00 (the “Sponsorship”) in support of the "
           "Student-Athlete’s participation in the paid Internship.")
 para(doc, "6.2  Advance Payment. RIVR Tech will pay the Sponsorship to the "
           "Student-Athlete at or near the beginning of the applicable semester or "
           "term, through RIVR Tech’s normal payroll process, less all legally "
-          "required deductions and withholdings. [Confirm the timing and the "
-          "payroll and tax treatment of the advance with RIVR Tech payroll and legal "
-          "counsel.]")
+          "required deductions and withholdings.")
 para(doc, "6.3  Wage Rate; Earning the Sponsorship. The Student-Athlete will earn "
           "the Sponsorship by performing authorized sales and marketing internship "
           "work for RIVR Tech at a rate of $20.00 per hour. Each authorized hour "
@@ -348,20 +345,13 @@ para(doc, "6.6  Completion of Hours. The Student-Athlete agrees to perform the "
           "in Section 8.")
 para(doc, "6.7  Unearned Portion If Hours Are Not Completed. If the Student-Athlete "
           "does not work enough authorized hours to fully earn the Sponsorship by "
-          "the end of the Agreement Term, the unearned portion (the Sponsorship "
-          "minus $20.00 multiplied by the number of authorized hours worked) will be "
-          "handled as the Parties select below, subject to legal and "
-          "athletics-compliance review:")
-bullet(doc, "Option A — Repayment: the Student-Athlete repays the unearned portion "
-            "to RIVR Tech, subject to applicable law and any limits on payroll "
-            "deductions; or")
-bullet(doc, "Option B — No Repayment: the unearned portion is not repayable and is "
-            "treated as additional taxable compensation to the Student-Athlete.")
-para(doc, "[SELECT OPTION A OR OPTION B — SUBJECT TO RCC AND RIVR Tech LEGAL COUNSEL "
-          "AND RCC ATHLETICS COMPLIANCE.] Any repayment or deduction must comply "
-          "with the Fair Labor Standards Act and the North Carolina Wage and Hour "
-          "Act, including minimum-wage requirements for each pay period.", size=10,
-     space_before=2)
+          "the end of the Agreement Term, the Student-Athlete will repay to RIVR "
+          "Tech the unearned portion (the Sponsorship minus $20.00 multiplied by the "
+          "number of authorized hours worked). Any such repayment or payroll "
+          "deduction will comply with the Fair Labor Standards Act and the North "
+          "Carolina Wage and Hour Act, including minimum-wage requirements for each "
+          "pay period, and the Parties will agree on a reasonable repayment method "
+          "and schedule.")
 para(doc, "6.8  Overtime. Unauthorized overtime is prohibited, and overtime hours "
           "should not be scheduled without advance written approval. If the "
           "Student-Athlete works more than forty (40) hours in a workweek, RIVR Tech "
@@ -519,9 +509,10 @@ for item in [
     "violate applicable law or applicable athletics requirements.",
 ]:
     bullet(doc, item)
-para(doc, "12.2  Compliance Confirmation. [Confirm all applicable disclosure and "
-          "approval requirements with RCC’s athletics compliance office before "
-          "execution.]", size=10, space_before=2)
+para(doc, "12.2  Compliance Confirmation. The Parties will complete any applicable "
+          "disclosure and approval steps required by RCC’s athletics compliance "
+          "office in connection with executing this Agreement for a specific "
+          "Student-Athlete.", size=10, space_before=2)
 
 # =====================================================================
 # SECTION 13 - NIL
@@ -665,10 +656,10 @@ for item in [
 # SECTION 19 - INSURANCE / ALLOCATION
 # =====================================================================
 section_heading(doc, 19, "Insurance and Allocation of Responsibility")
-para(doc, "[FLAG FOR LEGAL REVIEW — RCC is a North Carolina public community "
-          "college; indemnification and liability terms are subject to limitations "
-          "under North Carolina law and must be reviewed and approved by RCC legal "
-          "counsel.]", size=10, bold=True)
+para(doc, "19.0  Public-College Status. The Parties acknowledge that RCC is a "
+          "North Carolina public community college and that indemnification and "
+          "liability provisions are subject to, and limited by, applicable North "
+          "Carolina law.", size=10, bold=True)
 para(doc, "19.1  Each Party’s Responsibilities. Subject to and to the extent "
           "permitted by North Carolina law:")
 for item in [
@@ -684,8 +675,7 @@ para(doc, "19.2  No Student-Athlete Indemnity. No broad indemnification obligati
           "is imposed on the Student-Athlete under this Agreement.", space_before=2)
 para(doc, "19.3  Public-College Limitations. Nothing in this Agreement is intended "
           "to require RCC to indemnify any Party in a manner inconsistent with "
-          "limitations applicable to a North Carolina public community college. "
-          "[Confirm permissible allocation and insurance terms with RCC counsel.]")
+          "limitations applicable to a North Carolina public community college.")
 
 # =====================================================================
 # SECTION 20 - TERMINATION
@@ -768,10 +758,10 @@ for item in [
 section_heading(doc, 24, "Governing Law and Venue")
 para(doc, "24.1  Governing Law. This Agreement is governed by the laws of the State "
           "of North Carolina, without regard to its conflict-of-laws principles.")
-para(doc, "24.2  Venue. Venue for any dispute will be [VENUE — TO BE CONFIRMED "
-          "BY RCC AND RIVR Tech COUNSEL]. [Legal-review note: do not finalize venue "
-          "until RCC and RIVR Tech counsel approve; venue for a North Carolina public "
-          "community college may be subject to specific requirements.]")
+para(doc, "24.2  Venue. Venue for any dispute arising under this Agreement will "
+          "lie in the state courts located in Robeson County, North Carolina, and "
+          "the federal courts having jurisdiction over Robeson County, North "
+          "Carolina, to the extent permitted by applicable law.")
 
 # =====================================================================
 # SECTION 25 - NOTICES
@@ -1050,6 +1040,6 @@ make_table(doc, ["✓", "Approval Item", "Responsible Party / Date"],
     col_widths=[0.5, 4.0, 2.0])
 
 # =====================================================================
-add_header_footer(doc, FOOTER)
+add_header_footer(doc, FOOTER, header_banner="")
 doc.save(OUT)
 print("Saved", OUT)

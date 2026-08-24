@@ -19,11 +19,11 @@ para(doc, "Student-Athlete Corporate Sponsorship and Paid Internship Agreement",
 
 # Document control
 make_table(doc, ["Field", "Detail"], [
-    ["Version", "0.1 — Draft"],
-    ["Date", "July 16, 2026"],
+    ["Version", "1.0 — Final"],
+    ["Date", "August 24, 2026"],
     ["Owner", "John Dyson, Chief Operations Officer, LREMC Technologies, LLC d/b/a RIVR Tech"],
     ["Student-Athlete", "[STUDENT-ATHLETE’S FULL LEGAL NAME]"],
-    ["Approval Status", "Draft — Pending approvals"],
+    ["Approval Status", "RCC approved; execution approvals pending"],
 ], col_widths=[1.8, 4.7])
 
 para(doc, "This Agreement is not effective until the applicable approvals below are "
@@ -34,10 +34,10 @@ para(doc, "This Agreement is not effective until the applicable approvals below 
 
 para(doc, "A.  RCC Approvals", size=12, bold=True, space_after=3)
 make_table(doc, ["✓", "Item", "Responsible Party", "Date"], [
-    ["[  ]", "RCC Athletic Director approval", "[NAME]", "[  ]"],
-    ["[  ]", "RCC administration approval", "[NAME]", "[  ]"],
-    ["[  ]", "RCC legal review", "[NAME]", "[  ]"],
-    ["[  ]", "RCC athletics/NJCAA compliance review", "[NAME]", "[  ]"],
+    ["[X]", "RCC Athletic Director approval", "[NAME]", "[  ]"],
+    ["[X]", "RCC administration approval", "[NAME]", "[  ]"],
+    ["[X]", "RCC legal review", "[NAME]", "[  ]"],
+    ["[X]", "RCC athletics/NJCAA compliance review", "[NAME]", "[  ]"],
     ["[  ]", "Logo and trademark approval", "[NAME]", "[  ]"],
     ["[  ]", "Financial-aid disclosure", "[NAME]", "[  ]"],
 ], col_widths=[0.5, 3.3, 1.8, 0.9])
@@ -75,6 +75,6 @@ for role in ["RIVR Tech (John Dyson, Chief Operations Officer)",
     p = doc.add_paragraph(); p.paragraph_format.space_after = Pt(10)
     add_rich(p, f"{role}\nSignature: ______________________________   Date: ____________")
 
-add_header_footer(doc, FOOTER)
+add_header_footer(doc, FOOTER, header_banner="")
 doc.save(OUT)
 print("Saved", OUT)

@@ -1,0 +1,10 @@
+Number,Name,Position,Bats,Throws,Batting Order,Parent Name,Parent Email,Parent Phone
+7,"Smith, Jake",SS/P,R,R,1,Dana Smith,dana.smith@example.com,555-0101
+12,"Hernandez, Marcus",2B,L,R,2,Rosa Hernandez,rosa.h@example.com,555-0102
+21,"Brooks, Owen",CF,R,R,3,Tim Brooks,tim.brooks@example.com,555-0103
+3,"Okafor, Daniel",C,R,R,4,Ada Okafor,ada.okafor@example.com,555-0104
+15,"Nguyen, Liam",1B/P,L,L,5,Mai Nguyen,mai.nguyen@example.com,555-0105
+9,"Alvarez, Sofia",3B,R,R,6,Pilar Alvarez,pilar.a@example.com,555-0106
+24,"Patel, Ravi",LF,R,R,7,Anil Patel,anil.patel@example.com,555-0107
+5,"Whitfield, Cole",RF,L,R,8,Kim Whitfield,kim.w@example.com,555-0108
+11,"Moreau, Théo",2B/SS,R,R,9,Céline Moreau,celine.m@example.com,555-0109

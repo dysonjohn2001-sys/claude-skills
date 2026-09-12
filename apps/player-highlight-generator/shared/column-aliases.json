@@ -1,0 +1,219 @@
+{
+  "_comment": "Single source of truth for CSV header matching. Both the Python importer (worker/phg/importers/columns.py) and the TypeScript importer (web/src/lib/csv.ts) read this file, so a new alias only has to be added once. Keys are logical field names; values are normalised header spellings (lowercase, non-alphanumerics collapsed to underscores).",
+  "roster": {
+    "first_name": [
+      "first_name",
+      "first",
+      "firstname",
+      "player_first"
+    ],
+    "last_name": [
+      "last_name",
+      "last",
+      "lastname",
+      "player_last",
+      "surname"
+    ],
+    "full_name": [
+      "name",
+      "player",
+      "player_name",
+      "full_name",
+      "athlete"
+    ],
+    "jersey_number": [
+      "jersey",
+      "number",
+      "no",
+      "num",
+      "jersey_number",
+      "uniform",
+      "uni"
+    ],
+    "positions": [
+      "position",
+      "positions",
+      "pos",
+      "primary_position"
+    ],
+    "bats": [
+      "bats",
+      "bat",
+      "batting_hand",
+      "b"
+    ],
+    "throws": [
+      "throws",
+      "throw",
+      "throwing_hand",
+      "t"
+    ],
+    "birth_year": [
+      "birth_year",
+      "grad_year",
+      "birthyear",
+      "yob"
+    ],
+    "guardian_name": [
+      "guardian",
+      "parent",
+      "parent_name",
+      "guardian_name",
+      "contact"
+    ],
+    "guardian_email": [
+      "guardian_email",
+      "parent_email",
+      "email",
+      "contact_email"
+    ],
+    "guardian_phone": [
+      "guardian_phone",
+      "parent_phone",
+      "phone",
+      "mobile",
+      "cell"
+    ],
+    "batting_order": [
+      "batting_order",
+      "order",
+      "lineup_spot",
+      "spot",
+      "bo"
+    ]
+  },
+  "play_by_play": {
+    "sequence_no": [
+      "seq",
+      "sequence",
+      "sequence_no",
+      "play_no",
+      "play_number",
+      "id",
+      "index"
+    ],
+    "inning": [
+      "inning",
+      "inn",
+      "inning_number"
+    ],
+    "half": [
+      "half",
+      "inning_half",
+      "top_bottom",
+      "tb"
+    ],
+    "occurred_at": [
+      "timestamp",
+      "time",
+      "occurred_at",
+      "play_time",
+      "clock",
+      "datetime"
+    ],
+    "play_type": [
+      "play_type",
+      "type",
+      "event",
+      "event_type",
+      "result_type"
+    ],
+    "result": [
+      "result",
+      "outcome",
+      "play_result"
+    ],
+    "description": [
+      "description",
+      "play",
+      "text",
+      "narrative",
+      "detail",
+      "play_description"
+    ],
+    "batter": [
+      "batter",
+      "hitter",
+      "batter_name",
+      "at_bat",
+      "offensive_player"
+    ],
+    "pitcher": [
+      "pitcher",
+      "pitcher_name",
+      "p"
+    ],
+    "runners": [
+      "runners",
+      "runner",
+      "baserunners",
+      "on_base"
+    ],
+    "putout_by": [
+      "putout",
+      "putout_by",
+      "po",
+      "fielder",
+      "out_recorded_by"
+    ],
+    "assist_by": [
+      "assist",
+      "assist_by",
+      "a",
+      "assisted_by"
+    ],
+    "error_by": [
+      "error",
+      "error_by",
+      "e",
+      "error_charged_to"
+    ],
+    "batting_order": [
+      "batting_order",
+      "order",
+      "spot",
+      "lineup_spot"
+    ],
+    "rbi": [
+      "rbi",
+      "rbis",
+      "runs_batted_in"
+    ],
+    "runs_scored": [
+      "runs",
+      "runs_scored",
+      "r"
+    ],
+    "outs_before": [
+      "outs",
+      "outs_before",
+      "out_count"
+    ],
+    "balls": [
+      "balls",
+      "ball_count"
+    ],
+    "strikes": [
+      "strikes",
+      "strike_count"
+    ],
+    "score_us": [
+      "score_us",
+      "our_score",
+      "home_score",
+      "team_score"
+    ],
+    "score_them": [
+      "score_them",
+      "their_score",
+      "away_score",
+      "opponent_score"
+    ],
+    "team": [
+      "team",
+      "batting_team",
+      "side",
+      "offense"
+    ]
+  }
+}

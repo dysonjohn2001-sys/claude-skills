@@ -1,0 +1,74 @@
+# Single-machine deployment: PostgreSQL, the Next.js app and one or more
+# Python workers, all sharing one media volume.
+#
+#   docker compose up -d --build
+#   docker compose exec db psql -U phg -d phg -f /migrations/0001_init.sql
+#
+# For a bigger team, scale the worker (`docker compose up -d --scale worker=3`).
+# The job queue uses FOR UPDATE SKIP LOCKED, so workers never collide.
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-phg}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-phg}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/migrations:/migrations:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-phg} -d ${POSTGRES_DB:-phg}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    ports:
+      - "127.0.0.1:5432:5432"   # bound to localhost only
+
+  web:
+    build:
+      context: .
+      dockerfile: infra/web.Dockerfile
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-phg}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-phg}
+      PHG_MEDIA_ROOT: /media
+      PHG_COLUMN_ALIASES: /app/shared/column-aliases.json
+      NODE_ENV: production
+    volumes:
+      - media:/media
+    ports:
+      - "127.0.0.1:3000:3000"   # put a TLS-terminating reverse proxy in front
+
+  worker:
+    build:
+      context: .
+      dockerfile: infra/worker.Dockerfile
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-phg}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-phg}
+      PHG_MEDIA_ROOT: /media
+      PHG_WORK_ROOT: /tmp/phg-work
+      PHG_PRE_ROLL: ${PHG_PRE_ROLL:-5}
+      PHG_POST_ROLL: ${PHG_POST_ROLL:-8}
+      PHG_AUTO_APPROVE: ${PHG_AUTO_APPROVE:-0.80}
+      PHG_REVIEW_FLOOR: ${PHG_REVIEW_FLOOR:-0.45}
+      PHG_JERSEY_ENABLED: ${PHG_JERSEY_ENABLED:-true}
+    volumes:
+      - media:/media
+    # Video encoding is CPU-bound; give it room but not the whole machine.
+    deploy:
+      resources:
+        limits:
+          cpus: "4.0"
+
+volumes:
+  pgdata:
+  media:

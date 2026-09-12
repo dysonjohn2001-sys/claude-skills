@@ -1,0 +1,15 @@
+psycopg[binary]==3.2.3
+
+# OpenCV 4.x, not 5.x. Version 5 removed HOGDescriptor and the stock pedestrian
+# detector that jersey-number recognition uses. On 5.x the reader turns itself
+# off and matching carries on with the schedule signals it leads on anyway, but
+# the secondary check is gone. Motion analysis works on either version.
+opencv-python-headless>=4.10,<5
+
+numpy>=2.1,<3
+python-dateutil==2.9.0.post0
+boto3==1.35.54
+
+# Optional: without Tesseract, jersey recognition is skipped rather than failing.
+pytesseract==0.3.13
+Pillow>=11.0

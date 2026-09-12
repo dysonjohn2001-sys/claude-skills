@@ -59,6 +59,11 @@ megaprompts/
 
 # Pytest suite (maintainer quality gate; not user-consumable)
 tests/
+# ...except for applications under apps/, whose tests ship with the code they
+# cover. The bare `tests/` rule above matches at any depth and had silently
+# excluded them.
+!apps/**/tests/
+!apps/**/tests/**
 
 # Autoresearch agent workspace
 .autoresearch/

@@ -11,6 +11,8 @@ web/out/
 web/*.tsbuildinfo
 web/next-env.d.ts
 
-# Local configuration and media
-.env
-media/
+# Local configuration and media storage.
+# Both paths are anchored to this directory: an unanchored `media/` also
+# matched web/src/app/api/media/, silently dropping the media-serving route.
+/.env
+/media/

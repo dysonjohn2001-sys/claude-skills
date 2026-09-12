@@ -201,6 +201,28 @@ Multiple files per game are fine. Each gets its own timeline and its own sync
 anchors, and the matcher places each play in whichever video actually contains
 it.
 
+### Single-play exports
+
+A clip exported from a scorekeeping app is usually one play, about 20 to 30
+seconds, opening with a branded title card that names the play. Upload these
+with the type set to **Individual clip**.
+
+Two things to know about them.
+
+The title card is detected and dropped automatically. It is a run of perfectly
+still frames followed by a hard cut, and real footage is never perfectly still,
+so the two are distinguishable without any configuration. On a measured example
+the card ran 0 to 4.0 seconds and the cut changed 93% of the pixels in one
+frame.
+
+The recording timestamp in an exported file may be the export time rather than
+the moment of the play. Run `phg probe` on one and compare the reported
+`recording_started_at` against when that play actually happened. If they
+disagree, the clip still works, but assign it to its play in the review screen
+rather than relying on automatic matching. Matching a one-play clip to its play
+by reading the title card is the top item in
+[the roadmap](roadmap.md).
+
 ---
 
 ## One source of truth for column names

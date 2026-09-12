@@ -55,11 +55,38 @@ def _hex_to_rgb(value: str) -> tuple[int, int, int]:
     return tuple(int(v[i : i + 2], 16) for i in (0, 2, 4))  # type: ignore[return-value]
 
 
+INK = (17, 17, 17)
+PAPER = (255, 255, 255)
+
+
+def _linearize(channel: int) -> float:
+    c = channel / 255.0
+    return c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4
+
+
+def relative_luminance(rgb: tuple[int, int, int]) -> float:
+    """WCAG 2.2 relative luminance."""
+    r, g, b = (_linearize(c) for c in rgb)
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+
+def contrast_ratio(a: tuple[int, int, int], b: tuple[int, int, int]) -> float:
+    """WCAG 2.2 contrast ratio, 1.0 to 21.0."""
+    la, lb = relative_luminance(a), relative_luminance(b)
+    lighter, darker = max(la, lb), min(la, lb)
+    return (lighter + 0.05) / (darker + 0.05)
+
+
 def _readable_text_on(rgb: tuple[int, int, int]) -> tuple[int, int, int]:
-    """Pick black or white text for contrast, by relative luminance."""
-    r, g, b = (c / 255.0 for c in rgb)
-    lum = 0.2126 * r + 0.7152 * g + 0.0722 * b
-    return (17, 17, 17) if lum > 0.55 else (255, 255, 255)
+    """Pick black or white text, whichever actually contrasts better.
+
+    This computes real WCAG relative luminance, which means linearizing the sRGB
+    channels first. Comparing raw channel values against a threshold instead is
+    the obvious shortcut and it is wrong in the middle of the range: on a mid
+    orange such as #E8641C it chose white at 3.35:1 over black at 5.64:1, which
+    is the difference between failing and passing AA on a name card.
+    """
+    return PAPER if contrast_ratio(PAPER, rgb) >= contrast_ratio(INK, rgb) else INK
 
 
 @dataclass
@@ -235,13 +262,30 @@ class ScoreboardState:
         return line
 
 
+def _text_width(text: str, size: int, font_path: str | None) -> int:
+    """Measure rendered text so a box can be sized to fit it.
+
+    FFmpeg's drawtext has no way to report this, so the box is measured with the
+    same font Pillow would use. A fixed fraction of the frame leaves a scorebug
+    two thirds empty on a short score line, which reads as broken.
+    """
+    font = _load_font(size, font_path)
+    try:
+        return int(font.getlength(text))
+    except AttributeError:  # pragma: no cover - very old Pillow
+        return int(size * 0.55 * len(text))
+
+
 def scorebug_filter(state: ScoreboardState, theme: BrandTheme, aspect: str = "16:9") -> str:
     """A single drawbox+drawtext pair pinned to the top-left (top-centre on 9:16)."""
     width, height = CANVAS[aspect]
     font_size = int(height * (0.030 if aspect == "16:9" else 0.024))
     pad = int(height * 0.022)
     box_h = int(font_size * 2.0)
-    box_w = int(width * (0.40 if aspect == "16:9" else 0.86))
+    text_w = _text_width(state.as_text(), font_size, theme.font_path)
+    # Fit the text plus a comfortable gutter, capped so a long line cannot run
+    # under the frame edge.
+    box_w = min(int(width * 0.62), text_w + int(font_size * 1.6))
     x = pad if aspect == "16:9" else int((width - box_w) / 2)
 
     font_arg = f":fontfile='{theme.font_path}'" if theme.font_path else ""
@@ -270,7 +314,11 @@ def lower_third_filter(
     f2 = int(height * (0.026 if aspect == "16:9" else 0.022))
     pad = int(height * 0.035)
     box_h = int(f1 * 1.4 + f2 * 1.6)
-    box_w = int(width * (0.46 if aspect == "16:9" else 0.90))
+    widest = max(
+        _text_width(primary, f1, theme.font_path),
+        _text_width(secondary, f2, theme.font_path),
+    )
+    box_w = min(int(width * 0.80), widest + int(f1 * 1.4))
     y = height - box_h - pad * 2
     x = pad if aspect == "16:9" else int((width - box_w) / 2)
 

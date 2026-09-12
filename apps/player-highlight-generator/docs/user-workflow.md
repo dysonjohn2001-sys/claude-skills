@@ -20,7 +20,7 @@ The same screen holds the tunables:
 |---|---|---|
 | Seconds before the play | 5.0 | Your camera operator reacts late; try 7 |
 | Seconds after the play | 8.0 | Your field is big and throws take longer |
-| Trim dead time | on | Rarely; it never cuts below 4 seconds |
+| Trim dead time | on | Rarely; it never cuts below 4 seconds, and it removes the title card that exported clips open with |
 | Auto-approve at or above | 0.80 | You have reviewed a few games and trust it; 0.85 sends more to review |
 | Discard below | 0.45 | Your review queue is full of nonsense; raise it |
 | Jersey recognition | on | Turn off if your numbers are small or the camera is far away |

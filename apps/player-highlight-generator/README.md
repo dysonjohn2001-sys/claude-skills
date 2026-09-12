@@ -9,9 +9,11 @@ in the footage belong to which child, cuts them, ranks them, brands them, and
 produces per-player reels the coach can share with that child's family and
 nobody else.
 
-**Status: working MVP.** 114 automated tests pass, including six that run
-against a real PostgreSQL database and fifteen that run real FFmpeg renders and
-read the resulting pixels back.
+**Status: working MVP.** 141 automated tests pass, including eight that run
+against a real PostgreSQL database and twenty-eight that run real FFmpeg renders
+and read the resulting pixels back. The video pipeline has been run end to end
+on a real exported GameChanger clip, which is where several of those tests came
+from.
 
 ---
 
@@ -166,6 +168,27 @@ guarded by named regression tests.
 
 ---
 
+## Validated against real footage
+
+The video pipeline has been run end to end on an exported GameChanger home-run
+clip from a 10U game. That produced four fixes no synthetic test would have
+found:
+
+- A fixed motion threshold of 0.015 matched **none** of the clip's 113 footage
+  samples. A locked-off wide shot of a youth field has a motion median of
+  0.0023. The threshold is now derived from each clip's own distribution.
+- The clip opened with a title card and cut to footage at 4.0 seconds, changing
+  93% of the pixels in one frame. The detector read that as the action peak and
+  kept the title card. Cuts and leaders are now identified and excluded.
+- A slow-motion request that overran the clip end by 0.03 seconds was silently
+  dropped, so the render succeeded and nothing happened. It now clamps.
+- The intro card chose white text on the team's orange at 3.35:1 where black
+  gave 5.64:1, because the contrast check compared raw channel values instead of
+  linearized ones.
+
+Thirteen regression tests reproduce that clip's shape synthetically, so none of
+the four can come back without a 17 MB video in the repository.
+
 ## Documentation
 
 | Document | What is in it |
@@ -186,7 +209,7 @@ db/migrations/      PostgreSQL schema and derived stat views
 shared/             Column aliases, read by both importers so they cannot drift
 web/                Next.js application (coach and parent interface)
 worker/             Python worker: matching, OpenCV analysis, FFmpeg rendering
-worker/tests/       114 tests
+worker/tests/       141 tests
 infra/              Dockerfiles
 scripts/            Operational scripts
 samples/            Example roster and play-by-play CSVs

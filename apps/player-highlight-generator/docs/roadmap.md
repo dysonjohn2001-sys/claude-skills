@@ -17,7 +17,7 @@ Schema, job queue, identity, and the two CSV importers.
   Python account creation and Node login.
 - Roster and play-by-play importers with automatic column matching, sharing one
   alias table between the two languages.
-- 114 automated tests.
+- 141 automated tests.
 
 ## Phase 1 — Matching *(complete)*
 
@@ -51,6 +51,17 @@ The part that has to be right.
 
 Everything here comes from the same observation: the coach's time is the scarce
 resource, and review is where it goes.
+
+**Read the title card on single-play exports.** A clip exported from a
+scorekeeping app opens with a card naming the play, the inning and the side
+("Home Run / 4th / Offense"). That is the answer to the matching question,
+printed on screen in a clean sans-serif on a flat background, which is the
+easiest possible OCR target. Reading it would match a one-play clip to its play
+with near-certainty and no sync anchor at all. The leader is already detected
+and its boundaries known, so the work is OCR on frames already being decoded
+plus a parser for a short, highly structured string. This is now the
+highest-value item on the list: coaches export single plays far more often than
+full games.
 
 **Automatic sync-point suggestion.** Scoreboard OCR, or audio-based detection of
 the crack of a bat matched against the first few play timestamps, to propose an
@@ -140,6 +151,7 @@ because getting it wrong destroys memories.
 | Limitation | Workaround | Fixed in |
 |---|---|---|
 | Sync points are set by hand | 30 seconds per game, and it is the highest-value 30 seconds | Phase 3 |
+| A single-play export is matched by timestamp, which may be the export time | Assign it to its play in the review screen | Phase 3 |
 | Review is one clip at a time | Keyboard shortcuts make it fast | Phase 3 |
 | No live job progress | The dashboard shows queue counts | Phase 3 |
 | Slow motion must be set manually | The motion peak is already computed | Phase 4 |

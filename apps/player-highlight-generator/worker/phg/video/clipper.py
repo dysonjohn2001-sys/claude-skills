@@ -42,8 +42,22 @@ class SlowMotion:
     end: float
     rate: float = 0.5                     # 0.5 = half speed
 
-    def valid_for(self, duration: float) -> bool:
-        return 0.0 <= self.start < self.end <= duration + 0.01 and 0.1 <= self.rate < 1.0
+    MIN_SECONDS = 0.5
+
+    def clamp_to(self, duration: float) -> "SlowMotion | None":
+        """Fit this request inside the clip, or return None if it cannot be.
+
+        A window that overruns the end by a fraction of a second is clamped
+        rather than discarded. Dropping it silently is the worst option: the
+        coach set slow motion, the render succeeds, and nothing happens.
+        """
+        if not 0.1 <= self.rate < 1.0:
+            return None
+        start = max(0.0, min(self.start, duration))
+        end = max(0.0, min(self.end, duration))
+        if end - start < self.MIN_SECONDS:
+            return None
+        return SlowMotion(start=start, end=end, rate=self.rate)
 
 
 @dataclass
@@ -115,13 +129,21 @@ def build_command(spec: ClipSpec) -> list[str]:
         else:
             a_label = ""
 
-    # 2. Slow-motion section, if one was requested and fits.
-    if spec.slowmo and spec.slowmo.valid_for(spec.trimmed_duration):
-        v_label, a_label, slow_v, slow_a = _slow_motion_chain(
-            spec.slowmo, spec.trimmed_duration, v_label, a_label, spec.mute_source
-        )
-        v_chain += slow_v
-        a_chain += slow_a
+    # 2. Slow-motion section, clamped to the trimmed clip.
+    if spec.slowmo:
+        slow = spec.slowmo.clamp_to(spec.trimmed_duration)
+        if slow is None:
+            log.warning(
+                "clip %s: slow-motion request %.2f-%.2fs at %.2fx does not fit a %.2fs clip",
+                spec.output_path, spec.slowmo.start, spec.slowmo.end,
+                spec.slowmo.rate, spec.trimmed_duration,
+            )
+        else:
+            v_label, a_label, slow_v, slow_a = _slow_motion_chain(
+                slow, spec.trimmed_duration, v_label, a_label, spec.mute_source
+            )
+            v_chain += slow_v
+            a_chain += slow_a
 
     # 3. Fit to the export canvas without distorting the source.
     v_chain.append(

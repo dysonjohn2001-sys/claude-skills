@@ -166,21 +166,49 @@ queues the cut.
 Youth baseball is mostly standing around. A 13-second window around a scored
 play still contains a batter adjusting a glove and an umpire dusting the plate.
 
-`video/deadtime.py` samples the window at 6 fps, computes downscaled blurred
-frame differences, smooths the result and finds where the action is. Blurring
-first matters: camera shake and grass texture read as motion otherwise.
+`video/deadtime.py` samples the window at 6 fps and compares downscaled, blurred
+frames. Blurring first matters: camera shake and grass texture read as motion
+otherwise.
 
-It is conservative by design:
+The design is shaped by three things a real exported clip taught it, each of
+which broke a simpler earlier version:
+
+**Fixed wide shots barely move.** A 10U field shot from behind the backstop puts
+the players thirty metres away and a few dozen pixels tall. On a real home-run
+clip the motion median was 0.0023 and the maximum 0.013, so a fixed threshold of
+0.015 matched **none** of the 113 footage samples. The threshold is therefore
+derived per clip, as the 25th percentile of that clip's own motion, with a small
+absolute floor as a backstop. The question it asks is "is this edge quiet
+compared with the rest of this clip", not "what counts as action", which is
+scale-free across a locked-off wide shot and handheld footage alike.
+
+**Scene cuts look like enormous motion.** That same clip opened with a title
+card and cut to footage at 4.0s, changing 93% of the pixels in a single frame,
+405 times the median. An earlier version read that as the action peak and kept
+the title card. Cuts are now detected by their ratio to the median, excluded
+from the threshold calculation, and damped before smoothing so the spike does
+not smear across its neighbours.
+
+**Exported clips carry leaders.** A run of near-zero motion before the first cut
+is a static graphic, not a quiet moment on the field: real footage is never
+perfectly still. That run is dropped and labelled separately from ordinary dead
+time, so the review screen can tell a coach which was which.
+
+Trimming happens only at the head and tail. The module does not excerpt action
+from the middle: a clip cut around one play is a continuous event, and cutting
+holes in it produces something that reads as broken rather than tight.
+
+It stays conservative in four further ways:
 
 - It returns keep/drop segments rather than cutting anything.
 - A clip is never trimmed below 4 seconds.
 - A 1.5-second lead-in before the first motion is always kept, so the viewer
   sees the pitch and not just the swing.
-- If nothing crosses the motion threshold, the centre of the clip is kept rather
-  than the clip dropped. A quiet frame is more often a distant camera than a
-  dead play.
+- An edge worth less than 0.75 seconds is left alone, because re-encoding to
+  save a fraction of a second is not worth the quality cost.
 
-The mean motion also feeds clip ranking as `action_density`.
+The mean motion, excluding leader and cuts, feeds clip ranking as
+`action_density`.
 
 ## Ranking
 

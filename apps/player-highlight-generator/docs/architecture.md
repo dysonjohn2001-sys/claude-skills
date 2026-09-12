@@ -133,6 +133,13 @@ streams locked. Since the reel is re-encoded for the music mix anyway, the
 demuxer was buying nothing. A test asserts audio and video durations match
 within 0.25s.
 
+**Contrast is computed, not approximated.** The intro card picks black or white
+text by real WCAG relative luminance, which means linearizing the sRGB channels
+first. Comparing raw channel values against a threshold is the obvious shortcut
+and it is wrong in the middle of the range: on one real team's orange it chose
+white at 3.35:1 over black at 5.64:1, the difference between failing and passing
+AA on a child's name card.
+
 **Optional signals must degrade, never fail.** Jersey recognition is built on
 two optional dependencies. Its job also carries the dead-time result and queues
 the cut, so letting a missing dependency fail that job would cost the coach the

@@ -120,7 +120,7 @@ def gov_law_article(doc, art_no):
     C.section(doc, f"{art_no}.1", "Governing Law — ALTERNATIVES",
         "The Parties must select one governing-law framework. The following are presented as bracketed "
         "alternatives for counsel to resolve:")
-    C.subsection(doc, "Alt. 1", f"[The laws of the {C.LREMC_SHORT and C.STATE}, without regard to its "
+    C.subsection(doc, "Alt. 1", f"[The laws of the State of {C.STATE}, without regard to its "
         "conflict-of-laws rules], to the extent not preempted by federal law or Tribal law.")
     C.subsection(doc, "Alt. 2", "[The laws of the Lumbee Tribe, with federal law governing all "
         "Award-related matters], and Tribal forum as the primary venue.")

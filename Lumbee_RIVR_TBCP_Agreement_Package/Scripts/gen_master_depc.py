@@ -968,8 +968,7 @@ def build_depc():
               f"{C.OPERATOR_SHORT} will maintain inventory and custody controls for materials, "
               f"including stored materials. Title to Award-funded materials vests in the "
               f"{C.TRIBE_SHORT} upon the earlier of payment or incorporation into the "
-              f"{C.TRIBAL_ASSETS}, free of liens (Master Article 9). {C.PH('stored-materials "
-                     "payment and insurance conditions')} {C.FLAG_ATTORNEY}")
+              f"{C.TRIBAL_ASSETS}, free of liens (Master Article 9). {C.PH('stored-materials payment and insurance conditions')} {C.FLAG_ATTORNEY}")
 
     # ---- ARTICLE 20 : Inspection -----------------------------------------
     C.article(doc, 20, "Inspection")

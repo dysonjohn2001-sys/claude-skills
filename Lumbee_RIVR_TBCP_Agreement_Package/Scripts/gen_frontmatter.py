@@ -213,8 +213,8 @@ def build_executive_summary():
 
     C.section(doc, "5.3", "Governance & Authorizations (03_Governance_Authorizations, 7)")
     C.flag_para(doc, C.FLAG_ATTORNEY,
-                "Governance titles below are illustrative structural placeholders; exact instruments "
-                "and content are subject to counsel confirmation.")
+                "The seven governance/authorization documents below correspond to the files in "
+                "03_Governance_Authorizations/; their content remains subject to counsel confirmation.")
     gv_headers = ["#", "Governance / Authorization Document"]
     gv_rows = [[k, v] for k, v in GOVERNANCE.items()]
     C.add_table(doc, gv_headers, gv_rows, widths=[0.6, 5.9])
@@ -331,28 +331,29 @@ def build_agreement_register():
         [C.AGREEMENTS["transition"], f"{T}; {O}",
          "Continuity, step-in, termination assistance, transition",
          "12", "Master and O&M executed", "S13"],
-        # Governance / Authorizations
+        # Governance / Authorizations (match files in 03_Governance_Authorizations/)
         [GOVERNANCE["G1"], T,
-         "Tribal Council authorizes award acceptance, transaction, signatories",
+         "Authorizes TBCP application/acceptance, asset ownership, execution of all "
+         "Definitive Agreements, and signatories; sovereign-immunity waiver reserved",
          "1", "Award/round confirmed; eligibility opinion", "S1"],
         [GOVERNANCE["G2"], O,
-         "RIVR Tech entity authorization of the transaction and signatories",
+         "RIVR Tech member/manager authorization of the transaction and signatories",
          "1", "Corporate records current", "S1"],
-        [GOVERNANCE["G3"], f"{L}; {T}; {O}",
-         "LREMC board consent and joinder for use of LREMC Facilities",
+        [GOVERNANCE["G3"], L,
+         "LREMC consent and joinder, limited to use of LREMC Facilities",
          "2", "Facility inventory (S9) identified", "S9, S14"],
-        [GOVERNANCE["G4"], f"{T}; {O}",
-         "Limited express waiver of sovereign immunity; dispute consent",
+        [GOVERNANCE["G4"], T,
+         "Limited express waiver of sovereign immunity (bracketed alternatives — for counsel)",
          "2", "Scope of waiver approved by Tribal Council", "S1, S13"],
-        [GOVERNANCE["G5"], f"{T}; {O}; {L}",
-         "Signatory authority, incumbency, corporate/Tribal existence",
-         "2", "Governance resolutions (G1/G2/G3) adopted", "S1"],
-        [GOVERNANCE["G6"], f"{T} (with NTIA/DOC)",
-         "Log of NTIA/DOC notices, consents, written determinations",
-         "2", "Award confirmed; questions framed to NTIA", "S1, S14"],
-        [GOVERNANCE["G7"], f"{T}; {O}; {L}",
-         "Common-interest, confidentiality, attorney work-product",
-         "1", "Parties identified", "—"],
+        [GOVERNANCE["G5"], f"{T}; {O}",
+         "Tax, TERO, permitting, and regulatory requirements schedule (workbook)",
+         "2", "Regulatory/TERO applicability confirmed by counsel", "S8, S14"],
+        [GOVERNANCE["G6"], f"{T}; {O}",
+         "Insurance coverages, limits, and evidence schedule (workbook)",
+         "2", "Coverages bound; certificates issued", "S12"],
+        [GOVERNANCE["G7"], f"{T}; {O}",
+         "Service level targets and remedies schedule",
+         "2", "SLA targets agreed with O&M", "S6"],
     ]
     reg_headers = ["Document", "Parties", "Purpose", "Seq #", "Conditions Precedent", "Required Schedules"]
     C.add_table(doc, reg_headers, reg_rows,
@@ -363,14 +364,16 @@ def build_agreement_register():
            "agreement is signed before the authority to sign it exists, and no segment goes live "
            "before the compliance predicates are satisfied.")
     C.section(doc, "2.1", "Stage 1 — Resolutions and Authorizations First")
-    C.para(doc, "The Tribal Council authorizing resolution (G1), the RIVR Tech entity authorization "
-           "(G2), the certificate of authorized signatories (G5), and the common-interest agreement "
-           "(G7) come first. These establish who may bind each party and confirm the threshold "
-           "eligibility and award posture. " + C.FLAG_ATTORNEY)
-    C.section(doc, "2.2", "Stage 2 — Consents, Waiver, and Agency Coordination")
-    C.para(doc, "The LREMC board consent/joinder (G3), the limited sovereign-immunity waiver (G4), and "
-           "the NTIA/DOC notice-and-determination log (G6) are settled next, because later agreements "
-           "depend on LREMC Facility access, enforceable remedies, and confirmed award treatment.")
+    C.para(doc, "The " + GOVERNANCE["G1"] + " (G1) and the " + GOVERNANCE["G2"] + " (G2) come first. "
+           "These establish who may bind each party and confirm the threshold eligibility and award "
+           "posture. " + C.FLAG_ATTORNEY)
+    C.section(doc, "2.2", "Stage 2 — Consents, Waiver, and Supporting Schedules")
+    C.para(doc, "The " + GOVERNANCE["G3"] + " (G3, limited to LREMC Facilities) and the "
+           + GOVERNANCE["G4"] + " (G4) are settled next, because later agreements depend on LREMC "
+           "Facility access and enforceable remedies. The supporting schedules — the "
+           + GOVERNANCE["G5"] + " (G5), the " + GOVERNANCE["G6"] + " (G6), and the "
+           + GOVERNANCE["G7"] + " (G7) — are finalized in this stage to feed the definitive "
+           "agreements they support.")
     C.section(doc, "2.3", "Stage 3 — Master Agreement")
     C.para(doc, "The " + C.AGREEMENTS["master"] + " is executed next (sequence 3). It supplies the shared "
            "definitions, order of precedence, and governance that every downstream agreement "

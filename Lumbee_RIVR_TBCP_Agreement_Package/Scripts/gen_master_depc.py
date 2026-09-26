@@ -859,8 +859,7 @@ def build_depc():
     C.article(doc, 8, "Estimates, Unit Pricing, and Milestone Pricing")
     C.section(doc, "8.1", "Pricing Basis",
               f"Construction pricing, unit prices, milestone payments, retainage, and warranties "
-              f"are set forth in Schedule S5. {C.PH('unit prices, milestone schedule, GMP or unit-'
-                     'price basis — NOT SUPPLIED')} {C.FLAG_BUSINESS}")
+              f"are set forth in Schedule S5. {C.PH('unit prices, milestone schedule, GMP or unit-price basis — NOT SUPPLIED')} {C.FLAG_BUSINESS}")
     C.section(doc, "8.2", "Cost Reasonableness",
               f"All prices must be reasonable, allocable, and supportable under the cost principles "
               f"({C.CITES['allowable']}) and the procurement standards ({C.CITES['procurement']}). "

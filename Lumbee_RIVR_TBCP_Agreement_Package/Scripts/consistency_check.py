@@ -86,7 +86,14 @@ for folder, files in EXPECTED.items():
             path = os.path.join(fdir, hit); key = f"{folder}/{hit}"
         else:
             path = os.path.join(fdir, fn); key = f"{folder}/{fn}"
-            if not os.path.exists(path): missing.append(key); continue
+            if not os.path.exists(path):
+                # tolerate a docx<->xlsx choice for table-based documents
+                alt = fn[:-5] + (".xlsx" if fn.endswith(".docx") else ".docx")
+                altp = os.path.join(fdir, alt)
+                if os.path.exists(altp):
+                    path = altp; key = f"{folder}/{alt}"
+                else:
+                    missing.append(key); continue
         try:
             corpus[key] = docx_text(path) if path.endswith(".docx") else xlsx_text(path)
             found_n += 1

@@ -58,17 +58,17 @@ def closing_disclaimer(doc):
 
 # ===========================================================================
 #  GOVERNANCE / AUTHORIZATION DOCUMENTS (03_Governance_Authorizations, 7)
-#  Not enumerated in common.py; illustrative structural titles, flagged for
-#  counsel confirmation. Names are drafting structure, not deal facts.
+#  These titles match the ACTUAL files present in 03_Governance_Authorizations/.
+#  Do not add titles not in that folder.
 # ===========================================================================
 GOVERNANCE = {
-    "G1": "Lumbee Tribal Council Authorizing Resolution (Award Acceptance, Transaction, and Signatory Authority)",
-    "G2": "RIVR Tech (LREMC Technologies, LLC) Member/Manager Consent and Authorization",
-    "G3": "LREMC Board Consent, Joinder, and Owner-Approval Authorization (LREMC Facilities)",
-    "G4": "Limited Waiver of Sovereign Immunity and Consent to Dispute Resolution",
-    "G5": "Certificate of Authorized Signatories, Incumbency, and Corporate/Tribal Existence",
-    "G6": "NTIA/DOC Notice, Consent, and Written-Determination Request Log (Award, Precedence, and Characterization)",
-    "G7": "Common-Interest, Confidentiality, and Attorney Work-Product Agreement",
+    "G1": "Lumbee Tribal Council Resolution",
+    "G2": "RIVR Tech Member/Manager Authorization",
+    "G3": "LREMC Consent and Joinder",
+    "G4": "Limited Waiver of Sovereign Immunity (bracketed alternatives — FOR COUNSEL)",
+    "G5": "Tax, TERO, Permitting, and Regulatory Schedule",
+    "G6": "Insurance Schedule",
+    "G7": "Service Level Schedule",
 }
 
 

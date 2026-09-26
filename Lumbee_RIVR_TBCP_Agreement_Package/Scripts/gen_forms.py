@@ -102,7 +102,6 @@ def disclaimer(doc):
         "must be resolved by the responsible reviewer before use. "
         f"{C.SHARED_DEFINITIONS_RULE} {C.PRECEDENCE_RULE}"
     )
-    r2 = p.add_run("")
     # emit with placeholder/flag styling, italic + grey base
     p2 = doc.add_paragraph()
     p2.paragraph_format.space_after = Pt(3)
@@ -915,7 +914,6 @@ def build_annual_budget():
             fmt = C.FMT_PCT if "%" in metric or "rate" in metric else C.FMT_NUM
             C.xl_cell(ws4, r, cc, C.PH("value"), "input", fmt=fmt, align="center")
         r += 1
-    C.flag_para  # no-op guard
     r += 1
     C.xl_legend(ws4, r)
 

@@ -727,10 +727,10 @@ def build_s8():
     C.xl_cell(ws, 8, 1, "Monthly operating payment", kind="text", bold=True, align="left")
     C.xl_cell(ws, 8, 2, "=IF(AND(ISNUMBER(B6),ISNUMBER(B7)),B6*B7,\"\")",
               kind="formula", fmt=C.FMT_USD, align="right")
-    C.xl_cell(ws, 8, 3, "= Subscribers x Rate", kind="text", align="left")
+    C.xl_cell(ws, 8, 3, "Subscribers x Rate", kind="text", align="left")
     C.xl_cell(ws, 9, 1, "Annual operating payment", kind="text", bold=True, align="left")
     C.xl_cell(ws, 9, 2, "=IF(ISNUMBER(B8),B8*12,\"\")", kind="output", fmt=C.FMT_USD, align="right")
-    C.xl_cell(ws, 9, 3, "= Monthly x 12", kind="text", align="left")
+    C.xl_cell(ws, 9, 3, "Monthly x 12", kind="text", align="left")
 
     return C.xl_save(wb, "05_Schedules", "S8_Subscriber_Payment_Revenue_ProgramIncome_Tax_Audit.xlsx")
 

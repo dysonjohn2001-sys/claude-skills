@@ -42,6 +42,15 @@ North Carolina**.
 | 11 | `11_Lumbee_Tribe_Partnership_MOU_Exhibit.docx` | Word | Draft MOU exhibit (with non-waiver of sovereign immunity) |
 | 12 | `12_Executive_Readiness_Scorecard.xlsx` | Excel | Weighted go/no-go gate |
 | 13 | `13_Open_Issues_and_Legal_Decisions_Log.xlsx` | Excel | Unresolved questions with recommended decisions & owners |
+| 14 | `14_Phase1_Onboarding_Tracker.xlsx` | Excel | **Post-ETC-approval** dated 30/60/90-day USAC onboarding tracker (dates auto-calc from the NCUC order date) |
+| 15 | `15_SAC_Request_Cover_Letter.docx` | Word | Draft transmittal to USAC requesting a Study Area Code |
+| 16 | `16_Phase1_Kickoff_Memo.docx` | Word | Phase 1 kickoff memo — what approval does/doesn't authorize + critical path |
+
+> **Phase 1 note (files 14–16):** added when NCUC ETC designation was granted. The program has moved from
+> Phase 0 (application pending) to Phase 1 (USAC onboarding). Enter the actual NCUC order date on the
+> Tracker's Cover tab and every target date recalculates. Approval authorizes the **standard** $9.25
+> benefit once onboarded — it does **not** authorize the enhanced $34.25 based on Lumbee membership (see
+> Hard Rule 1 above).
 
 ## Conventions
 

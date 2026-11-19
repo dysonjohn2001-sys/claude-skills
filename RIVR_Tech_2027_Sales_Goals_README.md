@@ -1,48 +1,36 @@
-# RIVR Tech — 2027 Sales Goals (Floor + Stretch)
+# RIVR Tech — 2027 Sales Goals (Floor / Target / Stretch)
 
-**File:** `RIVR_Tech_2027_Sales_Goals.xlsx` (3 tabs, formula-driven) · built from the 2027 revenue projection.
+**Files:** `RIVR_Tech_2027_Sales_Goals.xlsx` (3 tabs, formula-driven) + `RIVR_Tech_2027_Sales_Goals.docx` (Word writeup).
 
-## What this is
+## The model
 
-Two monthly sales targets derived from the revenue plan:
+Three monthly new-sales tiers, each sale worth **$65/month recurring**. Revenue compounds as sales stack up through the year.
 
-- **FLOOR** — the committed plan: the **monthly revenue goal** and the **gross installs** (new connects) required to deliver it. This is the number the team must hit.
-- **STRETCH** — floor × a **seasonal uplift** that ramps to **15–20% across the summer (Jun–Sep)** and then **slows starting October**, finishing the year near the winter base.
+| Tier | New sales / mo | FY new sales | FY revenue (in-year) | Dec MRR | Dec ARR run-rate |
+|---|---:|---:|---:|---:|---:|
+| **Floor** | 150 | 1,800 | $760,500 | $117,000 | $1,404,000 |
+| **Target** | 175 | 2,100 | $887,250 | $136,500 | $1,638,000 |
+| **Stretch** | 200 | 2,400 | $1,014,000 | $156,000 | $1,872,000 |
 
-## Headline numbers (FY 2027)
+Stretch vs Floor: **+600 sales, +$253,500 in-year revenue, +$468,000 of exit ARR.**
 
-| | Floor | Stretch | Incremental |
-|---|---:|---:|---:|
-| **Revenue** | $7,196,940 | $8,062,729 | **+$865,789** |
-| **Installs (gross new connects)** | 2,363 | 2,644 | **+281** |
-| Avg / month | ~$600K · ~197 installs | — | — |
-| Peak summer uplift | — | **20% (Sep)** | — |
+## How it works
 
-**Monthly cadence:**
-- **Floor revenue** ramps $545K (Jan) → $653K (Dec); **floor installs** run ~190–202/month.
-- **Stretch** uplift by month: Jan 5% · Feb 6% · Mar 8% · Apr 11% · May 13% · **Jun 15% · Jul 17% · Aug 19% · Sep 20%** · **Oct 14% · Nov 9% · Dec 6%**.
-- **Stretch revenue peaks in September (~$754K)** and slows through year-end ($726K → $703K → $693K) — the October slowdown you asked for.
-- **Stretch installs** peak at ~240/month in September vs ~200 floor.
+- Each month the team books new sales (150 / 175 / 200 depending on tier).
+- Every sale adds **$65 of monthly recurring revenue (MRR)** and keeps billing every following month.
+- **MRR each month = active customers × $65**; **in-year revenue = the sum of the 12 monthly MRR figures**; **exit ARR = December MRR × 12**.
+- By December, Stretch reaches 2,400 cumulative sales = $156,000 MRR = $1,872,000 ARR.
 
 ## Tabs
 
 | Tab | What it is |
 |---|---|
-| **Goals Dashboard** | KPI tiles + 4 charts: floor vs stretch revenue, floor vs stretch installs, the uplift curve (summer ramp → Oct taper), incremental revenue. |
-| **Sales Goals** | The monthly floor + stretch table, with quarterly and full-year totals. |
-| **Assumptions** | All editable inputs: ARPU, churn, beginning subscriber counts, and the **12-month stretch uplift schedule** (summer months highlighted gold). |
-
-## How installs are derived (so you can trust / tune them)
-
-Installs come from the revenue plan, not a guess:
-1. **Implied subscribers** each month = segment revenue ÷ ARPU (ARPU steps up in July per the model, so the July revenue bump is *not* misread as installs).
-2. **Gross installs** = net subscriber growth **+ churn backfill** (prior subs × monthly churn %). Sales must both grow the base *and* replace churn — so gross connects (~197/mo) run well above net adds (~105/mo).
-3. **Stretch installs** = floor installs × (1 + that month's uplift).
-
-Every input is editable on the **Assumptions** tab (ARPU $74/$149, churn 1.5%/1.0%, beginning counts, and each month's uplift %). Change any blue/gold cell and the goals, totals, and charts update on open.
+| **Goals Dashboard** | KPI tiles (FY revenue, Dec MRR/ARR, sales/mo per tier) + 4 charts (MRR ramp by tier, FY revenue by tier, active customers, December ARR). |
+| **Sales Goals** | Monthly build by tier: new sales, active customers (cumulative), new MRR added, monthly MRR — with quarterly + FY totals and a by-tier annual summary. |
+| **Assumptions** | Editable inputs: the three sales tiers, $/sale/month, optional beginning base, optional churn %. |
 
 ## Notes
 
-- **Floor revenue source:** the 2027 revenue projection used in your Master Pro Forma (Residential $5.29M + Business $445K + Dark Fiber $780K + Hoke $684K = $7,196,940). Dark Fiber and Hoke are contract/project revenue, so installs are driven only by Residential + Business.
-- The stretch uplift schedule is a planning default that meets your brief (15–20% summer, Oct slowdown) — adjust the monthly %s to your sales capacity and seasonality.
-- These are **sales targets**, not a revenue re-forecast; the stretch assumes the incremental revenue is carried by incremental installs at current ARPU.
+- New sales are modeled **flat** at each tier's monthly rate (no seasonal ramp in this version).
+- **Churn = 0** and **beginning base = 0** by default, so figures reflect gross new 2027 sales only — both are optional inputs on the Assumptions tab.
+- These are sales-activity goals; the revenue shown is the recurring revenue those sales generate within 2027. Change any blue input (tiers, rate, churn) and the goals, totals, and charts update on open.
